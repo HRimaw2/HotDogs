@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
+import NavBar from './components/NavBar';
+import DogView from './components/DogView';
 import './app.css';
-import ReactImage from './react.png';
 
 export default class App extends Component {
   state = { username: null };
@@ -12,7 +13,9 @@ export default class App extends Component {
   render() {
     return (
       <div>
-        Welcome to HotDogs App!
+      <NavBar />
+      <DogView />
+
       </div>
     );
   }

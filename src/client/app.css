@@ -5,4 +5,51 @@ h1 {
 body {
   text-align: center;
   margin: auto;
+  -webkit-animation-delay: 0.1s;
+  -webkit-animation-name: fontfix;
+  -webkit-animation-duration: 0.1s;
+  -webkit-animation-iteration-count: 1;
+  -webkit-animation-timing-function: linear;
+}
+
+
+@-webkit-keyframes fontfix {
+  from { opacity: 1; }
+  to   { opacity: 1; }
+}
+
+/* navbar */
+#navbar{
+  
+}
+
+#doglogo{
+  float: left;
+  margin-left: 10px;
+}
+
+#loginbutton, #dogbutton{
+  background-color: #93D5FF;
+  border: #93D5FF;
+  float: right;
+  margin-top: 15px;
+  margin-right: 20px;
+  font-family: 'Comfortaa', cursive;
+  font-size: 20px;
+}
+
+#dogbutton{
+  background-color: #FF7C68;
+  border:  #FF7C68;
+}
+
+/* dogview */
+#mydog{
+  color: #AC926E;
+  font-family: 'Comfortaa', cursive;
+}
+
+#dogprofileimage{
+  border: 0px solid black;
+  border-radius: 10px;
 }
