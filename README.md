@@ -1,3 +1,7 @@
+## Hot Dogs
+
+A React App using MongoDB
+
 ## Quick Start
 
 ```bash
