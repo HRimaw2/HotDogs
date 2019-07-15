@@ -1,3 +1,28 @@
+## Quick Start
+
+```bash
+# Clone the repository
+git clone https://github.com/HRimaw2/HotDogs
+
+# Go inside the directory
+cd HotDogs
+
+# Install dependencies
+npm install
+
+# Start development server
+npm run dev
+
+# Build for production
+npm run build
+
+# Start production server
+npm start
+```
+
+
+Automatically generated from boilerplate
+
 # simple-react-full-stack
 
 [![Build Status](https://travis-ci.org/crsandeep/simple-react-full-stack.svg?branch=master)](https://travis-ci.org/crsandeep/simple-react-full-stack)
