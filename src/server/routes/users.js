@@ -1,12 +1,13 @@
 var express = require('express'),
+    router = express.Router(),
     users = require('../models/user');
 mongoose = require('mongoose');
 var async = require("async");
-var app = express()
+var app = express();
 
-app.get('/', function (req, res) {
+app.get('/abc', function (req, res) {
   res.send('hello world')
 })
 
 // at the end of page
-// module.exports = router;
+module.exports = router;
