@@ -10,4 +10,4 @@ const LocationSchema = new Schema({
     marked_floor_plan: String,
 });
 
-module.exports = mongoose.model('Dog', LocationSchema);
+module.exports = mongoose.model('Location', LocationSchema);

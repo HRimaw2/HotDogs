@@ -7,4 +7,4 @@ const ScheduleSchema = new Schema({
     dnd_times: { type: [], default: [] },
 });
 
-module.exports = mongoose.model('Dog', ScheduleSchema);
+module.exports = mongoose.model('Schedule', ScheduleSchema);

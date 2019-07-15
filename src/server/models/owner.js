@@ -11,4 +11,4 @@ const OwnerSchema =  new Schema({
     skylight_link: String,
 });
 
-module.exports = mongoose.model('Dog', OwnerSchema);
+module.exports = mongoose.model('Owner', OwnerSchema);
