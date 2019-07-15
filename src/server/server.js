@@ -10,7 +10,7 @@ const app = express();
 var port = process.env.PORT || 4000;
 
 // Connect to a MongoDB
-mongoose.connect("mongodb+srv://hana:<123>@cluster0-75gqk.mongodb.net/test?retryWrites=true&w=majority",  { useNewUrlParser: true })
+mongoose.connect("mongodb+srv://admin:admin@cluster0-75gqk.mongodb.net/test?retryWrites=true&w=majority",  { useNewUrlParser: true })
 .then(() => console.log("Connection Successful"))
 .catch(err => console.log(err));
 
