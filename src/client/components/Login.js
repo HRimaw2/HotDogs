@@ -4,7 +4,6 @@ class Login extends Component {
     constructor(props){
         super(props);
         this.state = {
-            url : this.props.type,
             email: "",
             password: ""
         }
