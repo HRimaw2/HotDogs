@@ -1,6 +1,10 @@
 ## Quick Start
 
 ```bash
+#Make sure you have Mongo:
+brew tap mongodb/brew
+brew install mongodb-community@4.0
+
 # Clone the repository
 git clone https://github.com/HRimaw2/HotDogs
 
