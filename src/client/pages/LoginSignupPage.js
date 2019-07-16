@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import '../styles/form.css'
 import NavigationBar from '../components/NavigationBar';
+import LoginRegInputs from '../components/LoginRegInputs';
 
 class LoginSignupPage extends Component {
     constructor(props){
@@ -12,7 +13,8 @@ class LoginSignupPage extends Component {
     render() {
         return (
             <div>
-                
+                <NavigationBar />
+                <LoginRegInputs />
             </div>
         );
     }
