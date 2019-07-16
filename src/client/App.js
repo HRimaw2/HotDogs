@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './app.css';
+import './styles/app.css';
 
 export default class App extends Component {
   state = { username: null };
