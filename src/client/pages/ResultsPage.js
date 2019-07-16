@@ -1,22 +1,21 @@
 import React, { Component } from 'react';
+import '../styles/form.css'
+import NavigationBar from '../components/NavigationBar';
 
-class Login extends Component {
+class ResultsPage extends Component {
     constructor(props){
         super(props);
         this.state = {
-            url : this.props.type,
-            email: "",
-            password: ""
         }
     }
 
     render() {
         return (
             <div>
-               LOGIN PAGE
+                <NavigationBar />
             </div>
         );
     }
 }
 
-export default Login;
+export default ResultsPage;
