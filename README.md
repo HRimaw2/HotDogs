@@ -1,6 +1,6 @@
 ## Hot Dogs
 
-A React App using MongoDB
+A React App using Express and MongoDB
 
 ## Quick Start
 
@@ -27,6 +27,8 @@ npm run build
 # Start production server
 npm start
 ```
+
+
 
 
 Automatically generated from boilerplate
