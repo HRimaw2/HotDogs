@@ -20,7 +20,7 @@ body {
 
 /* navbar */
 #navbar{
-  
+  padding: 10px;
 }
 
 #doglogo{
@@ -52,4 +52,8 @@ body {
 #dogprofileimage{
   border: 0px solid black;
   border-radius: 10px;
+}
+
+.right{
+  float:right;
 }

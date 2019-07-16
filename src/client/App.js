@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import NavBar from './components/NavBar';
+import NavigationBar from './components/NavigationBar';
 import DogView from './components/DogView';
 import './app.css';
 
@@ -13,7 +13,7 @@ export default class App extends Component {
   render() {
     return (
       <div>
-      <NavBar />
+      <NavigationBar />
       <DogView />
 
       </div>
