@@ -8,7 +8,7 @@ const { Schema } = mongoose;
 const DogProfileSchema = new Schema({
     _id: Schema.Types.ObjectId,
     name: { type: String, required: true },
-    color: { type: String, required: true },
+    colors: { type: [], required: true },
     size: { type: String, required: true },
     breed: { type: String, required: true },
     about: { type: String, default: 'Not posted yet' },
@@ -21,7 +21,7 @@ const DogProfileSchema = new Schema({
 	treats: { type: String, default: 'No treats allowed' },
 	requests: { type: String, default: '' },
 	location_id: { type: Object, required: true },
-	schedule_id: { tpye: Object, required: true },
+	schedule_id: { type: Object, required: true },
 	owner_id: { type: Object, required: true }
 });
 
