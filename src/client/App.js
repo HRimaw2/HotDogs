@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import NavigationBar from './components/NavigationBar';
+import DogView from './components/DogView';
 import './app.css';
 
 export default class App extends Component {
@@ -11,7 +13,9 @@ export default class App extends Component {
   render() {
     return (
       <div>
-        Welcome to HotDogs App!
+      <NavigationBar />
+      <DogView />
+
       </div>
     );
   }
