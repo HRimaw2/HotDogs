@@ -12,7 +12,7 @@ class LoginSignupPage extends Component {
     render() {
         return (
             <div>
-                <NavigationBar />
+                
             </div>
         );
     }
