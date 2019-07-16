@@ -6,6 +6,18 @@ class ProfileForm extends Component {
     constructor(props){
         super(props);
         this.state = {
+            name: '',
+            pic: '',
+            owner: '',
+            floor: 0,
+            colors: [],
+            size: 'small',
+            breed: '',
+            about: '',
+            likes: '',
+            dislikes: '',
+            allergies: '',
+            canSubmit: false
         }
     }
 
