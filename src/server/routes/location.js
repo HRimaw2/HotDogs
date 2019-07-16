@@ -39,15 +39,6 @@ function getQueryParams(req) {
 
 }
 
-// req.params._id;
-//
-// req.params.dog_id;
-//
-// req.params.floor;
-//
-// req.params.description;
-//
-// req.params.marked_floor_plan
 
 router.get('/location/:id', function(req,res)) {
  let [id, dog_id,floor,description,marked_floor_plan] = getQueryParams(req);
