@@ -2,68 +2,49 @@ var express = require('express'),
     router = express.Router(),
     owners = require('../models/owner');
     mongoose = require('mongoose');
+const dogs = require('../models/dog');
 var async = require("async");
-var app = express();
 
-function getQueryParams(req){
-    var where = req.query.where;
-    if (where === undefined){
-        where = {};
-    } else {
-        where = JSON.parse(where);
-    }
+// function getQueryParams(req){
+//     var where = req.query.where;
+//     if (where === undefined){
+//         where = {};
+//     } else {
+//         where = JSON.parse(where);
+//     }
 
-    var selec = req.query.select;
-    if (selec === undefined){
-        selec = {};
-    } else {
-        selec = JSON.parse(selec);
-    }
+//     var selec = req.query.select;
+//     if (selec === undefined){
+//         selec = {};
+//     } else {
+//         selec = JSON.parse(selec);
+//     }
 
-    var count = req.query.count;
-    if (count === '"true"' || count === 'true'){
-        count = true;
-    } else {
-        count = false;
-    }
-    return [where, selec, count]
-}
+//     return [where, selec, count]
+// }
 
 router.get('/', function (req, res) {
-    let [where, selec, count] = getQueryParams(req);
-    if (count){
-        owners.find(where, selec).count().exec( (err, res_owners) => {
-            if (err) {
-                res.status(404).send({
-                    message: "Error",
-                    data: []
-                });
-            } else {
-                res.status(200).send({
-                    message: 'SUCCESS',
-                    data: res_owners
-                })
-            }
-        })
-    }else{
-        owners.find(where, selec).count().exec( (err, res_owners) => {
-            if (err) {
-                res.status(404).send({
-                    message: "Error",
-                    data: []
-                });
-            } else {
-                res.status(200).send({
-                    message: 'SUCCESS',
-                    data: res_owners
-                })
-            }
-        })
-    }
+    res.send('hello world');
+    // owners.exec( (err, res_owners) => {
+    //     if (err) {
+    //         res.status(404).send({
+    //             message: "Error",
+    //             data: []
+    //         });
+    //     } else {
+    //         res.status(200).send({
+    //             message: 'SUCCESS',
+    //             data: res_owners
+    //         })
+    //     }
+    // })
 });
 
 router.post('/', async function (req, res){
-    const owner = new owners(req.body);
+    let data = req.body;
+    const dog = new dogs();
+    data.body.dog_id = dog.id;
+    const owner = new owners(data);
         owner.save()
         .then(owner => {
         res.status(201).send({
@@ -80,6 +61,7 @@ router.post('/', async function (req, res){
 });
 
 router.get('/:id', function (req, res) {
+    res.send("dsfda");
     owners.find( {"_id": req.params.id} ).exec( (err, owner) => {
             if (err) {
                 res.status(404).send({
