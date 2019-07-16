@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import {Form, Row, Col, Button} from 'react-bootstrap';
+import '../styles/form.css'
 
 class ProfileForm extends Component {
     constructor(props){
@@ -10,7 +11,7 @@ class ProfileForm extends Component {
 
     render() {
         return (
-            <div>
+            <div className="spaced">
                 <link
                 rel="stylesheet"
                 href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
@@ -151,15 +152,13 @@ class ProfileForm extends Component {
                     <Form.Control as="textarea" rows="3" />
                 </Form.Group>
 
-                <Form.Group as={Row} controlId="formHorizontal">
-                    <Form.Label column sm={2}>
-                    Allergies
-                    </Form.Label>
+                <Form.Group controlId="formHorizontal">
+                    <Form.Label>Allergies</Form.Label>
                     <Form.Control as="textarea" rows="3" />
                 </Form.Group>
 
                 <Form.Group as={Row}>
-                    <Col sm={{ span: 10, offset: 2 }}>
+                    <Col sm={{ span: 10, offset: 0 }}>
                     <Button type="submit">Submit Profile</Button>
                     </Col>
                 </Form.Group>

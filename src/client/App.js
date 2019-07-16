@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
+import './styles/app.css';
 import NavigationBar from './components/NavigationBar';
 import DogView from './components/DogView';
-import './app.css';
 
 export default class App extends Component {
   state = { username: null };
@@ -13,9 +13,8 @@ export default class App extends Component {
   render() {
     return (
       <div>
-      <NavigationBar />
-      <DogView />
-
+        <NavigationBar />
+        <DogView />
       </div>
     );
   }
