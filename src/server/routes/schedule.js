@@ -66,7 +66,7 @@ router.put('/:id', (req, res) => {
     const id = req.params.id;
     let scheduleChange = req.body;
 
-    Schedule.find({"dog_id":id}, scheduleChange, (err, res_schedule) => {
+    Schedule.findOneAndUpdate({"dog_id":id}, scheduleChange, (err, res_schedule) => {
         if(err){
             console.log(err);
             res.status(400).send({
