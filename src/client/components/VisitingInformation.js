@@ -11,24 +11,25 @@ class VisitingInformation extends Component {
         }
     }
 
-    setDogOut = () => {
-        this.setState({isDogIn: false})
-    }
-
-    setDogIn = () => {
-        this.setState({isDogIn: true})
-    }
-
-
-
     render() {
         return (
             <div className = "visiting">
-                Manage Dog
-                <Button className="editProfileButton"> Edit Profile </Button>
-                <div className ="switchText">
-                    
-                </div>
+                <Row>
+                    <Col>
+                    <div>Visiting Information</div>
+                    </Col>
+                    <Col>
+                        <Button className="editProfileButton"> Edit </Button>
+                    </Col>
+                </Row>
+                <Row className="schedRow">
+                    <Col>
+                        <div>Schedule</div>
+                    </Col>
+                    <Col>
+                        <div>Owner Approved Activities</div>
+                    </Col>
+                </Row>
             </div>
         );
     }

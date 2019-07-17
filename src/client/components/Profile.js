@@ -3,6 +3,7 @@ import { Row, Col, Button } from 'react-bootstrap';
 import DogStatus from './DogStatus';
 import ManageDog from './ManageDog';
 import VisitingInformation from './VisitingInformation';
+import AboutMe from './AboutMe';
 
 class Profile extends Component {
 
@@ -44,7 +45,10 @@ class Profile extends Component {
                     </Col>
                     <Col>
                         <ManageDog />
-                        <VisitingInformation />
+                        <div className="visitingAbout">
+                            <VisitingInformation />
+                            <AboutMe />
+                        </div>
                     </Col>
                 </Row>
             </div>
