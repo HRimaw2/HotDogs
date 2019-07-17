@@ -4,11 +4,11 @@ const mongoose = require('mongoose');
 const { Schema } = mongoose;
 
 const OwnerSchema =  new Schema({
-    _id: Schema.Types.ObjectId,
     dog_id: { type: String, required: true },
-    name: { type: String, required: true },
-    user_name: { type: String, required: true },
-    skylight_link: String,
+    name: { type: String },
+    user_name: { type: String },
+    password: { type: String },
+    skylight_link: { type: String },
 });
 
 module.exports = mongoose.model('Owner', OwnerSchema);

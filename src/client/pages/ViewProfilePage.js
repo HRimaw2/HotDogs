@@ -1,21 +1,21 @@
 import React, { Component } from 'react';
+import '../styles/form.css'
+import NavigationBar from '../components/NavigationBar';
 
-class Login extends Component {
+class ViewProfilePage extends Component {
     constructor(props){
         super(props);
         this.state = {
-            email: "",
-            password: ""
         }
     }
 
     render() {
         return (
             <div>
-              
+                <NavigationBar />
             </div>
         );
     }
 }
 
-export default Login;
+export default ViewProfilePage;
