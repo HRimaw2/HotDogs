@@ -3,7 +3,6 @@ var express = require('express'),
     owners = require('../models/owner');
     mongoose = require('mongoose');
 const dogs = require('../models/dog');
-var async = require("async");
 
 router.get('/', function (req, res) {
     owners.find().exec( (err, res_owners) => {
