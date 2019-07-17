@@ -12,8 +12,3 @@ module.exports = (app, router) => {
     app.use('/schedules', schedule)
     app.use('/location', location);
 };
-
-
-
-
-};
