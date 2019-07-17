@@ -1,11 +1,12 @@
 const express  = require('express');
-const location = require('../models/location');
-
+const Location = require('../models/location');
+//const dog = require('../models/dog');
+//const schedule = require('../models/schedule');
 const mongoose = require('mongoose');
 const async = require("async");
 const router = express.Router();
 
-function getQueryParams(req) {
+function getQuery(req) {
   var id = req.query._id;
   var dog_id = req.query.dog_id;
   var floor = req.query.floor;
@@ -33,65 +34,90 @@ function getQueryParams(req) {
   }else {
     des = JSON.parse(des);
   }
+  if (loc ==undefined) {
+    loc ={};
+  } else {
+    loc = JSON.parse(loc);
+  }
 
-  return [id, dog_id,floor,description,marked_floor_plan]
+  return [id, dog_id,floor,des,loc]
 
 }
-router.post('/', function (req,res) {
-    const loc = new location(req.body);
-      loc.save()
-      .then(loc => {
-        res.status(200).send({
-          message: 'SUCCESS',
-          data: loc
-          });
-      })
 
-      .catch(err => {
-        res.status(500).send({
-          message: "location not added",
-          data: []
-          });
-        })
-  });
 
 router.get('/', function(req,res) {
-  const [id, dog_id,floor,description,marked_floor_plan] = getQueryParams(req);
+  let [id, dog_id,floor,description,marked_floor_plan] = [req.query.id, req.query.dog_id, req.query.floor, req.query.description, req.query.marked_floor_plan]
+  if (floor) {
+    Location.find(floor).exec((err,res_loc) => {
+      if (err) {
+        res.status(404).send({
+          message: 'Error getting location with that floor',
+          data: []
+        });
+      } else {
+        res.status(200).send({
+          message: 'SUCCESS',
+          data: res_loc
+        });
+      }
+    });
+  } else if (dog_id) {
+    location.find(id).exec((err,res_loc) =>  {
+      if (err) {
+        res.status(404).send({
+          message: 'Error getting location with that floor',
+          data: []
+        });
+      } else {
+        res.status(200).send({
+          message: 'SUCCESS',
+          data: res_loc
+        });
+      }
+    });
+  } else {
+    location.find(id).exec((err,res_loc) =>  {
+      if (err) {
+        res.status(404).send({
+          message: 'Error getting location with that floor',
+          data: []
+        });
+      } else {
+        res.status(200).send({
+          message: 'SUCCESS',
+          data: res_loc
+        });
+      }
+    });
+  }
 });
 
-router.get('/:id', function (req, res) {
-    location.find( {"Location ID": req.query.body._id} ).exec( (err, loc) => {
-            if (err) {
-                res.status(404).send({
-                    message: "Error",
-                    data: []
-                });
-            } else if (loc.length == 0) {
-                res.status(404).send({
-                    message: 'No location with that id found',
-                    data: []
-                });
-            }
-            else {
-                res.status(200).send({
-                    message: 'SUCCESS',
-                    data: loc
-                })
-            }
+router.get('/:id', (req, res) => {
+    const id = req.params.id;
+    Location.findById(id, (err, res_loc) => {
+        if(err){
+            res.status(400).send({
+                message: `Error getting locations with id ${id}`,
+                data: []
+            });
+        } else {
+            res.status(200).send({
+                message: 'SUCCESS',
+                data: res_loc
+            });
         }
-    )
-});
+    })
+})
 
-router.put('/:id', function (req, res) {
-  location.findOneandReplace( {"Location ID": req.query.body._id},req.body ,(err, loc) => {
+router.put('/:id', (req, res) => {
+  const id = req.params.id;
+  Location.findByIdAndUpdate(id, req.body, (err, loc) => {
     if (err) {
-      console.log(err)
       res.status(400).send({
           message: "Error",
           data: []
       });
     } else if (!loc) {
-      console.log(req.body)
       res.status(400).send({
         message: 'No location with that id found',
         data: []
@@ -105,32 +131,24 @@ router.put('/:id', function (req, res) {
   })
 });
 
+router.delete('/:id', (req, res) => {
+    const id = req.params.id;
+    Location.findByIdAndDelete(id, (err, res_loc) => {
+        if(err){
+            console.log(err);
+            res.status(400).send({
+                message: `Error deleting location for dog with id ${id}`,
+                data: []
+            });
+        } else {
+            res.status(200).send({
+                message: 'SUCCESS',
+                data: res_loc
+            });
+        }
+    });
+})
 
-router.delete('/:id', function (req,res) {
-  location.findOneandDelete({"Location": req.query.body._id}, req.body, (err,loc) => {
-    if (err) {
-      res.status(404).send({
-        message: "Error",
-        data: []
-      });
-    } else if (!loc) {
-      res.status(404).send({
-        message: 'No location with that id found',
-        data: []
-      });
-    } else {
-      res.status(200).send({
-        message: 'SUCCESS',
-        data: []
-      });
-    }
-  })
-});
-
-
-
-
-//router.get('/:floor',)
 
 //at the end of page
 module.exports = router ;

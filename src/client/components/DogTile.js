@@ -4,7 +4,7 @@ import Button from 'react-bootstrap/Button';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 
-class DogView extends Component {
+class DogTile extends Component {
     constructor(props){
         super(props);
         this.state = {
@@ -30,4 +30,4 @@ class DogView extends Component {
     }
 }
 
-export default DogView;
+export default DogTile;

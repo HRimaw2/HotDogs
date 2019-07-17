@@ -6,7 +6,7 @@ const mongoose = require('mongoose');
 const { Schema } = mongoose;
 
 const DogProfileSchema = new Schema({
-    _id: Schema.Types.ObjectId,
+    //_id: Schema.Types.ObjectId,
     name: { type: String, required: true },
     color: { type: String, required: true },
     size: { type: String, required: true },
@@ -21,7 +21,7 @@ const DogProfileSchema = new Schema({
 	treats: { type: String, default: 'No treats allowed' },
 	requests: { type: String, default: '' },
 	location_id: { type: Object, required: true },
-	schedule_id: { tpye: Object, required: true },
+	schedule_id: { type: Object, required: true },
 	owner_id: { type: Object, required: true }
 });
 
