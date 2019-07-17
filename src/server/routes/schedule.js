@@ -8,13 +8,13 @@ const router = express.Router();
 
 router.get('/', (req, res) => {
     console.log(req.query);
-    const dog_id = req.query ? req.query.dog_id : '';
+    const schedule_id = req.query ? req.query.schedule_id : '';
 
-    if (dog_id) {
-        Schedule.find({"dog_id": dog_id}).exec((err, res_schedule) => {
+    if (schedule_id) {
+        Schedule.findById(schedule_id).exec((err, res_schedule) => {
             if (err) {
                 res.status(404).send({
-                    message: `Error getting schedules with dog name ${dog_name}`,
+                    message: `Error getting schedules with dog name ${dog_id}`,
                     data: []
                 });
             } else {
