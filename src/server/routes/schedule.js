@@ -41,23 +41,6 @@ router.get('/', (req, res) => {
     }
 });
 
-router.get('/:id', (req, res) => {
-    const id = req.params.id;
-    console.log(id)
-    Schedule.findById(id, (err, res_schedule) => {
-        if (err) {
-            res.status(404).send({
-                message: `Error getting schedule with id: ${_id}`,
-                data: []
-            });
-        } else {
-            res.status(200).send({
-                message: 'OK',
-                data: res_schedule
-            });
-        }
-    })
-});
 
 router.post('/:id', (req, res) => {
     const id = req.params.id;
@@ -83,7 +66,7 @@ router.put('/:id', (req, res) => {
     const id = req.params.id;
     let scheduleChange = req.body;
 
-    Schedule.findByIdAndUpdate(id, scheduleChange, (err, res_schedule) => {
+    Schedule.find({"dog_id":id}, scheduleChange, (err, res_schedule) => {
         if(err){
             console.log(err);
             res.status(400).send({
@@ -106,10 +89,10 @@ router.put('/:id', (req, res) => {
 
 });
 
-router.delete(':/id', (req, res) => {
+router.delete('/:id', (req, res) => {
     const id = req.params.id;
 
-    Schedule.findByIdAndDelete(id, (err, res_schedule) => {
+    Schedule.findOneAndDelete({"dog_id":id}, (err, res_schedule) => {
         if(err){
             console.log(err);
             res.status(400).send({
@@ -119,7 +102,7 @@ router.delete(':/id', (req, res) => {
         } else {
             res.status(200).send({
                 message: 'OK!',
-                data: res_dog
+                data: res_schedule
             });
         }
     });
