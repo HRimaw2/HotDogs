@@ -76,3 +76,28 @@ body {
   padding: 10px;
   margin: 10px;
 }
+
+.dogProfile{
+  margin-top: 40px;
+  margin-left: 10px;
+}
+
+.profilePic {
+  border: 0px solid black;
+  border-radius: 50%;
+  margin-top: 5%;
+  margin-bottom: 5%;
+  width: 50%;
+}
+
+.dogStatus {
+  border: 1px solid black;
+  border-radius: 25%;
+  width: fit-content;
+  margin-left: 40%;
+  padding: 10px;
+}
+
+.attributes .row {
+    margin: 30px;
+}
