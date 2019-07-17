@@ -33,10 +33,14 @@ module.exports = {
     extensions: ['*', '.js', '.jsx']
   },
   devServer: {
+    contentBase: path.join(__dirname, "dist"),
     port: 3000,
     open: true,
     proxy: {
-      '/api': 'http://localhost:4000'
+      '/api': {
+        target: 'http://localhost:4000',
+        pathRewrite: {'^/api' : ''}
+      }
     },
     historyApiFallback: true,
   },

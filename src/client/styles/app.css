@@ -28,38 +28,58 @@ body {
   margin-left: 10px;
 }
 
-#loginbutton, #dogbutton{
+.loginbutton, .dogbutton{
   background-color: #93D5FF;
   border: #93D5FF;
-  float: right;
-  margin-top: 15px;
-  margin-right: 20px;
   font-family: 'Comfortaa', cursive;
-  font-size: 20px;
+  font-size: 60%;
 }
 
-#dogbutton{
+.dogbutton{
   background-color: #FF7C68;
   border:  #FF7C68;
 }
 
-/* dogview */
-#mydog{
+.dogName{
   color: #AC926E;
   font-family: 'Comfortaa', cursive;
+  font-size: 150%;
 }
 
-#dogprofileimage{
+.dogprofileimage{
   border: 0px solid black;
-  border-radius: 10px;
+  border-radius: 50%;
+  margin-top: 5%;
+  margin-bottom: 5%;
+  width: 75%;
 }
 
 .right{
   float:right;
 }
 
+
 /* login */
 
 #loginbox{
   margin-top: 20%;
+
+.dogTile{
+  border: 1px solid rgb(216, 216, 216);
+  padding: 10px;
+  margin: 10px;
+}
+
+.dogDesc {
+  margin-top: 5%;
+}
+
+.dogProfileCol{
+  float: left;
+}
+
+.dogTileContainer {
+  padding: 10px;
+  margin: 10px;
+
 }
