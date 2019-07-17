@@ -102,51 +102,61 @@ router.get('/:id', (req, res) => {
 });
 
 router.post('/', (req, res) => {
-    console.log(req.body);
+    let loc1 = new Location();
+    let sche1 = new Schedule();
+    let own1 = new Owner();
+    let data = req.body;
+    data.schedule_id = sche1._id;
+    data.location_id = loc1._id;
+    data.owner_id = own1._id;
+    let dog = new Dog(data);
+    console.log(dog)
+    locJSON = loc1.toJSON();
+    scheJSON = sche1.toJSON();
+    ownJSON = own1.toJSON();
 
-    const loc = new Location();
-    const sche = new Schedule();
-    const own = new Owner();
-    const data = req.body;
-    data.schedule_id = sche.id;
-    data.location_id = loc.id;
-    data.owner_id = own.id;
-    const dog = new Dog(data);
-    loc.dog_id = dog.id;
-    sche.dog_id = dog.id;
-    own.dog_id = dog.id;
+    locJSON.dog_id = dog._id;
+    scheJSON.dog_id = dog._id;
+    ownJSON.dog_id = dog._id;
+    console.log(locJSON)
+    let sche = new Schedule(scheJSON);
+    let loc = new Location(locJSON);
+    let own = new Owner(ownJSON);
+    console.log(loc, sche, own);
+
+
     sche.save()
         .then(() => {
-            res.send('item saved to database');
+            //res.send('item saved to database');
+            console.log("sch")
         })
-        .catch(() => {
-            console.log('Error');
+        .catch((err) => {
+            console.log(err);
         });
     own.save()
-        .then((item) => {
-            res.send('item saved to database');
+        .then(() => {
+            //res.send('item saved to database');
         })
-        .catch(() => {
-            console.log('Error');
+        .catch((err) => {
+            console.log(err);
         });
     loc.save()
-        .then((item) => {
-            res.send('item saved to database');
+        .then(() => {
+            //res.send('item saved to database');
         })
-        .catch(() => {
-            console.log('Error');
+        .catch((err) => {
+            console.log(err);
         });
     dog.save()
-        .then((item) => {
-            res.send('item saved to database');
+        .then(() => {
+            res.status(200).send({
+                message: 'OK',
+                data: dog
+            });
         })
-        .catch(() => {
-            console.log('Error');
+        .catch((err) => {
+            console.log(err);
         });
-    res.status(200).send({
-        message: 'OK',
-        data: dog
-    });
 });
 
 module.exports = router;
