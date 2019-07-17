@@ -101,3 +101,18 @@ body {
 .attributes .row {
     margin: 30px;
 }
+
+.manageDog {
+  background: white;
+  border: 1px solid black;
+  text-align: left;
+  padding: 20px;
+}
+
+.editProfileButton {
+  margin-top: 20px;
+}
+
+.switchText {
+  margin-top: 20px;
+}

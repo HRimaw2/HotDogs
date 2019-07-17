@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Row, Col, Button } from 'react-bootstrap';
 import DogStatus from './DogStatus';
+import ManageDog from './ManageDog';
 
 class Profile extends Component {
 
@@ -41,7 +42,7 @@ class Profile extends Component {
                         </div>
                     </Col>
                     <Col>
-                        placeholder
+                        <ManageDog />
                     </Col>
                 </Row>
             </div>
