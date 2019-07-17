@@ -7,7 +7,7 @@ const { Schema } = mongoose;
 
 const DogProfileSchema = new Schema({
     name: { type: String, required: true },
-    color: { type: String, required: true },
+    colors: { type: [], required: true },
     size: { type: String, required: true },
     breed: { type: String, required: true },
     about: { type: String, default: 'Not posted yet' },

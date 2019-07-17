@@ -1,7 +1,11 @@
-//EXAMPLE
+// EXAMPLE
 /*
  * Connect all of your endpoints together here.
  */
-module.exports = function (app, router) {
-    app.use('/owners', require('./owners.js'));
+const dog = require('./dog.js');
+const owner = require('./owners.js');
+
+module.exports = (app, router) => {
+    app.use('/dogs', dog);
+    app.use('/owners', owner);
 };
