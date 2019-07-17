@@ -43,6 +43,7 @@ body {
 .dogName{
   color: #AC926E;
   font-family: 'Comfortaa', cursive;
+  font-size: 150%;
 }
 
 .dogprofileimage{
@@ -64,7 +65,7 @@ body {
 }
 
 .dogDesc {
-  margin-top: 10%;
+  margin-top: 5%;
 }
 
 .dogProfileCol{
