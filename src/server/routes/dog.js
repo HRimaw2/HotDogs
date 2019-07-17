@@ -1,7 +1,6 @@
 /* eslint-disable indent */
 const express = require('express');
 const mongoose = require('mongoose');
-const async = require('async');
 const Dog = require('../models/dog');
 const Schedule = require('../models/schedule');
 const Location = require('../models/location');
@@ -10,7 +9,10 @@ const Owner = require('../models/owner');
 const router = express.Router();
 
 router.get('/', (req, res) => {
-    let [breed, size, colors] = [req.query.breed, req.query.size, req.query.colors.split(',')]
+    let [breed, size, colors] = [req.query.breed, req.query.size, false]
+    if (req.query.colors){
+        colors = req.query.colors.split(',')
+    }
 
     if (breed) {
         Dog.find({"breed": breed}).exec((err, res_dog) => {
@@ -45,6 +47,20 @@ router.get('/', (req, res) => {
             if (err) {
                 res.status(404).send({
                     message: `Error getting dogs of colors ${JSON.stringify(colors)}`,
+                    data: []
+                });
+            } else {
+                res.status(200).send({
+                    message: 'OK',
+                    data: res_dog
+                });
+            }
+        });
+    } else {
+        Dog.find({}).exec((err, res_dog) => {
+            if (err) {
+                res.status(404).send({
+                    message: `Error`,
                     data: []
                 });
             } else {

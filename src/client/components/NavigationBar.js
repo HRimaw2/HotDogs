@@ -13,6 +13,7 @@ class NavigationBar extends Component {
     constructor(props) {
         super(props);
         this.state = {
+            account : this.props.account
         }
     }
 
@@ -25,7 +26,7 @@ class NavigationBar extends Component {
                     <FormControl type="text" placeholder="Search For a Dog" className="mr-sm-2" />
                     <Button variant="outline-primary">Go</Button>
                 </Form>
-                <Nav class="">
+                <Nav>
                     <Nav.Link href="#">My Dog</Nav.Link>
                 </Nav>
             </Navbar>

@@ -14,7 +14,8 @@ class LoginSignupPage extends Component {
         return (
             <div>
                 <NavigationBar />
-                <LoginRegInputs />
+                <h1>HotDogs!</h1>
+                <LoginRegInputs type="Login"/>
             </div>
         );
     }
