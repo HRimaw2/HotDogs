@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Row, Col, Button } from 'react-bootstrap';
 
 
-class ManageDog extends Component {
+class VisitingInformation extends Component {
     constructor(props){
         super(props);
         this.state = {
@@ -23,16 +23,15 @@ class ManageDog extends Component {
 
     render() {
         return (
-            <div className = "manageDog">
+            <div className = "visiting">
                 Manage Dog
+                <Button className="editProfileButton"> Edit Profile </Button>
                 <div className ="switchText">
-                    Is your dog in the office?
-                    <Button disabled={!this.state.isDogIn} onClick={this.setDogOut} className="yesButton"> Yes </Button>
-                    <Button disabled={this.state.isDogIn} onClick={this.setDogIn} className="noButton"> No </Button>
+                    
                 </div>
             </div>
         );
     }
 }
 
-export default ManageDog;
+export default VisitingInformation;
