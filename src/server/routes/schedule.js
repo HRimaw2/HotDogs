@@ -1,6 +1,5 @@
 const express = require('express');
 const mongoose = require('mongoose');
-const async = require("async");
 const Schedule = require('../models/schedule');
 const app = express();
 const router = express.Router();
