@@ -4,7 +4,10 @@
  */
 
 const dog = require('./dog.js');
+const schedule = require('./schedule.js')
 
 module.exports = (app, router) => {
     app.use('/dogs', dog);
+    app.use('/schedules', schedule)
 };
+
