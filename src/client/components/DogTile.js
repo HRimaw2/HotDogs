@@ -7,7 +7,7 @@ class DogTile extends Component {
     constructor(props){
         super(props);
         this.state = {
-
+            dog: this.props.dog
         }
     }
 
@@ -18,10 +18,10 @@ class DogTile extends Component {
                     <Col className="dogProfileCol">
                         <img className="dogprofileimage" src="https://pbs.twimg.com/profile_images/962170088941019136/lgpCD8X4_400x400.jpg"></img>
                     </Col>
-                    <Col md={2} className="dogDesc">
-                        <h3 id="mydog">Astro</h3>
-                        <Button id="loginbutton" size="lg"> Dog Status </Button>
-                        <Button id="dogbutton" size="lg"> Dog Name </Button>
+                    <Col className="dogDesc">
+                        <h3 className="dogName">Astro</h3>
+                        <Button className="loginbutton" size="lg"> Dog Status </Button>
+                        <Button className="dogbutton" size="lg"> Dog Location </Button>
                     </Col>
                 </Row>
             </div>
