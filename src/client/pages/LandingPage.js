@@ -18,17 +18,18 @@ class LandingPage extends Component {
     }
 
     populateDogTiles = () => {
-        return (<div>
+        console.log(this.state.dogs)
+        return (<Row>
             {this.state.dogs.map((dog, index) => (
                 <Col md={6}><DogTile dog = {dog} /> </Col>
             )) }
-        </div>);
+        </Row>);
     }
 
     getDogs = () => {
-        axios.get(`/api/dogs`, )
-        .then(function (response) {
-            this.setState({dogs:response.data})
+        axios.get('api/dogs', )
+        .then((response) =>{
+            this.setState({dogs:response.data.data})
             this.populateDogTiles();
         })
     }
@@ -40,11 +41,7 @@ class LandingPage extends Component {
             <div>
                 <NavigationBar />
                 <div className="dogTileContainer">
-                    <Row>
-                    <Col md={6}><DogTile /></Col>
-                    <Col md={6}><DogTile /></Col>
-                    <Col md={6}><DogTile /></Col>
-                    </Row>
+                    <this.populateDogTiles></this.populateDogTiles>
                 </div>
             </div>
         );

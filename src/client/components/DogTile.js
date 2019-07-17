@@ -19,7 +19,7 @@ class DogTile extends Component {
                         <img className="dogprofileimage" src="https://pbs.twimg.com/profile_images/962170088941019136/lgpCD8X4_400x400.jpg"></img>
                     </Col>
                     <Col className="dogDesc">
-                        <h3 className="dogName">Astro</h3>
+                        <h3 className="dogName">{this.state.dog.name}</h3>
                         <Button className="loginbutton" size="lg"> Dog Status </Button>
                         <Button className="dogbutton" size="lg"> Dog Location </Button>
                     </Col>
