@@ -7,27 +7,28 @@ import Col from 'react-bootstrap/Col';
 import Navbar from 'react-bootstrap/Navbar';
 import Form from 'react-bootstrap/Form';
 import FormControl from 'react-bootstrap/FormControl';
-import {Nav} from 'react-bootstrap';
+import { Nav } from 'react-bootstrap';
 
 class NavigationBar extends Component {
-    constructor(props){
+    constructor(props) {
         super(props);
         this.state = {
+            account : this.props.account
         }
     }
 
     render() {
         return (
-            <Navbar id="navbar">
-                    <img id="doglogo" align="left" src={DogLogo} alt="doglogo"></img>
-                    <Button>Sign in</Button>
-                    <Button>Sign Up</Button>
-                    <Nav className="justify-content-end">
-                        <Form inline>
-                            <FormControl type="text" placeholder="Search" className="mr-sm-2" />
-                            <Button variant="outline-success">Search</Button>
-                        </Form>
-                    </Nav>
+            <Navbar className="bg-light justify-content-between" bg="light" variant="light">
+                <Navbar.Brand href="#">HotDogs</Navbar.Brand>
+
+                <Form inline>
+                    <FormControl type="text" placeholder="Search For a Dog" className="mr-sm-2" />
+                    <Button variant="outline-primary">Go</Button>
+                </Form>
+                <Nav>
+                    <Nav.Link href="#">My Dog</Nav.Link>
+                </Nav>
             </Navbar>
         );
     }

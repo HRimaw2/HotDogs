@@ -6,9 +6,12 @@ const mongoose = require('mongoose');
 const { Schema } = mongoose;
 
 const DogProfileSchema = new Schema({
+<<<<<<< HEAD
     //_id: Schema.Types.ObjectId,
+=======
+>>>>>>> ce31f6f401e2d229cbab9d4f1270d64464d7c929
     name: { type: String, required: true },
-    color: { type: String, required: true },
+    colors: { type: [], required: true },
     size: { type: String, required: true },
     breed: { type: String, required: true },
     about: { type: String, default: 'Not posted yet' },

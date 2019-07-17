@@ -12,12 +12,19 @@ class LoginRegInputs extends Component {
         }
     }
 
+    handleEmailChange = (e) =>{
+        this.setState({email: e.target.value})
+    }
+    handlePasswordChange = (e) =>{
+        this.setState({password: e.target.value})
+    }
+
     render() {
         return (
             <div className="spaced">
-                <Row>Username: <input className="login-text"type="text" placeholder='username'></input ></Row>
-                <Row>Password: <input className="login-text"type="password" placeholder='password'></input ></Row>
-                <Button>Log in</Button>
+                <Row>Username: <input onChange={this.handleEmailChange} className="login-text"type="text" placeholder='username'></input ></Row>
+                <Row>Password: <input onChange={this.handlePasswordChange} className="login-text"type="password" placeholder='password'></input ></Row>
+                <Row><Button>{this.state.type}</Button></Row>
             </div>
         );
     }
