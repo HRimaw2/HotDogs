@@ -1,10 +1,10 @@
 const express = require('express');
 const mongoose = require('mongoose');
-const async = require("async");
-const dogs = require('../models/dog');
-const schedule = require('../models/schedule');
-const location = require('../models/location');
-const owner = require('../models/owner');
+const async = require('async');
+const Dog = require('../models/dog');
+const Schedule = require('../models/schedule');
+const Location = require('../models/location');
+const Owner = require('../models/owner');
 
 const router = express.Router();
 
@@ -39,7 +39,7 @@ router.get('/', (req, res) => {
     const [breed, size, colors] = getQueryParams(req);
 
     if (breed) {
-        dogs.find(breed).exec((err, res_dog) => {
+        Dog.find(breed).exec((err, res_dog) => {
             if (err) {
                 res.status(404).send({
                     message: `Error getting dogs with breed ${breed}`,
@@ -53,7 +53,7 @@ router.get('/', (req, res) => {
             }
         });
     } else if (size) {
-        dogs.find(size).exec((err, res_dog) => {
+        Dog.find(size).exec((err, res_dog) => {
             if (err) {
                 res.status(404).send({
                     message: `Error getting dogs of size ${size}`,
@@ -67,7 +67,7 @@ router.get('/', (req, res) => {
             }
         });
     } else if (colors) {
-        dogs.find(colors).exec((err, res_dog) => {
+        Dog.find(colors).exec((err, res_dog) => {
             if (err) {
                 res.status(404).send({
                     message: `Error getting dogs of colors ${JSON.stringify(colors)}`,
@@ -86,7 +86,7 @@ router.get('/', (req, res) => {
 router.get('/:id', (req, res) => {
     const { id } = req.params.id;
 
-    dogs.find(id).exec((err, res_dog) => {
+    Dog.find(id).exec((err, res_dog) => {
         if (err) {
             res.status(404).send({
                 message: `Error getting dog with id ${id}`,
@@ -102,15 +102,51 @@ router.get('/:id', (req, res) => {
 });
 
 router.post('/', (req, res) => {
-    console.log(req);
-    const loc = new location();
-    const sche = new schedule();
-    const own = new owner();
-    let data = req.body;
-    data.body.schedule_id = sche.id;
-    data.body.location_id = loc.id;
-    data.body.owner_id = own.id;
-    const dog = new dog(data);
+    console.log(req.body);
+
+    const loc = new Location();
+    const sche = new Schedule();
+    const own = new Owner();
+    const data = req.body;
+    data.schedule_id = sche.id;
+    data.location_id = loc.id;
+    data.owner_id = own.id;
+    const dog = new Dog(data);
+    loc.dog_id = dog.id;
+    sche.dog_id = dog.id;
+    own.dog_id = dog.id;
+    sche.save()
+        .then(() => {
+            res.send('item saved to database');
+        })
+        .catch(() => {
+            console.log('Error');
+        });
+    own.save()
+        .then((item) => {
+            res.send('item saved to database');
+        })
+        .catch(() => {
+            console.log('Error');
+        });
+    loc.save()
+        .then((item) => {
+            res.send('item saved to database');
+        })
+        .catch(() => {
+            console.log('Error');
+        });
+    dog.save()
+        .then((item) => {
+            res.send('item saved to database');
+        })
+        .catch(() => {
+            console.log('Error');
+        });
+    res.status(200).send({
+        message: 'OK',
+        data: dog
+    });
 });
 
 module.exports = router;
