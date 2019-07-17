@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import {Form, Row, Col, Button} from 'react-bootstrap';
-import '../styles/form.css'
+import '../styles/form.css';
 
 class ProfileForm extends Component {
     constructor(props){

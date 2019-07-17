@@ -57,3 +57,9 @@ body {
 .right{
   float:right;
 }
+
+/* login */
+
+#loginbox{
+  margin-top: 20%;
+}
