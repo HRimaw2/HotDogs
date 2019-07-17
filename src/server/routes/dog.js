@@ -10,36 +10,35 @@ const router = express.Router();
 
 
 function getQueryParams(req) {
-    let { breed } = '';
+    let breed = req.query.breed;
     if (breed === undefined) {
-        breed = {};
+        breed = false;
     } else {
-        breed = JSON.parse(req.query.breed);
+        breed = req.query.breed;
     }
 
-    let { size } = '';
+    let size = req.query.size;
     if (size === undefined) {
-        size = {};
+        size = false;
     } else {
-        size = JSON.parse(req.query.size);
+        size = req.query.size;
     }
 
-    let { colors } = '';
+    let colors = req.query.colors;
     if (colors === undefined) {
-        colors = {};
+        colors = false;
     } else {
-        colors = JSON.parse(req.query.colors);
+        colors = req.query.colors;
     }
     return [breed, size, colors];
 }
 
 
 router.get('/', (req, res) => {
-    console.log(req.query);
-    const [breed, size, colors] = getQueryParams(req);
+    let [breed, size, colors] = [req.query.breed, req.query.size, req.query.colors.split(',')]
 
     if (breed) {
-        Dog.find(breed).exec((err, res_dog) => {
+        Dog.find({"breed": breed}).exec((err, res_dog) => {
             if (err) {
                 res.status(404).send({
                     message: `Error getting dogs with breed ${breed}`,
@@ -53,7 +52,7 @@ router.get('/', (req, res) => {
             }
         });
     } else if (size) {
-        Dog.find(size).exec((err, res_dog) => {
+        Dog.find({"size": size}).exec((err, res_dog) => {
             if (err) {
                 res.status(404).send({
                     message: `Error getting dogs of size ${size}`,
@@ -67,7 +66,7 @@ router.get('/', (req, res) => {
             }
         });
     } else if (colors) {
-        Dog.find(colors).exec((err, res_dog) => {
+        Dog.find({"colors": colors}).exec((err, res_dog) => {
             if (err) {
                 res.status(404).send({
                     message: `Error getting dogs of colors ${JSON.stringify(colors)}`,
@@ -84,9 +83,9 @@ router.get('/', (req, res) => {
 });
 
 router.get('/:id', (req, res) => {
-    const { id } = req.params.id;
-
-    Dog.find(id).exec((err, res_dog) => {
+    const id = req.params.id;
+    console.log(id)
+    Dog.findById( id, (err, res_dog) => {
         if (err) {
             res.status(404).send({
                 message: `Error getting dog with id ${id}`,
@@ -110,7 +109,6 @@ router.post('/', (req, res) => {
     data.location_id = loc1._id;
     data.owner_id = own1._id;
     let dog = new Dog(data);
-    console.log(dog)
     locJSON = loc1.toJSON();
     scheJSON = sche1.toJSON();
     ownJSON = own1.toJSON();
@@ -118,7 +116,6 @@ router.post('/', (req, res) => {
     locJSON.dog_id = dog._id;
     scheJSON.dog_id = dog._id;
     ownJSON.dog_id = dog._id;
-    console.log(locJSON)
     let sche = new Schedule(scheJSON);
     let loc = new Location(locJSON);
     let own = new Owner(ownJSON);
@@ -127,22 +124,16 @@ router.post('/', (req, res) => {
 
     sche.save()
         .then(() => {
-            //res.send('item saved to database');
-            console.log("sch")
         })
         .catch((err) => {
-            console.log(err);
         });
     own.save()
         .then(() => {
-            //res.send('item saved to database');
         })
         .catch((err) => {
-            console.log(err);
         });
     loc.save()
         .then(() => {
-            //res.send('item saved to database');
         })
         .catch((err) => {
             console.log(err);
