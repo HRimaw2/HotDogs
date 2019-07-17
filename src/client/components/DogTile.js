@@ -1,23 +1,29 @@
 import React, { Component } from 'react';
 import '../styles/app.css';
-import Button from 'react-bootstrap/Button';
-import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
+import { Row, Col, Button } from 'react-bootstrap';
+
 
 class DogTile extends Component {
     constructor(props){
         super(props);
         this.state = {
-            url : this.props.type,
-            email: "",
-            password: ""
+
         }
     }
 
     render() {
         return (
-            <div>
-                
+            <div className = "dogTile">
+                 <Row>
+                    <Col className="dogProfileCol">
+                        <img className="dogprofileimage" src="https://pbs.twimg.com/profile_images/962170088941019136/lgpCD8X4_400x400.jpg"></img>
+                    </Col>
+                    <Col md={2} className="dogDesc">
+                        <h3 id="mydog">Astro</h3>
+                        <Button id="loginbutton" size="lg"> Dog Status </Button>
+                        <Button id="dogbutton" size="lg"> Dog Name </Button>
+                    </Col>
+                </Row>
             </div>
         );
     }

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import '../styles/form.css'
 import NavigationBar from '../components/NavigationBar';
+import DogTile from '../components/DogTile';
 
 class LandingPage extends Component {
     constructor(props){
@@ -13,6 +14,7 @@ class LandingPage extends Component {
         return (
             <div>
                 <NavigationBar />
+                <DogTile />
             </div>
         );
     }

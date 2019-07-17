@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import '../styles/form.css'
 import NavigationBar from '../components/NavigationBar';
+import DogTile from '../components/DogTile';
 
 class ResultsPage extends Component {
     constructor(props){
@@ -13,6 +14,7 @@ class ResultsPage extends Component {
         return (
             <div>
                 <NavigationBar />
+                <DogTile />
             </div>
         );
     }

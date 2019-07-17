@@ -49,11 +49,29 @@ body {
   font-family: 'Comfortaa', cursive;
 }
 
-#dogprofileimage{
+.dogprofileimage{
   border: 0px solid black;
-  border-radius: 10px;
+  border-radius: 50%;
+  width: 50%;
+  margin-top: 5%;
+  margin-bottom: 5%;
 }
 
 .right{
   float:right;
+}
+
+.dogTile{
+  border: 1px solid rgb(216, 216, 216);
+  padding: 10px;
+  width: 50%;
+  margin: 10px;
+}
+
+.dogDesc {
+  margin-top: 10%;
+}
+
+.dogProfileCol{
+  float: left;
 }
