@@ -8,32 +8,6 @@ const Owner = require('../models/owner');
 
 const router = express.Router();
 
-
-function getQueryParams(req) {
-    let breed = req.query.breed;
-    if (breed === undefined) {
-        breed = false;
-    } else {
-        breed = req.query.breed;
-    }
-
-    let size = req.query.size;
-    if (size === undefined) {
-        size = false;
-    } else {
-        size = req.query.size;
-    }
-
-    let colors = req.query.colors;
-    if (colors === undefined) {
-        colors = false;
-    } else {
-        colors = req.query.colors;
-    }
-    return [breed, size, colors];
-}
-
-
 router.get('/', (req, res) => {
     let [breed, size, colors] = [req.query.breed, req.query.size, req.query.colors.split(',')]
 
