@@ -1,3 +1,4 @@
+/* eslint-disable indent */
 const express = require('express');
 const mongoose = require('mongoose');
 const async = require('async');
@@ -122,6 +123,50 @@ router.post('/', (req, res) => {
         .catch((err) => {
             console.log(err);
         });
+});
+
+router.put('/:id', (req, res) => {
+    const id = req.params.id;
+    let dogData = req.body;
+    Dog.findByIdAndUpdate(id, dogData, (err, res_dog) => {
+        if(err){
+            console.log(err);
+            res.status(400).send({
+                message: `Error updating dog with id ${id}`,
+                data: []
+
+            });
+        } else if (!res_dog) {
+            res.status(400).send({
+                message: `No dog foung with id ${id}`,
+                data: []
+            });
+        } else {
+            res.status(200).send({
+                message: 'OK!',
+                data: res_dog
+            });
+        }
+    });
+});
+
+router.delete('/:id', (req, res) => {
+    const id = req.params.id;
+    Dog.findByIdAndDelete(id, (err, res_dog) => {
+        if(err){
+            console.log(err);
+            res.status(400).send({
+                message: `Error deleting dog with id ${id}`,
+                data: []
+            });
+        } else {
+            res.status(200).send({
+                message: 'OK!',
+                data: res_dog
+            });
+        }
+    })
+
 });
 
 module.exports = router;
