@@ -95,6 +95,7 @@ router.post('/', (req, res) => {
     let loc1 = new Location();
     let sche1 = new Schedule();
     let own1 = new Owner();
+    console.log(req.body)
     let data = req.body;
     data.schedule_id = sche1._id;
     data.location_id = loc1._id;
@@ -110,8 +111,6 @@ router.post('/', (req, res) => {
     let sche = new Schedule(scheJSON);
     let loc = new Location(locJSON);
     let own = new Owner(ownJSON);
-    console.log(loc, sche, own);
-
 
     sche.save()
         .then(() => {
@@ -137,7 +136,7 @@ router.post('/', (req, res) => {
             });
         })
         .catch((err) => {
-            console.log(err);
+            //console.log(err);
         });
 });
 
