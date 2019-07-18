@@ -10,23 +10,24 @@ import FormControl from 'react-bootstrap/FormControl';
 import { Nav } from 'react-bootstrap';
 
 class NavigationBar extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            account : this.props.account
-        }
-    }
+  constructor(props) {
+    super(props);
+    this.state = {
+      account: this.props.account
+    };
+  }
 
-    render() {
-        return (
-            <Navbar id="navbar" className="justify-content-between" variant="light">
-                <Navbar.Brand href="/home"><img id="navbarimage" href="/" src={WhiteLogo} height="40px"></img></Navbar.Brand>
-                <Nav>
-                    <Nav.Link href="/login">Register my dog / login</Nav.Link>
-                </Nav>
-            </Navbar>
-        );
-    }
+  render() {
+    return (
+      <Navbar id="navbar" className="justify-content-between" variant="light">
+        <Navbar.Brand href="/home"><img id="navbarimage" href="/" src={WhiteLogo}
+                                        height="40px"/></Navbar.Brand>
+        <Nav>
+          <Nav.Link href="/login">Register my dog / login</Nav.Link>
+        </Nav>
+      </Navbar>
+    );
+  }
 }
 
 export default NavigationBar;
