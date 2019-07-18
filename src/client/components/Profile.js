@@ -98,7 +98,7 @@ class Profile extends Component {
                         <ManageDog handler={this.statusHandler} dogStateHandler={this.dogStateTracker} dog={this.state.dog} />
                         <div className="visitingAbout">
                             <VisitingInformation dogStateHandler={this.dogStateTracker} dog={this.state.dog} />
-                            <AboutMe dog={this.state.dog}/>
+                            <AboutMe dogStateHandler={this.dogStateTracker} dog={this.state.dog}/>
                         </div>
                     </Col>
                 </Row>
