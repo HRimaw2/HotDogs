@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Route } from 'react-router-dom'
-import { Row, Button } from 'react-bootstrap';
+import { Row,Col, Button } from 'react-bootstrap';
+
 
 class LoginRegInputs extends Component {
     constructor(props){
@@ -22,9 +23,9 @@ class LoginRegInputs extends Component {
     render() {
         return (
             <div className="spaced">
-                <Row>Username: <input onChange={this.handleEmailChange} className="login-text"type="text" placeholder='username'></input ></Row>
-                <Row>Password: <input onChange={this.handlePasswordChange} className="login-text"type="password" placeholder='password'></input ></Row>
-                <Row><Button>{this.state.type}</Button></Row>
+                <Col className="user">Username: <input onChange={this.handleEmailChange} className="login-text"type="text" placeholder='username'></input> </Col>
+                <Col className="pass">Password: <input onChange={this.handlePasswordChange} className="login-text"type="password" placeholder='password'></input ></Col>
+                <Row className="loginButton"><Button>{this.state.type}</Button></Row>
             </div>
         );
     }
