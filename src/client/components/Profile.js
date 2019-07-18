@@ -18,7 +18,6 @@ class Profile extends Component {
     }
 
     componentDidMount(){
-        console.log("mounted")
         this.getDog();
         this.getOwnerInfo();
         this.getLocationInfo();
@@ -41,8 +40,6 @@ class Profile extends Component {
         .then((response) =>{
             this.setState({dog:response.data.data})
             this.setState({status:response.data.data.is_in})
-            console.log("respon", response.data.data)
-            // this.forceUpdate();
         })
     }
 

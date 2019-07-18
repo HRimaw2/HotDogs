@@ -4,7 +4,6 @@ import axios from 'axios';
 
 class ManageDog extends Component {
     constructor(props){
-        console.log("passed props", props)
         super(props);
         this.state = {
             dog: this.props.dog,
@@ -13,7 +12,6 @@ class ManageDog extends Component {
     }
 
     componentWillReceiveProps(nextProps) {
-        console.log("CHANFED")
         this.setState({dog: nextProps.dog});
         this.setState({isDogIn: nextProps.dog.is_in});
     }
@@ -36,7 +34,6 @@ class ManageDog extends Component {
         let updatedDog = this.state.dog
         updatedDog.status = [dogStatus]
         updatedDog.is_in = val
-        console.log(updatedDog)
         axios.put('api/dogs/'+this.state.dog._id, updatedDog)
         .then((response) =>{
             this.setState({dog:response.data.data})
@@ -45,8 +42,6 @@ class ManageDog extends Component {
     }
 
     render() {
-        console.log("managed",this.state.dog)
-        console.log("managed",this.state.isDogIn)
         return (
             <div className = "manageDog">
                 Manage Dog
