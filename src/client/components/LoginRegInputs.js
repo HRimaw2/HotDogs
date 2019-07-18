@@ -23,12 +23,13 @@ class LoginRegInputs extends Component {
         this.setState({password: e.target.value})
     }
 
+    
     render() {
         return (
             <div className="spaced">
                 <Col className="user">Username: <input onChange={this.handleEmailChange} className="login-text"type="text" placeholder='username'></input> </Col>
                 <Col className="pass">Password: <input onChange={this.handlePasswordChange} className="login-text"type="password" placeholder='password'></input ></Col>
-                <Row className="loginButton"><Button>{this.state.type}</Button></Row>
+                <Row className="loginButton"><Button onClick={() =>history.push({pathname: '/profile', state: { detail: this.state.dog }}) }>{this.state.type}</Button></Row>
             </div>
         );
     }
