@@ -1,149 +1,161 @@
 h1 {
-  color: green;
+    color: green;
 }
 
 body {
-  text-align: center;
-  margin: auto;
-  -webkit-animation-delay: 0.1s;
-  -webkit-animation-name: fontfix;
-  -webkit-animation-duration: 0.1s;
-  -webkit-animation-iteration-count: 1;
-  -webkit-animation-timing-function: linear;
-  background-color: #FFF1E0;
+    text-align: center;
+    margin: auto;
+    -webkit-animation-delay: 0.1s;
+    -webkit-animation-name: fontfix;
+    -webkit-animation-duration: 0.1s;
+    -webkit-animation-iteration-count: 1;
+    -webkit-animation-timing-function: linear;
+    background-color: #FFF1E0;
 }
+
 #title {
-  color: black;
+    color: black;
 }
+
 .loginDiv {
-  display: flex;
-  justify-content: center;
+    display: flex;
+    justify-content: center;
 }
+
 .user {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  width: 25em;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 25em;
 }
+
 .pass {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  width: 25em;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 25em;
 }
+
 .loginButton {
-  justify-content: center;
-  padding: 3em;
+    justify-content: center;
+    padding: 3em;
 }
+
 .login-text {
-  width: 100%;
+    width: 100%;
 }
 
 .header {
-  display: flex;
-  padding-top: 15rem;
-  align-items: center;
-  justify-content: center;
-}
-.title {
-  width: 50%;
+    display: flex;
+    padding-top: 15rem;
+    align-items: center;
+    justify-content: center;
 }
 
+.title {
+    width: 50%;
+}
 
 
 @-webkit-keyframes fontfix {
-  from { opacity: 1; }
-  to   { opacity: 1; }
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 1;
+    }
 }
 
 /* navbar */
-#navbar{
-  padding: 10px;
+#navbar {
+    padding: 10px;
 }
 
-#doglogo{
-  float: left;
-  margin-left: 10px;
+#doglogo {
+    float: left;
+    margin-left: 10px;
 }
 
-.loginbutton, .dogbutton{
-  background-color: #93D5FF;
-  border: #93D5FF;
-  font-family: 'Comfortaa', cursive;
-  font-size: 60%;
+.loginbutton, .dogbutton {
+    background-color: #93D5FF;
+    border: #93D5FF;
+    font-family: 'Comfortaa', cursive;
+    font-size: 60%;
 }
 
-.dogbutton{
-  background-color: #FF7C68;
-  border:  #FF7C68;
+.dogbutton {
+    background-color: #FF7C68;
+    border: #FF7C68;
 }
 
-.dogName{
-  color: #AC926E;
-  font-family: 'Comfortaa', cursive;
-  font-size: 150%;
+.dogName {
+    color: #AC926E;
+    font-family: 'Comfortaa', cursive;
+    font-size: 150%;
 }
 
-.dogprofileimage{
-  border: 0px solid black;
-  border-radius: 50%;
-  margin-top: 5%;
-  margin-bottom: 5%;
-  width: 75%;
+.dogprofileimage {
+    border: 0px solid black;
+    border-radius: 50%;
+    margin-top: 5%;
+    margin-bottom: 5%;
+    width: 75%;
 }
 
-.right{
-  float:right;
+.right {
+    float: right;
 }
 
 
 /* login */
 
-#loginbox{
-  margin-top: 20%;
+#loginbox {
+    margin-top: 20%;
 }
-.dogTile{
-  border: 1px solid rgb(216, 216, 216);
-  padding: 10px;
-  margin: 10px;
+
+.dogTile {
+    border: 1px solid rgb(216, 216, 216);
+    padding: 10px;
+    margin: 10px;
 }
 
 .dogDesc {
-  margin-top: 5%;
+    margin-top: 5%;
 }
 
-.dogProfileCol{
-  float: left;
+.dogProfileCol {
+    float: left;
 }
 
 .dogTileContainer {
-  padding: 10px;
-  margin: 10px;
-}
-.spaced {
-  display: flex;
-  flex-direction: column;
+    padding: 10px;
+    margin: 10px;
 }
 
-.dogProfile{
-  margin-top: 40px;
-  margin-left: 10px;
+.spaced {
+    display: flex;
+    flex-direction: column;
+}
+
+.dogProfile {
+    margin-top: 40px;
+    margin-left: 10px;
 }
 
 .profilePic {
-  border: 0px solid black;
-  border-radius: 50%;
-  margin-top: 5%;
-  margin-bottom: 5%;
-  width: 50%;
+    border: 0px solid black;
+    border-radius: 50%;
+    margin-top: 5%;
+    margin-bottom: 5%;
+    width: 50%;
 }
 
 .dogStatus {
-  border: 1px solid black;
-  border-radius: 25%;
-  width: fit-content;
-  margin-left: 40%;
-  padding: 10px;
+    border: 1px solid black;
+    border-radius: 25%;
+    width: fit-content;
+    margin-left: 40%;
+    padding: 10px;
 }
 
 .attributes .row {
@@ -151,58 +163,58 @@ body {
 }
 
 .manageDog {
-  background: white;
-  border: 1px solid black;
-  text-align: left;
-  padding: 20px;
-  margin: 10px;
+    background: white;
+    border: 1px solid black;
+    text-align: left;
+    padding: 20px;
+    margin: 10px;
 }
 
 .editProfileButton {
-  float: right;
+    float: right;
 }
 
 .switchText {
-  margin-top: 20px;
+    margin-top: 20px;
 }
 
 .yesButton {
-  margin-left: 10px;
-  border-radius: 3px 0 0 3px;
-  border: 1px solid rgb(113, 151, 109);
-  background-color: white;
-  color: rgb(113, 151, 109);
+    margin-left: 10px;
+    border-radius: 3px 0 0 3px;
+    border: 1px solid rgb(113, 151, 109);
+    background-color: white;
+    color: rgb(113, 151, 109);
 }
 
 .noButton {
-  border-radius: 0 3px 3px 0;
-  border: 1px solid rgb(173, 0, 0);
-  background-color: white;
-  color: rgb(173, 0, 0);
+    border-radius: 0 3px 3px 0;
+    border: 1px solid rgb(173, 0, 0);
+    background-color: white;
+    color: rgb(173, 0, 0);
 }
 
 .noButton:disabled {
-  background-color: red;
-  border: 1px solid red;
+    background-color: red;
+    border: 1px solid red;
 }
 
 .yesButton:disabled {
-  background-color: rgb(0, 173, 0);
-  border: 1px solid rgb(0, 173, 0);
+    background-color: rgb(0, 173, 0);
+    border: 1px solid rgb(0, 173, 0);
 }
 
 .visiting, .aboutMe {
-  background: white;
-  text-align: left;
-  margin-bottom: 2rem;
+    background: white;
+    text-align: left;
+    margin-bottom: 2rem;
 }
 
 .schedRow {
-  margin-top:2rem;
+    margin-top: 2rem;
 }
 
 .visitingAbout {
-  border: 1px solid black;
-  padding: 20px;
-  margin: 10px;
+    border: 1px solid black;
+    padding: 20px;
+    margin: 10px;
 }
