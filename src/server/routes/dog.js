@@ -143,7 +143,7 @@ router.post('/', (req, res) => {
 router.put('/:id', (req, res) => {
     const id = req.params.id;
     let dogData = req.body;
-    Dog.findByIdAndUpdate(id, dogData, (err, res_dog) => {
+    Dog.findByIdAndUpdate(id, dogData, {new: true}, (err, res_dog) => {
         if(err){
             console.log(err);
             res.status(400).send({

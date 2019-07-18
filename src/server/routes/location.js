@@ -3,7 +3,6 @@ const Location = require('../models/location');
 //const dog = require('../models/dog');
 //const schedule = require('../models/schedule');
 const mongoose = require('mongoose');
-const async = require("async");
 const router = express.Router();
 
 function getQuery(req) {
