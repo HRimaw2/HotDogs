@@ -14,6 +14,7 @@ class NewRegisterForm extends Component {
             pic: '',
             owner: '',
             floor: 0,
+            location: '',
             colors: [],
             size: 'small',
             breed: '',
@@ -21,6 +22,14 @@ class NewRegisterForm extends Component {
             likes: '',
             dislikes: '',
             allergies: '',
+            treats: '',
+            personality: '',
+            funfacts: '',
+            instagram: '',
+            availability: '',
+            preferences: {
+                inoffice: 'Yes',
+            },
             canSubmit: false
         }
     }
@@ -34,7 +43,23 @@ class NewRegisterForm extends Component {
 
     handleSubmit = event => {
         event.preventDefault()
-        const { email, username, password } = this.state
+        const { email, username, password, name, pic, owner, floor,
+            location, colors, size, breed, about, likes, dislikes,
+            allergies, treats, personality,
+            funfacts, instagram, availability, preferences, canSubmit } = this.state
+        console.log(this.state)
+    }
+
+    handleDropdown = event => {
+        const { name, value } = event.target
+
+        this.setState({
+            preferences: {
+                [name]: value
+            }
+        })
+
+
     }
 
     _next = () => {
@@ -64,7 +89,7 @@ class NewRegisterForm extends Component {
                     className="btn btn-secondary float-left"
                     type="button" onClick={this._prev} >
                     Previous
-        </button>
+                </button>
             )
         }
         return null;
@@ -78,7 +103,7 @@ class NewRegisterForm extends Component {
                     className="btn btn-primary float-right"
                     type="button" onClick={this._next}>
                     Next
-        </button>
+                </button>
             )
         }
         return null;
@@ -88,37 +113,44 @@ class NewRegisterForm extends Component {
         return (
             <React.Fragment>
                 <Row>
-                <Col md={{ span: 6, offset: 3 }}>
-                <p align="left">Register My Dog ({this.state.currentStep}/4) </p>
-                
+                    <Col md={{ span: 6, offset: 3 }}>
+                        <p align="left">Register My Dog ({this.state.currentStep}/4) </p>
+                        <Form align="left" onSubmit={this.handleSubmit}>
+                            <Step1
+                                currentStep={this.state.currentStep}
+                                handleChange={this.handleChange}
+                                email={this.state.email}
+                                password={this.state.password}
+                            />
+                            <Step2
+                                currentStep={this.state.currentStep}
+                                handleChange={this.handleChange}
+                                name={this.state.name}
+                                breed={this.state.breed}
+                                colors={this.state.colors}
+                                personality={this.state.personality}
+                                allergies={this.state.allergies}
+                                likes={this.state.likes}
+                                dislikes={this.state.dislikes}
+                                treats={this.state.treats}
+                                funfacts={this.state.funfacts}
+                                instagram={this.state.instagram}
+                            />
+                            <Step3
+                                currentStep={this.state.currentStep}
+                                handleChange={this.handleChange}
+                                password={this.state.password}
+                            />
+                            <Step4
+                                currentStep={this.state.currentStep}
+                                handleDropdown={this.handleDropdown}
+                                preferences={this.state.preferences}
+                            />
+                            {this.previousButton()}
+                            {this.nextButton()}
 
-                <form onSubmit={this.handleSubmit}>
-
-                    <Step1
-                        currentStep={this.state.currentStep}
-                        handleChange={this.handleChange}
-                        email={this.state.email}
-                    />
-                    <Step2
-                        currentStep={this.state.currentStep}
-                        handleChange={this.handleChange}
-                        username={this.state.username}
-                    />
-                    <Step3
-                        currentStep={this.state.currentStep}
-                        handleChange={this.handleChange}
-                        password={this.state.password}
-                    />
-                    <Step4
-                        currentStep={this.state.currentStep}
-                        handleChange={this.handleChange}
-                        password={this.state.password}
-                    />
-                    {this.previousButton()}
-                    {this.nextButton()}
-
-                </form>
-                </Col>
+                        </Form>
+                    </Col>
                 </Row>
             </React.Fragment>
         );
@@ -133,17 +165,14 @@ function Step1(props) {
         <div className="form-group">
             <Row>
                 <Col >
-                    <Form align="left">
-                        <Form.Group controlId="formGroupEmail">
-                            <Form.Label>Email address</Form.Label>
-                            <Form.Control value={props.email}
-                                onChange={props.handleChange} type="email" placeholder="Enter email" />
-                        </Form.Group>
-                        <Form.Group controlId="formGroupPassword">
-                            <Form.Label>Password</Form.Label>
-                            <Form.Control type="password" placeholder="Password" />
-                        </Form.Group>
-                    </Form>
+                    <Form.Group controlId="formGroupEmail">
+                        <Form.Label>Email address</Form.Label>
+                        <Form.Control name="email" value={props.email} onChange={props.handleChange} type="email" placeholder="Enter email" />
+                    </Form.Group>
+                    <Form.Group controlId="formGroupPassword">
+                        <Form.Label>Password</Form.Label>
+                        <Form.Control name="password" value={props.password} onChange={props.handleChange} type="password" placeholder="Password" />
+                    </Form.Group>
                 </Col>
             </Row>
         </div>
@@ -157,51 +186,47 @@ function Step2(props) {
     return (
         <div className="form-group">
             <Row>
-                <Col value={props.username}
-                    onChange={props.handleChange}>
-                    <Form align="left">
-                        <Form.Group controlId="formGroupEmail">
-                            <Form.Label>Name</Form.Label>
-                            <Form.Control type="text" placeholder="Dog Name" />
-                        </Form.Group>
-                        <Form.Group controlId="formGroupBreed">
-                            <Form.Label>Breed</Form.Label>
-                            <Form.Control type="text" placeholder="Golden Retriever" />
-                        </Form.Group>
-                        <Form.Group controlId="formGroupColor">
-                            <Form.Label>Color</Form.Label>
-                            <Form.Control type="text" placeholder="Brown" />
-                        </Form.Group>
-                        <Form.Group controlId="formGroupPersonality">
-                            <Form.Label>Personality</Form.Label>
-                            <Form.Control as="textarea" placeholder="" />
-                        </Form.Group>
-                        <Form.Group controlId="formGroupAllergies">
-                            <Form.Label>Allergies</Form.Label>
-                            <Form.Control as="textarea" placeholder="" />
-                        </Form.Group>
-                        <Form.Group controlId="formGroupLikes">
-                            <Form.Label>Likes</Form.Label>
-                            <Form.Control as="textarea" placeholder="" />
-                        </Form.Group>
-                        <Form.Group controlId="formGroupDislikes">
-                            <Form.Label>Dislikes</Form.Label>
-                            <Form.Control as="textarea" placeholder="" />
-                        </Form.Group>
-                        <Form.Group controlId="formGroupTreats">
-                            <Form.Label>Favorite Treats</Form.Label>
-                            <Form.Control as="textarea" placeholder="" />
-                        </Form.Group>
-                        <Form.Group controlId="formGroupFunFacts">
-                            <Form.Label>Fun Facts</Form.Label>
-                            <Form.Control as="textarea" placeholder="" />
-                        </Form.Group>
-                        <Form.Group controlId="formGroupInstagram">
-                            <Form.Label>Instagram Link</Form.Label>
-                            <Form.Control type="text" placeholder="" />
-                        </Form.Group>
-
-                    </Form>
+                <Col >
+                    <Form.Group controlId="formGroupDogName">
+                        <Form.Label>Name</Form.Label>
+                        <Form.Control name="name" value={props.name} onChange={props.handleChange} type="text" placeholder="Dog Name" />
+                    </Form.Group>
+                    <Form.Group controlId="formGroupBreed">
+                        <Form.Label>Breed</Form.Label>
+                        <Form.Control name="breed" value={props.breed} onChange={props.handleChange} type="text" placeholder="Golden Retriever" />
+                    </Form.Group>
+                    <Form.Group controlId="formGroupColor">
+                        <Form.Label>Color</Form.Label>
+                        <Form.Control name="colors" value={props.colors} onChange={props.handleChange} type="text" placeholder="Brown" />
+                    </Form.Group>
+                    <Form.Group controlId="formGroupPersonality">
+                        <Form.Label>Personality</Form.Label>
+                        <Form.Control name="personality" value={props.personality} onChange={props.handleChange} as="textarea" placeholder="" />
+                    </Form.Group>
+                    <Form.Group controlId="formGroupAllergies">
+                        <Form.Label>Allergies</Form.Label>
+                        <Form.Control name="allergies" value={props.allergies} onChange={props.handleChange} as="textarea" placeholder="" />
+                    </Form.Group>
+                    <Form.Group controlId="formGroupLikes">
+                        <Form.Label>Likes</Form.Label>
+                        <Form.Control name="likes" value={props.likes} onChange={props.handleChange} as="textarea" placeholder="" />
+                    </Form.Group>
+                    <Form.Group controlId="formGroupDislikes">
+                        <Form.Label>Dislikes</Form.Label>
+                        <Form.Control name="dislikes" value={props.dislikes} onChange={props.handleChange} as="textarea" placeholder="" />
+                    </Form.Group>
+                    <Form.Group controlId="formGroupTreats">
+                        <Form.Label>Favorite Treats</Form.Label>
+                        <Form.Control name="treats" value={props.treats} onChange={props.handleChange} as="textarea" placeholder="" />
+                    </Form.Group>
+                    <Form.Group controlId="formGroupFunFacts">
+                        <Form.Label>Fun Facts</Form.Label>
+                        <Form.Control name="funfacts" value={props.funfacts} onChange={props.handleChange} as="textarea" placeholder="" />
+                    </Form.Group>
+                    <Form.Group controlId="formGroupInstagram">
+                        <Form.Label>Instagram Link</Form.Label>
+                        <Form.Control name="instagram" value={props.instagram} onChange={props.handleChange} type="text" placeholder="" />
+                    </Form.Group>
                 </Col>
             </Row>
         </div>
@@ -258,50 +283,50 @@ function Step3(props) {
                             </Form.Control>
                         </Form.Group>
                     </Form.Row>
-                    <Form.Row align="left">
+                    <Form.Row >
                         <Form.Group as={Col} controlId="formGridState">
                             <Button variant="primary" type="submit">
                                 Add
                             </Button>
                         </Form.Group>
                     </Form.Row>
-                    <Form.Row align="left">
-                        <Form.Group as={Col}>
-                            <Form.Label as="legend" >
-                                Pet my dog
-                                </Form.Label>
-                            <Form.Check type="radio" label="Yes" />
-                            <Form.Check type="radio" label="No" />
-                        </Form.Group>
-                    </Form.Row>
-                    <Form.Row align="left">
-                        <Form.Group as={Col}>
-                            <Form.Label as="legend" >
-                                Play with my dog
-                                </Form.Label>
-                            <Form.Check type="radio" label="Yes" />
-                            <Form.Check type="radio" label="No" />
-                        </Form.Group>
-                    </Form.Row>
-                    <Form.Row align="left">
-                        <Form.Group as={Col}>
-                            <Form.Label as="legend" >
-                                Walk my dog
-                                </Form.Label>
-                            <Form.Check type="radio" label="Yes" />
-                            <Form.Check type="radio" label="No" />
-                        </Form.Group>
-                    </Form.Row>
-                    <Form.Row align="left">
-                        <Form.Group as={Col}>
-                            <Form.Label as="legend" >
-                                Dog sit my dog
-                                </Form.Label>
-                            <Form.Check type="radio" label="Yes" />
-                            <Form.Check type="radio" label="No" />
-                        </Form.Group>
-                    </Form.Row>
 
+                    <Form.Row >
+                        <Form.Group as={Col} controlId="formGridState">
+                            <Form.Label>Pet my dog</Form.Label>
+                            <Form.Control as="select">
+                                <option>Yes</option>
+                                <option>No</option>
+                            </Form.Control>
+                        </Form.Group>
+                    </Form.Row>
+                    <Form.Row >
+                        <Form.Group as={Col} controlId="formGridState">
+                            <Form.Label>Walk my dog</Form.Label>
+                            <Form.Control as="select">
+                                <option>Yes</option>
+                                <option>No</option>
+                            </Form.Control>
+                        </Form.Group>
+                    </Form.Row>
+                    <Form.Row >
+                        <Form.Group as={Col} controlId="formGridState">
+                            <Form.Label>Play with my dog</Form.Label>
+                            <Form.Control as="select">
+                                <option>Yes</option>
+                                <option>No</option>
+                            </Form.Control>
+                        </Form.Group>
+                    </Form.Row>
+                    <Form.Row >
+                        <Form.Group as={Col} controlId="formGridState">
+                            <Form.Label>Dog sit my dog</Form.Label>
+                            <Form.Control as="select">
+                                <option>Yes</option>
+                                <option>No</option>
+                            </Form.Control>
+                        </Form.Group>
+                    </Form.Row>
                 </Col>
             </Row>
         </div>
@@ -315,18 +340,18 @@ function Step4(props) {
     }
     return (
         <Row>
-            <Col onChange={props.handleChange}>
+            <Col >
                 <Form.Row align="left">
-                    <Form.Group as={Col}>
-                        <Form.Label as="legend" >
-                            Is your dog in the office today?
-                        </Form.Label>
-                        <Form.Check type="radio" label="Yes" />
-                        <Form.Check type="radio" label="No" />
+                    <Form.Group as={Col} controlId="formGridState">
+                        <Form.Label>Is your dog in the office today?</Form.Label>
+                        <Form.Control name="inoffice" onChange={props.handleDropdown} value={props.preferences.inoffice} as="select">
+                            <option value="Yes">Yes</option>
+                            <option value="No">No</option>
+                        </Form.Control>
                     </Form.Group>
                 </Form.Row>
                 <Form.Row align="left">
-                    <button className="btn btn-success">Sign up</button>
+                    <button className="btn btn-success" onClick={props.handleSubmit}>Sign up</button>
                 </Form.Row>
             </Col>
         </Row>

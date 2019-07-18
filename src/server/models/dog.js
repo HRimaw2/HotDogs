@@ -12,7 +12,7 @@ const DogProfileSchema = new Schema({
     breed: { type: String, required: true },
     about: { type: String, default: 'Not posted yet' },
 	likes: { type: String, default: '' },
-	dislike: { type: String, default: '' },
+	dislikes: { type: String, default: '' },
 	status: { type: [], default: ['Awake'] },
 	profile_picture: { type: String, required: true },
 	pictures: { type: [], required: true, default: [] },
