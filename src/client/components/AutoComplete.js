@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Autosuggest from 'react-a';
+import Autosuggest from 'react-autosuggest';
 import axios from 'axios';
 
 
