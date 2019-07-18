@@ -7,7 +7,6 @@ class AboutMe extends Component {
         super(props);
         this.state = {
             dog: this.props.dog,
-            isDogIn: false 
         }
     }
 
@@ -22,31 +21,35 @@ class AboutMe extends Component {
                         <Button className="editProfileButton"> Edit </Button>
                     </Col>
                 </Row>
-                <Row className="schedRow">
                     <Row>
                     <Col>
                         <div>Personality</div>
-                        <p>boopbopo spodpsopfdopodpf ksdjfbsdkj</p>
+                        <p>{this.state.dog.about}</p>
                     </Col>
                     </Row>
-                    <Col>
-                        <div>Likes</div>
-                    </Col>
-                    <Col>
-                        <div>Dislikes</div>
-                    </Col>
-                </Row>
+                    <Row>
+                        <Col>
+                            <div>Likes</div>
+                            <div>{this.state.dog.likes}</div>
+                        </Col>
+                        <Col>
+                            <div>Dislikes</div>
+                            <div>{this.state.dog.dislike}</div>
+                        </Col>
+                    </Row>
                 <Row className="schedRow">
                     <Col>
-                        <div>Favorite Treats</div>
+                    <div>Favorite Treats</div>
+                    <div>{this.state.dog.treats}</div>
                     </Col>
                     <Col>
                         <div>Allergies</div>
+                        <div>{this.state.dog.allergies}</div>
                     </Col>
                     <Row>
                         <Col>
                             <div>Fun Facts</div>
-                            <p>boopbopo spodpsopfdopodpf ksdjfbsdkj</p>
+                            <p>{this.state.dog.fun_facts}</p>
                         </Col>
                     </Row>
                 </Row>

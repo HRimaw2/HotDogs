@@ -22,7 +22,9 @@ const DogProfileSchema = new Schema({
 	location_id: { type: Object, required: true },
 	schedule_id: { type: Object, required: true },
 	owner_id: { type: Object, required: true },
-	is_in : { type: Object, required: true, default: false}
+	is_in : { type: Object, required: true, default: false},
+	age: {type: Number, required: true, default: 0},
+	fun_facts: { type: String, default: 'Not posted yet' }
 });
 
 // Export the Mongoose model

@@ -4,6 +4,7 @@ import axios from 'axios';
 
 class ManageDog extends Component {
     constructor(props){
+        console.log("passed props", props)
         super(props);
         this.state = {
             dog: this.props.dog,
@@ -33,10 +34,13 @@ class ManageDog extends Component {
         axios.put('api/dogs/'+this.state.dog._id, updatedDog)
         .then((response) =>{
             this.setState({dog:response.data.data})
+            this.props.dogStateHandler(response.data.data)
         })
     }
 
     render() {
+        console.log("managed",this.state.dog)
+        console.log("managed",this.state.isDogIn)
         return (
             <div className = "manageDog">
                 Manage Dog
