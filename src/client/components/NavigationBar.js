@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import DogLogo from '../doglogo.png';
+import WhiteLogo from '../assets/logo_white.png';
 import '../styles/app.css';
 import Button from 'react-bootstrap/Button';
 import Row from 'react-bootstrap/Row';
@@ -19,8 +19,8 @@ class NavigationBar extends Component {
 
     render() {
         return (
-            <Navbar className="bg-light justify-content-between" bg="light" variant="light">
-                <Navbar.Brand href="/">HotDogs</Navbar.Brand>
+            <Navbar id="navbar" className="justify-content-between" variant="light">
+                <Navbar.Brand href="/home"><img id="navbarimage" href="/" src={WhiteLogo} height="40px"></img></Navbar.Brand>
                 <Nav>
                     <Nav.Link href="/login">Register my dog / login</Nav.Link>
                 </Nav>

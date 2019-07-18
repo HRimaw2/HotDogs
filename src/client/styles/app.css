@@ -21,38 +21,20 @@ body {
 /* navbar */
 #navbar{
   padding: 10px;
+  background-color: #C84103;
 }
 
-#doglogo{
-  float: left;
+a{
+  color: white;
+}
+a:hover{
+  color: grey;
+}
+
+#navbarimage{
   margin-left: 10px;
 }
 
-.loginbutton, .dogbutton{
-  background-color: #93D5FF;
-  border: #93D5FF;
-  font-family: 'Comfortaa', cursive;
-  font-size: 60%;
-}
-
-.dogbutton{
-  background-color: #FF7C68;
-  border:  #FF7C68;
-}
-
-.dogName{
-  color: #AC926E;
-  font-family: 'Comfortaa', cursive;
-  font-size: 150%;
-}
-
-.dogprofileimage{
-  border: 0px solid black;
-  border-radius: 50%;
-  margin-top: 5%;
-  margin-bottom: 5%;
-  width: 75%;
-}
 
 .right{
   float:right;
