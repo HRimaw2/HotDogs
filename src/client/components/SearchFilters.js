@@ -11,6 +11,18 @@ class SearchFilters extends Component {
         }
     }
 
+    getBreeds = (breedIds, breeds) => {
+
+        return breedIds.map(breedId => {
+            const filteredBreeds = breeds.find(breed => breed.id === breedId);
+            if (breeds === undefined || breeds.length === 0) {
+                return false;
+            }
+            return filteredBreeds.name;
+        })
+        
+    };
+
     render() {
         return (
             <form>
