@@ -15,6 +15,7 @@ class AboutMe extends Component {
             allergies: this.props.dog.allergies,
             facts: this.props.dog.fun_facts,
         }
+    
         this.editPersonality = this.editPersonality.bind(this);
         this.editLikes = this.editLikes.bind(this);
         this.editDislikes = this.editDislikes.bind(this);
@@ -53,15 +54,14 @@ class AboutMe extends Component {
 
     submitEdits = () => {
         let newDog = this.state.dog;
-        newDog.personality = this.state.personality;
+        newDog.about = this.state.personality;
         newDog.likes = this.state.likes;
         newDog.dislikes = this.state.dislikes;
         newDog.treats = this.state.treats;
         newDog.allergies = this.state.allergies;
-        newDog.facts = this.state.facts;
+        newDog.fun_facts = this.state.facts;
         axios.put('api/dogs/' + this.state.dog._id, newDog)
         .then((res) => {
-            console.log(res)
             this.setState({ dog: res.data.data })
             this.setState({ editing: false })
             this.setState({ personality: res.data.data.personality })
@@ -168,7 +168,7 @@ class AboutMe extends Component {
                             value={this.state.facts} >
                             </input> 
                             :
-                            <p>{this.state.dog.facts}</p>
+                            <p>{this.state.dog.fun_facts}</p>
                         }     
                         </Col>
                     </Row>
