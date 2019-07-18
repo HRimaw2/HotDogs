@@ -31,7 +31,16 @@ class VisitingInformation extends Component {
     }
 
     submitEdits = () => {
-        
+        console.log(this.state.times, this.state.activities)
+        let updatedDog = this.state.dog;
+        updatedDog.requests = this.state.activities;
+        axios.put('api/dogs/'+this.state.dog._id, updatedDog)
+        .then((response) =>{
+            this.setState({dog:response.data.data})
+            this.setState({activities:response.data.data.requests})
+            this.props.dogStateHandler(response.data.data)
+            this.setState({editing : false})
+        })
     }
 
     inputEditor(){
@@ -42,6 +51,14 @@ class VisitingInformation extends Component {
         :
         <div>{this.state.dog.requests}</div>
         return ret
+    }
+
+    setTimes = (e) => {
+        this.setState({times: e.target.value.split(',')});
+    }
+
+    setActivities = (e) => {
+        this.setState({activities: e.target.value});
     }
 
 
@@ -61,12 +78,12 @@ class VisitingInformation extends Component {
                         <div>Schedule</div>
                         {
                             this.state.editing ?
-                            <input value={this.state.schedule.available_times.map((time, index) => (
+                            <input onChange={this.setTimes} value={this.state.times.map((time, index) => (
                                 time
                             ))}>
                             </input> 
                             :
-                            this.state.schedule.available_times.map((time, index) => (
+                            this.state.times.map((time, index) => (
                                 <p>{time}</p>
                             ))                        }
                     </Col>
@@ -74,9 +91,9 @@ class VisitingInformation extends Component {
                         <div>Owner Approved Activities</div>
                         {
                             this.state.editing ?
-                            <input value={this.state.dog.requests}></input> 
+                            <input onChange={this.setActivities} value={this.state.activities}></input> 
                             :
-                            <div>{this.state.dog.requests}</div>
+                            <div>{this.state.activities}</div>
                         }
                     </Col>
                 </Row>
