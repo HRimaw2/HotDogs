@@ -13,12 +13,11 @@ class NewRegisterForm extends Component {
             name: '',
             pic: '',
             owner: '',
-            floor: 0,
+            floor: 3,
             location: '',
-            colors: [],
-            size: 'small',
+            colors: '',
+            size: '',
             breed: '',
-            about: '',
             likes: '',
             dislikes: '',
             allergies: '',
@@ -26,10 +25,17 @@ class NewRegisterForm extends Component {
             personality: '',
             funfacts: '',
             instagram: '',
-            availability: '',
+            availability: [],
             preferences: {
                 inoffice: 'Yes',
+                dogsit: 'Yes',
+                play: 'Yes', 
+                walk: 'Yes', 
+                pet: 'Yes'
             },
+            day: 'Monday', 
+            start: '9:00 AM', 
+            end: '5:00 PM',
             canSubmit: false
         }
     }
@@ -52,16 +58,29 @@ class NewRegisterForm extends Component {
 
     handleDropdown = event => {
         const { name, value } = event.target
-
+        this.state.preferences[name] = value;
         this.setState({
-            preferences: {
-                [name]: value
-            }
+            preferences: this.state.preferences
         })
-
-
+        console.log(this.state.preferences)
     }
 
+    handleDateSubmit = event => {
+        let date = this.state.day + " " + this.state.start + " to " + this.state.end
+        this.state.availability.push(date)
+        this.setState({
+            availability: this.state.availability
+        })
+        
+        
+    }
+    populateDates = () => {
+        return (<Row><Col align="left">
+            {this.state.availability.map((d, index) => (
+                <p key={index}>{d}</p>
+            )) }
+        </Col></Row>);
+    }
     _next = () => {
         let currentStep = this.state.currentStep
         currentStep = currentStep >= 3 ? 4 : currentStep + 1
@@ -78,9 +97,7 @@ class NewRegisterForm extends Component {
         })
     }
 
-    /*
-    * the functions for our button
-    */
+    
     previousButton() {
         let currentStep = this.state.currentStep;
         if (currentStep !== 1) {
@@ -106,6 +123,15 @@ class NewRegisterForm extends Component {
                 </button>
             )
         }
+        if (currentStep == 4) {
+            return (
+                <button
+                    className="btn btn-success float-right"
+                    type="button" onClick={this.handleSubmit}>
+                    Submit
+                </button>
+            )
+        }
         return null;
     }
 
@@ -128,6 +154,7 @@ class NewRegisterForm extends Component {
                                 name={this.state.name}
                                 breed={this.state.breed}
                                 colors={this.state.colors}
+                                size={this.state.size}
                                 personality={this.state.personality}
                                 allergies={this.state.allergies}
                                 likes={this.state.likes}
@@ -138,8 +165,17 @@ class NewRegisterForm extends Component {
                             />
                             <Step3
                                 currentStep={this.state.currentStep}
+                                handleDropdown={this.handleDropdown}
                                 handleChange={this.handleChange}
-                                password={this.state.password}
+                                handleDateSubmit={this.handleDateSubmit}
+                                populateDates={this.populateDates}
+                                preferences={this.state.preferences}
+                                availability={this.state.availability}
+                                day={this.state.day}
+                                start={this.state.start}
+                                end={this.state.end}
+                                floor={this.state.floor}
+                                location={this.state.location}
                             />
                             <Step4
                                 currentStep={this.state.currentStep}
@@ -199,6 +235,10 @@ function Step2(props) {
                         <Form.Label>Color</Form.Label>
                         <Form.Control name="colors" value={props.colors} onChange={props.handleChange} type="text" placeholder="Brown" />
                     </Form.Group>
+                    <Form.Group controlId="formGroupSize">
+                        <Form.Label>Size</Form.Label>
+                        <Form.Control name="size" value={props.size} onChange={props.handleChange} type="text" placeholder="Small, Medium, Large" />
+                    </Form.Group>
                     <Form.Group controlId="formGroupPersonality">
                         <Form.Label>Personality</Form.Label>
                         <Form.Control name="personality" value={props.personality} onChange={props.handleChange} as="textarea" placeholder="" />
@@ -241,89 +281,124 @@ function Step3(props) {
     return (
         <div className="form-group">
             <Row>
-                <Col value={props.password}
-                    onChange={props.handleChange}>
+                <Col>
+                    <Form.Row align="left">
+                        <Form.Group as={Col}>
+                        <h5>Visiting Details:</h5>
+                        </Form.Group>
+                    </Form.Row>
                     <Form.Row align="left">
                         <Form.Group as={Col} controlId="formGridState">
                             <Form.Label>Day(s) of the Week</Form.Label>
-                            <Form.Control as="select">
-                                <option>Monday</option>
-                                <option>Tuesday</option>
-                                <option>Wednesday</option>
-                                <option>Thursday</option>
-                                <option>Friday</option>
+                            <Form.Control name="day" onChange={props.handleChange} value={props.day} as="select">
+                                <option value="Monday">Monday</option>
+                                <option value="Tuesday">Tuesday</option>
+                                <option value="Wednesday">Wednesday</option>
+                                <option value="Thursday">Thursday</option>
+                                <option value="Friday">Friday</option>
                             </Form.Control>
                         </Form.Group>
                         <Form.Group as={Col} controlId="formGridState">
                             <Form.Label>Start Time</Form.Label>
-                            <Form.Control as="select">
-                                <option>9:00 AM</option>
-                                <option>10:00 AM</option>
-                                <option>11:00 AM</option>
-                                <option>12:00 PM</option>
-                                <option>1:00 PM</option>
-                                <option>2:00 PM</option>
-                                <option>3:00 PM</option>
-                                <option>4:00 PM</option>
-                                <option>5:00 PM</option>
+                            <Form.Control name="start" onChange={props.handleChange} value={props.start} as="select">
+                                <option value="9:00 AM">9:00 AM</option>
+                                <option value="10:00 AM">10:00 AM</option>
+                                <option value="11:00 AM">11:00 AM</option>
+                                <option value="12:00 PM">12:00 PM</option>
+                                <option value="1:00 PM">1:00 PM</option>
+                                <option value="2:00 PM">2:00 PM</option>
+                                <option value="3:00 PM">3:00 PM</option>
+                                <option value="4:00 PM">4:00 PM</option>
+                                <option value="5:00 PM">5:00 PM</option>
                             </Form.Control>
                         </Form.Group>
                         <Form.Group as={Col} controlId="formGridState">
                             <Form.Label>End Time</Form.Label>
-                            <Form.Control as="select">
-                                <option>9:00 AM</option>
-                                <option>10:00 AM</option>
-                                <option>11:00 AM</option>
-                                <option>12:00 PM</option>
-                                <option>1:00 PM</option>
-                                <option>2:00 PM</option>
-                                <option>3:00 PM</option>
-                                <option>4:00 PM</option>
-                                <option>5:00 PM</option>
+                            <Form.Control name="end" onChange={props.handleChange} value={props.end} as="select">
+                                <option value="9:00 AM">9:00 AM</option>
+                                <option value="10:00 AM">10:00 AM</option>
+                                <option value="11:00 AM">11:00 AM</option>
+                                <option value="12:00 PM">12:00 PM</option>
+                                <option value="1:00 PM">1:00 PM</option>
+                                <option value="2:00 PM">2:00 PM</option>
+                                <option value="3:00 PM">3:00 PM</option>
+                                <option value="4:00 PM">4:00 PM</option>
+                                <option value="5:00 PM">5:00 PM</option>
                             </Form.Control>
                         </Form.Group>
                     </Form.Row>
                     <Form.Row >
                         <Form.Group as={Col} controlId="formGridState">
-                            <Button variant="primary" type="submit">
+                            <Button onClick={props.handleDateSubmit} variant="primary" type="submit">
                                 Add
                             </Button>
                         </Form.Group>
                     </Form.Row>
 
+                    <props.populateDates></props.populateDates>
+
+                    
+                    <Form.Row >
+                        <Form.Group as={Col} controlId="formGridState">
+                            <Form.Label>Floor</Form.Label>
+                            <Form.Control type="number" name="floor" onChange={props.handleChange} value={props.floor} as="select">
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                                <option value="6">6</option>
+                                <option value="7">7</option>
+                                <option value="8">8</option>
+                                <option value="9">9</option>
+                                <option value="10">10</option>
+                            </Form.Control>
+                        </Form.Group>
+                    </Form.Row>
+
+                    <Form.Row >
+                        <Form.Group as={Col} controlId="formGroupLocation">
+                            <Form.Label>Location</Form.Label>
+                            <Form.Control name="location" value={props.location} onChange={props.handleChange} type="text" placeholder="Desk 6-029" />
+                        </Form.Group>
+                    </Form.Row>
+
+                    <Form.Row align="left">
+                        <Form.Group as={Col}>
+                        <h5>I am looking for people to: </h5>
+                        </Form.Group>
+                    </Form.Row>
                     <Form.Row >
                         <Form.Group as={Col} controlId="formGridState">
                             <Form.Label>Pet my dog</Form.Label>
-                            <Form.Control as="select">
-                                <option>Yes</option>
-                                <option>No</option>
+                            <Form.Control name="pet" onChange={props.handleDropdown} value={props.preferences.pet} as="select">
+                                <option value="Yes">Yes</option>
+                                <option value="No">No</option>
                             </Form.Control>
                         </Form.Group>
                     </Form.Row>
                     <Form.Row >
                         <Form.Group as={Col} controlId="formGridState">
                             <Form.Label>Walk my dog</Form.Label>
-                            <Form.Control as="select">
-                                <option>Yes</option>
-                                <option>No</option>
+                            <Form.Control name="walk" onChange={props.handleDropdown} value={props.preferences.walk} as="select">
+                                <option value="Yes">Yes</option>
+                                <option value="No">No</option>
                             </Form.Control>
                         </Form.Group>
                     </Form.Row>
                     <Form.Row >
                         <Form.Group as={Col} controlId="formGridState">
                             <Form.Label>Play with my dog</Form.Label>
-                            <Form.Control as="select">
-                                <option>Yes</option>
-                                <option>No</option>
+                            <Form.Control name="play" onChange={props.handleDropdown} value={props.preferences.play} as="select">
+                                <option value="Yes">Yes</option>
+                                <option value="No">No</option>
                             </Form.Control>
                         </Form.Group>
                     </Form.Row>
                     <Form.Row >
                         <Form.Group as={Col} controlId="formGridState">
                             <Form.Label>Dog sit my dog</Form.Label>
-                            <Form.Control as="select">
-                                <option>Yes</option>
-                                <option>No</option>
+                            <Form.Control name="dogsit" onChange={props.handleDropdown} value={props.preferences.dogsit} as="select">
+                                <option value="Yes">Yes</option>
+                                <option value="No">No</option>
                             </Form.Control>
                         </Form.Group>
                     </Form.Row>
@@ -350,9 +425,7 @@ function Step4(props) {
                         </Form.Control>
                     </Form.Group>
                 </Form.Row>
-                <Form.Row align="left">
-                    <button className="btn btn-success" onClick={props.handleSubmit}>Sign up</button>
-                </Form.Row>
+                
             </Col>
         </Row>
     );
