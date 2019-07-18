@@ -106,14 +106,11 @@ a:hover{
   display: flex;
   flex-direction: column;
 }
-<<<<<<< HEAD
 
 .alignHorizontal{
   display:flex; 
   flex-direction:row;
 }
-=======
->>>>>>> f165eb96239ae28dc5c91deb27fc2816e9b5d6a5
 
 .dogProfile{
   margin-top: 40px;
