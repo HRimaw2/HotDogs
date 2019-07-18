@@ -12,6 +12,12 @@ class ManageDog extends Component {
         }
     }
 
+    componentWillReceiveProps(nextProps) {
+        console.log("CHANFED")
+        this.setState({dog: nextProps.dog});
+        this.setState({isDogIn: nextProps.dog.is_in});
+    }
+
     setDogOut = () => {
         this.setState({isDogIn: false}, ()=> {this.updateStatus(false)})
         this.props.handler(false)

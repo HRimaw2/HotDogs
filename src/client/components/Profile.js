@@ -57,31 +57,6 @@ class Profile extends Component {
         axios.get('api/location/'+this.state.dog.location_id, )
         .then((response) =>{
             this.setState({location:response.data.data})
-            this.setState({dog: {
-                about: "test",
-                likes: "boneless",
-                dislike: "",
-                status: [
-                    "I am in"
-                ],
-                colors: [
-                    "white"],
-                allergies: "None",
-                treats: "Test",
-                requests: "test",
-                is_in: true,
-                age: 5,
-                fun_facts: "test",
-                _id: "5d2ffd5750651163b5553bb3",
-                name: "test",
-                size: "large",
-                breed: "test",
-                profile_picture: "https://animalso.com/wp-content/uploads/2018/02/white-husky-1-1024x684.jpg",
-                schedule_id: "5d2ffd5750651163b5553bb1",
-                location_id: "5d2ffd5750651163b5553bb0",
-                owner_id: "5d2ffd5750651163b5553bb2"
-            
-            }})
         })
     }
 
