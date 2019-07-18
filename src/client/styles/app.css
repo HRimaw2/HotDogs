@@ -120,12 +120,10 @@ body {
   padding: 10px;
   margin: 10px;
 }
-<<<<<<< HEAD
 .spaced {
   display: flex;
   flex-direction: column;
 }
-=======
 
 .alignHorizontal{
   display:flex; 
@@ -213,4 +211,3 @@ body {
   padding: 20px;
   margin: 10px;
 }
->>>>>>> 871da39d712cd0004f552882acf84540637c162d

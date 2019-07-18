@@ -2,14 +2,27 @@ import React, { Component } from 'react';
 import '../styles/app.css';
 import DropdownButton from 'react-bootstrap/DropdownButton';
 import Dropdown from 'react-bootstrap/Dropdown';
+import axios from 'axios';
 
 class SearchFilters extends Component {
     constructor(props){
         super(props);
         this.state = {
-
-        }
+            dogs: []
+        };
+        this.getDogs = this.getDogs.bind(this);
     }
+
+    componentDidMount() {
+        this.getDogs();
+    }
+
+    getDogs = () => {
+        axios.get('api/dogs',)
+          .then((res) => {
+            this.setState({ dogs: res.data.data });
+          });
+    };
 
     getBreeds = (breedIds, breeds) => {
 
@@ -24,30 +37,33 @@ class SearchFilters extends Component {
     };
 
     render() {
+        const { dogs } = this.state;
+        console.log(dogs);
         return (
-<<<<<<< HEAD
-            <form>
+            // <form>
                 <ul>
                 <DropdownButton id="dropdown-basic-button" title="Filter">
                     <form>
                         <ul>
                             <div className='alignHorizontal'>
                                 <div>Breed</div>
+                                
+                                {dogs}
                                 <div>Size</div>
                                 <div>Color</div>
                             </div>
-                            {/* {this.props.genres.map(({ id, name }) => (
+                            {this.props.breed.map(({ id, name }) => (
                                 <li key={id}>
                                     <label htmlFor="">
                                         <input
                                             type="checkbox"
                                             name={id}
-                                            onChange={this.props.updateMovies}
+                                            // onChange={this.props.updateMovies}
                                         />
                                         { name }
                                     </label>
                                 </li>
-                            ))} */}
+                            ))}
                         </ul>
                     </form>
                     {/* <Dropdown.Item href="#/action-1">Action</Dropdown.Item>
@@ -55,12 +71,7 @@ class SearchFilters extends Component {
                     <Dropdown.Item href="#/action-3">Something else</Dropdown.Item> */}
                 </DropdownButton>
                 </ul>
-            </form>
-=======
-            <div>
-
-            </div>
->>>>>>> 871da39d712cd0004f552882acf84540637c162d
+            // </form>
         );
     }
 }
