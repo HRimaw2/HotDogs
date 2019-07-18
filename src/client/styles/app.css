@@ -106,12 +106,6 @@ a:hover{
   display: flex;
   flex-direction: column;
 }
-
-.alignHorizontal{
-  display:flex; 
-  flex-direction:row;
-}
-
 .dogProfile{
   margin-top: 40px;
   margin-left: 10px;
@@ -192,4 +186,14 @@ a:hover{
   border: 1px solid black;
   padding: 20px;
   margin: 10px;
+}
+
+.alignVertically{
+  display:flex; 
+  flex-direction:row;
+}
+
+.alignHorizontal{
+  display:flex; 
+  flex-direction:column;
 }

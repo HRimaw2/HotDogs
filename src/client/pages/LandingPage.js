@@ -38,7 +38,7 @@ class LandingPage extends Component {
         return (
             <div>
                 <NavigationBar />
-                <SearchFilters />
+                <SearchFilters dogs = {this.state.dogs} />
                 <div className="dogTileContainer">
                     <this.populateDogTiles></this.populateDogTiles>
                 </div>
