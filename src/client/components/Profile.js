@@ -4,14 +4,46 @@ import DogStatus from './DogStatus';
 import ManageDog from './ManageDog';
 import VisitingInformation from './VisitingInformation';
 import AboutMe from './AboutMe';
+import axios from 'axios';
 
 class Profile extends Component {
-
     constructor(props){
         super(props);
         this.state = {
-            dog: this.props.dog
+            dog: this.props.dog,
+            owner: {name:""},
+            location: {floor:0}
         }
+    }
+
+    componentDidMount(){
+        console.log(this.state.dog)
+        this.getOwnerInfo();
+        this.getLocationInfo();
+        this.getScheduleInfo();
+    }
+
+    dogErrCheck = () => {}
+
+    getOwnerInfo= () => {
+        axios.get('api/owners/'+this.state.dog.owner_id, )
+        .then((response) =>{
+            this.setState({owner:response.data.data})
+        })
+    }
+
+    getLocationInfo= () => {
+        axios.get('api/location/'+this.state.dog.location_id, )
+        .then((response) =>{
+            this.setState({location:response.data.data})
+        })
+    }
+
+    getScheduleInfo= () => {
+        axios.get('api/schedules/'+this.state.dog.schedule_id, )
+        .then((response) =>{
+            this.setState({schedule:response.data.data})
+        })
     }
 
     render() {
@@ -19,10 +51,10 @@ class Profile extends Component {
             <div className = "dogProfile">
                 <Row>
                     <Col>
-                        <img className="profilePic" src="https://pbs.twimg.com/profile_images/962170088941019136/lgpCD8X4_400x400.jpg" ></img>
-                        `<p className="dogName">Dog Name</p>
+                        <img className="profilePic" src={this.state.dog.profile_picture} ></img>
+                        `<p className="dogName">{this.state.dog.name}</p>
                         <DogStatus />
-                        <p>My owner is: Audrey Chang</p>
+                        <p>My owner is: {}</p>
                         <p>Come visit me on floor 10</p>
                         <div className="attributes">
                             <Row>
