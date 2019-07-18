@@ -59,8 +59,6 @@ class AutoComplete extends Component {
     };
 
     render() {
-      console.log(this.state.dogNames);
-
       const { currentName, dogNames } = this.state;
       const inputProps = {
         placeholder: "Enter a dog's name",
