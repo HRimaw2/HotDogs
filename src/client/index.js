@@ -13,6 +13,7 @@ import LoginSignupPage from './pages/LoginSignupPage';
 import ResultsPage from './pages/ResultsPage';
 import ViewProfilePage from './pages/ViewProfilePage';
 import RegisterPage from './pages/RegisterPage';
+import RegisterFormPage from './pages/RegisterFormPage';
 
 ReactDOM.render(
       <BrowserRouter>
@@ -23,6 +24,7 @@ ReactDOM.render(
         <Route path="/results" component={ResultsPage} />
         <Route path="/profile" component={ViewProfilePage} />
         <Route path="/register" component={RegisterPage} />
+        <Route path="/registerform" component={RegisterFormPage} />
       </BrowserRouter> ,
     (document.getElementById('root'))
 );

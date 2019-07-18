@@ -25,6 +25,7 @@ class SearchFilters extends Component {
 
     render() {
         return (
+<<<<<<< HEAD
             <form>
                 <ul>
                 <DropdownButton id="dropdown-basic-button" title="Filter">
@@ -55,6 +56,11 @@ class SearchFilters extends Component {
                 </DropdownButton>
                 </ul>
             </form>
+=======
+            <div>
+
+            </div>
+>>>>>>> 871da39d712cd0004f552882acf84540637c162d
         );
     }
 }
