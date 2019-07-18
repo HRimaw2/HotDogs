@@ -20,14 +20,9 @@ class NavigationBar extends Component {
     render() {
         return (
             <Navbar className="bg-light justify-content-between" bg="light" variant="light">
-                <Navbar.Brand href="#">HotDogs</Navbar.Brand>
-
-                <Form inline>
-                    <FormControl type="text" placeholder="Search For a Dog" className="mr-sm-2" />
-                    <Button variant="outline-primary">Go</Button>
-                </Form>
+                <Navbar.Brand href="/">HotDogs</Navbar.Brand>
                 <Nav>
-                    <Nav.Link href="#">My Dog</Nav.Link>
+                    <Nav.Link href="/login">Register my dog / login</Nav.Link>
                 </Nav>
             </Navbar>
         );

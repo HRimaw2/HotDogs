@@ -95,6 +95,7 @@ router.post('/', (req, res) => {
     let loc1 = new Location();
     let sche1 = new Schedule();
     let own1 = new Owner();
+    console.log(req.body)
     let data = req.body;
     data.schedule_id = sche1._id;
     data.location_id = loc1._id;
@@ -110,8 +111,6 @@ router.post('/', (req, res) => {
     let sche = new Schedule(scheJSON);
     let loc = new Location(locJSON);
     let own = new Owner(ownJSON);
-    console.log(loc, sche, own);
-
 
     sche.save()
         .then(() => {
@@ -137,14 +136,14 @@ router.post('/', (req, res) => {
             });
         })
         .catch((err) => {
-            console.log(err);
+            //console.log(err);
         });
 });
 
 router.put('/:id', (req, res) => {
     const id = req.params.id;
     let dogData = req.body;
-    Dog.findByIdAndUpdate(id, dogData, (err, res_dog) => {
+    Dog.findByIdAndUpdate(id, dogData, {new: true}, (err, res_dog) => {
         if(err){
             console.log(err);
             res.status(400).send({
