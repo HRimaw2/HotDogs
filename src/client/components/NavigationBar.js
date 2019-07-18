@@ -22,7 +22,7 @@ class NavigationBar extends Component {
             <Navbar className="bg-light justify-content-between" bg="light" variant="light">
                 <Navbar.Brand href="/">HotDogs</Navbar.Brand>
                 <Nav>
-                    <Nav.Link href="#">Register my dog / login</Nav.Link>
+                    <Nav.Link href="/login">Register my dog / login</Nav.Link>
                 </Nav>
             </Navbar>
         );
