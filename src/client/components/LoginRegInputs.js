@@ -5,6 +5,7 @@ import '../styles/app.css';
 import Form from 'react-bootstrap/Form';
 import FormControl from 'react-bootstrap/FormControl';
 
+
 class LoginRegInputs extends Component {
     constructor(props) {
         super(props);
@@ -24,19 +25,10 @@ class LoginRegInputs extends Component {
 
     render() {
         return (
-
-            <div id="loginbox">
-                <Row>
-                    <Col md={{ span: 6, offset: 3 }}>
-                        Username: <input onChange={this.handleEmailChange} className="login-text"type="text" placeholder='username'></input >
-                    </Col>
-                    <Col md={{ span: 6, offset: 3 }}>
-                        Password: <input onChange={this.handlePasswordChange} className="login-text"type="password" placeholder='password'></input >
-                    </Col>
-                    <Col md={{ span: 6, offset: 3 }}>
-                    <Button>{this.state.type}</Button>
-                    </Col>
-                </Row>
+            <div className="spaced">
+                <Col className="user">Username: <input onChange={this.handleEmailChange} className="login-text"type="text" placeholder='username'></input> </Col>
+                <Col className="pass">Password: <input onChange={this.handlePasswordChange} className="login-text"type="password" placeholder='password'></input ></Col>
+                <Row className="loginButton"><Button>{this.state.type}</Button></Row>
             </div>
         );
     }
