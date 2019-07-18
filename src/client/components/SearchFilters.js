@@ -12,7 +12,7 @@ class SearchFilters extends Component {
     render() {
         return (
             <div>
-                
+
             </div>
         );
     }

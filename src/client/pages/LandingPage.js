@@ -18,7 +18,6 @@ class LandingPage extends Component {
     }
 
     populateDogTiles = () => {
-        console.log(this.state.dogs)
         return (<Row>
             {this.state.dogs.map((dog, index) => (
                 <Col md={6}><DogTile dog = {dog} /> </Col>
@@ -36,7 +35,6 @@ class LandingPage extends Component {
 
 
     render() {
-        console.log(this.state.dogs)
         return (
             <div>
                 <NavigationBar />

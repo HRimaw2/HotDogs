@@ -1,13 +1,21 @@
 import React, { Component } from 'react';
+<<<<<<< HEAD
 import { Route } from 'react-router-dom'
 import { Row,Col, Button } from 'react-bootstrap';
 
+=======
+import { Route } from 'react-router-dom';
+import { Row, Button, Col } from 'react-bootstrap';
+import '../styles/app.css';
+import Form from 'react-bootstrap/Form';
+import FormControl from 'react-bootstrap/FormControl';
+>>>>>>> 871da39d712cd0004f552882acf84540637c162d
 
 class LoginRegInputs extends Component {
-    constructor(props){
+    constructor(props) {
         super(props);
         this.state = {
-            type : this.props.type,
+            type: this.props.type,
             email: "",
             password: ""
         }
