@@ -24,14 +24,18 @@ class SearchFilters extends Component {
         axios.get('api/dogs',)
           .then((res) => {
             this.setState({ dog: res.data.data })
+            this.populateBreeds();
             // this.setState({ breed: res.data.data.breed})
-          });
+            });
     };
 
     populateBreeds = () => {
-        for (dog in dogs){
-            
-        }
+        {this.props.dogs.map(breed => (
+            <li key={breed}>{breed}</li>
+        ))}
+        // for (dog in dogs){
+        //     console.log(dog); 
+        // }
     }
 
     getBreeds = (breedIds, breeds) => {
@@ -47,8 +51,8 @@ class SearchFilters extends Component {
     };
 
     render() {
-        const { dog } = this.state;
-        console.log(dog);
+        const { dogs } = this.state;
+        console.log(dogs);
         const { breed } = this.state;
         console.log(breed);
         return (
@@ -57,20 +61,42 @@ class SearchFilters extends Component {
                 <DropdownButton id="dropdown-basic-button" title="Filter">
                             <div>
                                 <div className='alignHorizontal'>
-                                <div className ='alignVertically'>Breed</div>
-                                <div>
-                                    <form>
-                                        <label htmlFor="">
-                                            <input
-                                                type="checkbox"
-                                                // onChange={this.props.updateMovies}
-                                            />
-                                            {breed}
-                                        </label>
-                                    </form>
-                                </div>
+                                    <div className ='alignVertically'>Breed</div>
+                                    <div>
+                                        <form>
+                                            <label htmlFor="">
+                                                <input
+                                                    type="checkbox"
+                                                    // onChange={this.props.updateMovies}
+                                                />
+                                                {breed}
+                                            </label>
+                                        </form>
+                                    </div>
                                 <div className='alignHorizontal'>Size</div>
+                                    <div>
+                                        <form>
+                                            <label htmlFor="">
+                                                <input
+                                                    type="checkbox"
+                                                    // onChange={this.props.updateMovies}
+                                                />
+                                                {breed}
+                                            </label>
+                                        </form>
+                                    </div>
                                 <div className='alignHorizontal'>Color</div>
+                                    <div>
+                                        <form>
+                                            <label htmlFor="">
+                                                <input
+                                                    type="checkbox"
+                                                    // onChange={this.props.updateMovies}
+                                                />
+                                                {breed}
+                                            </label>
+                                        </form>
+                                    </div>
                                 </div>
                             </div>
                             {/* {this.props.breed.map(({ id, name }) => (
