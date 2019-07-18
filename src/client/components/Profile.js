@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { Row, Col } from 'react-bootstrap';
+import { Row, Col, Button } from 'react-bootstrap';
+import DogStatus from './DogStatus';
 import ManageDog from './ManageDog';
 import VisitingInformation from './VisitingInformation';
 import AboutMe from './AboutMe';
@@ -61,7 +62,7 @@ class Profile extends Component {
       <div className="dogProfile">
         <Row>
           <Col>
-            <img alt="profile picture" className="profilePic" src={this.state.dog.profile_picture}/>
+            <img className="profilePic" src={this.state.dog.profile_picture}></img>
             <p className="dogName">{this.state.dog.name}</p>
             <div className="dogStatus">
               {this.state.dog.status}
@@ -86,7 +87,7 @@ class Profile extends Component {
                 </Col>
                 <Col>
                   Color
-                  {this.state.dog.colors.map((color) => (
+                  {this.state.dog.colors.map((color, index) => (
                     <p>{color}</p>
                   ))}
                 </Col>
@@ -98,7 +99,7 @@ class Profile extends Component {
                        dog={this.state.dog}/>
             <div className="visitingAbout">
               <VisitingInformation dogStateHandler={this.dogStateTracker} dog={this.state.dog}/>
-              <AboutMe dog={this.state.dog}/>
+              <AboutMe dogStateHandler={this.dogStateTracker} dog={this.state.dog}/>
             </div>
           </Col>
         </Row>
