@@ -21,7 +21,8 @@ const DogProfileSchema = new Schema({
 	requests: { type: String, default: '' },
 	location_id: { type: Object, required: true },
 	schedule_id: { type: Object, required: true },
-	owner_id: { type: Object, required: true }
+	owner_id: { type: Object, required: true },
+	is_in : { type: Object, required: true, default: false}
 });
 
 // Export the Mongoose model
