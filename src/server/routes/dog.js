@@ -105,53 +105,69 @@ router.get('/:id', (req, res) => {
 });
 
 router.post('/', (req, res) => {
-  let loc1 = new Location();
-  let sche1 = new Schedule();
-  let own1 = new Owner();
-  console.log(req.body);
-  let data = req.body;
-  data.schedule_id = sche1._id;
-  data.location_id = loc1._id;
-  data.owner_id = own1._id;
-  let dog = new Dog(data);
-  locJSON = loc1.toJSON();
-  scheJSON = sche1.toJSON();
-  ownJSON = own1.toJSON();
-
-  locJSON.dog_id = dog._id;
-  scheJSON.dog_id = dog._id;
-  ownJSON.dog_id = dog._id;
-  let sche = new Schedule(scheJSON);
-  let loc = new Location(locJSON);
-  let own = new Owner(ownJSON);
-
-  sche.save()
-    .then(() => {
-    })
-    .catch((err) => {
-    });
-  own.save()
-    .then(() => {
-    })
-    .catch((err) => {
-    });
-  loc.save()
-    .then(() => {
-    })
-    .catch((err) => {
-      console.log(err);
-    });
-  dog.save()
-    .then(() => {
-      res.status(200)
-        .send({
-          message: 'OK',
-          data: dog
+    let data = req.body;
+    let dog = new Dog(data);
+    if(!data.hasOwnProperty('location_id'))
+    {
+        let loc1 = new Location();
+        data.location_id = loc1._id;
+        locJSON = loc1.toJSON();
+        locJSON.dog_id = dog._id;
+        let loc = new Location(locJSON);
+        loc.save()
+        .then(() => {
+        })
+        .catch((err) => {
+            console.log(err);
         });
-    })
-    .catch((err) => {
-      //console.log(err);
-    });
+    } 
+    if (!data.hasOwnProperty('schedule_id')){
+        let sche1 = new Schedule();
+        data.schedule_id = sche1._id;
+        scheJSON = sche1.toJSON();
+        scheJSON.dog_id = dog._id;
+        let sche = new Schedule(scheJSON);
+        sche.save()
+        .then(() => {
+        })
+        .catch((err) => {
+        });
+    }
+    if (!data.hasOwnProperty('owner_id')){
+        let own1 = new Owner();
+        data.owner_id = own1._id;
+        ownJSON = own1.toJSON();
+        ownJSON.dog_id = dog._id;
+        let own = new Owner(ownJSON);
+        own.save()
+            .then(() => {
+            })
+            .catch((err) => {
+            });
+    } else {
+        dog.save()
+        .then(() => {
+            res.status(200).send({
+                message: 'OK',
+                data: dog
+            });
+        })
+        .catch((err) => {
+            //console.log(err);
+        });
+    }
+    let newDog = new Dog(data);
+      console.log(newDog);
+          newDog.save()
+          .then(() => {
+              res.status(200).send({
+                  message: 'OK',
+                  data: newDog
+              });
+          })
+          .catch((err) => {
+              //console.log(err);
+          });
 });
 
 router.put('/:id', (req, res) => {
