@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import '../styles/form.css'
 import NavigationBar from '../components/NavigationBar';
 import DogTile from '../components/DogTile';
+import SearchFilters from '../components/SearchFilters';
 import { Row, Col, Button } from 'react-bootstrap';
 import axios from 'axios';
 
@@ -34,12 +35,12 @@ class LandingPage extends Component {
         })
     }
 
-
     render() {
         console.log(this.state.dogs)
         return (
             <div>
                 <NavigationBar />
+                <SearchFilters />
                 <div className="dogTileContainer">
                     <this.populateDogTiles></this.populateDogTiles>
                 </div>
