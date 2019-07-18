@@ -67,47 +67,47 @@ class ProfileForm extends Component {
                     Colors
                     </Form.Label>
                     <Col sm={10}>
-                        <Form.Check 
+                        <Form.Check
                             type="checkbox"
                             label="Brown"
                         />
-                        <Form.Check 
+                        <Form.Check
                             type="checkbox"
                             label="Red"
                         />
-                        <Form.Check 
+                        <Form.Check
                             type="checkbox"
                             label="Yellow"
                         />
-                        <Form.Check 
+                        <Form.Check
                             type="checkbox"
                             label="Cream"
                         />
-                        <Form.Check 
+                        <Form.Check
                             type="checkbox"
                             label="Black"
                         />
-                        <Form.Check 
+                        <Form.Check
                             type="checkbox"
                             label="Gray"
                         />
-                        <Form.Check 
+                        <Form.Check
                             type="checkbox"
                             label="White"
                         />
-                        <Form.Check 
+                        <Form.Check
                             type="checkbox"
                             label="Blue"
                         />
-                        <Form.Check 
+                        <Form.Check
                             type="checkbox"
                             label="Spotted"
                         />
-                        <Form.Check 
+                        <Form.Check
                             type="checkbox"
                             label="Striped"
                         />
-                        <Form.Check 
+                        <Form.Check
                             type="checkbox"
                             label="Sable"
                         />
@@ -119,15 +119,15 @@ class ProfileForm extends Component {
                     Size
                     </Form.Label>
                     <Col sm={10}>
-                        <Form.Check 
+                        <Form.Check
                             type="radio"
                             label="Small"
                         />
-                        <Form.Check 
+                        <Form.Check
                             type="radio"
                             label="Medium"
                         />
-                        <Form.Check 
+                        <Form.Check
                             type="radio"
                             label="Large"
                         />
@@ -168,7 +168,7 @@ class ProfileForm extends Component {
                     <Button type="submit">Submit Profile</Button>
                     </Col>
                 </Form.Group>
-                
+
                 </Form>
 
             </div>

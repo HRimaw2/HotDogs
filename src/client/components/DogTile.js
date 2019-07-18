@@ -19,9 +19,19 @@ class DogTile extends Component {
                         <img className="dogprofileimage" src="https://pbs.twimg.com/profile_images/962170088941019136/lgpCD8X4_400x400.jpg"></img>
                     </Col>
                     <Col className="dogDesc">
-                        <p className="dogName">{this.state.dog.name}</p>
-                        <Button className="loginbutton" size="lg"> Dog Status </Button>
-                        <Button className="dogbutton" size="lg"> Dog Location </Button>
+                        <h2 className="dogName">{this.state.dog.name}</h2>
+
+
+                        <div className = "cardInfoContainer">
+                          <div className="statusBadge">
+                            <p className="badgeText">I am in!</p>
+                          </div>
+
+                          <div className="locationContainer">
+                            <p>Floor 8 - Desk 12</p>
+                          </div>
+                        </div>
+
                     </Col>
                 </Row>
             </div>

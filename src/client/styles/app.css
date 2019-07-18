@@ -1,3 +1,20 @@
+.doge{
+  padding: 0px;
+}
+
+.testClass {
+  border: 1px solid #a2a2a2;
+  background-color: #FFFDF8;
+  border-radius: 8px;
+  /*display: flex;
+  justify-content: wrap-around;*/
+}
+
+.override {
+  margin-top: 2rem;
+
+}
+
 h1 {
   color: green;
 }
@@ -40,12 +57,6 @@ body {
   border:  #FF7C68;
 }
 
-.dogName{
-  color: #AC926E;
-  font-family: 'Comfortaa', cursive;
-  font-size: 150%;
-}
-
 .dogprofileimage{
   border: 0px solid black;
   border-radius: 50%;
@@ -59,13 +70,54 @@ body {
 }
 
 .dogTile{
-  border: 1px solid rgb(216, 216, 216);
+  border: 1px solid #A2A2A2;
+  border-radius: 8px;
   padding: 10px;
   margin: 10px;
 }
 
+.dogTileContentContainer {
+  margin: 0;
+  padding:0;
+}
+
+.loginbutton {
+  alignItems: 'center';
+}
+
+.cardInfoContainer {
+  text-align: center;
+}
+
+.statusBadge {
+  margin-bottom: 1rem;
+  color: white;
+  width: 100px;
+  border-radius: 8px;
+  margin: auto;
+  height: 2rem;
+  background-color: #32AA39
+}
+
+.locationContainer {
+  margin-top: 1rem;
+}
+
+.pageContainer {
+
+  margin: 1rem 15rem;
+  /*background-color: #FFFDF8;*/
+  /*border: 1px solid #A2A2A2;*/
+  border-radius: 8px;
+}
+
+.dogName {
+  margin-bottom: 1rem;
+}
+
 .dogDesc {
-  margin-top: 5%;
+  margin-top: 3rem;
+  text-align: center;
 }
 
 .dogProfileCol{
@@ -75,4 +127,34 @@ body {
 .dogTileContainer {
   padding: 10px;
   margin: 10px;
+}
+
+.badgeText {
+  color: white;
+  padding-top: 0.25rem;
+}
+
+h2 {
+  font-size: 1.7rem;
+  color: #333;
+}
+
+h3 {
+  font-size: 22px;
+  color: #333;
+}
+
+h4 {
+  font-size: 1.5rem;
+  color: #333;
+}
+
+h5 {
+  font-size: 1.2rem;
+  color: #333;
+}
+
+p {
+  font-size: 1rem;
+  color: #333;
 }

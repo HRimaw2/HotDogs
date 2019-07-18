@@ -10,12 +10,13 @@ class ResultsPage extends Component {
         }
     }
 
+
     render() {
         return (
-            <div>
-                <NavigationBar />
-                <DogTile />
-            </div>
+          <div>
+            <NavigationBar />
+            <pageContainer />
+          </div>
         );
     }
 }
