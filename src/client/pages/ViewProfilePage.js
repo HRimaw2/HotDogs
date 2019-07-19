@@ -12,9 +12,9 @@ class ViewProfilePage extends Component {
     };
   }
 
-  componentWillReceiveProps(nextProps){
-    this.setState({isLogginIn:nextProps.isLogginIn})
-  }
+  // componentWillReceiveProps(nextProps){
+  //   this.setState({isLogginIn:nextProps.isLogginIn})
+  // }
 
 
 
@@ -22,7 +22,7 @@ class ViewProfilePage extends Component {
     return (
       <div>
         <NavigationBar/>
-        <Profile isLoggedIn={this.state.isLogginIn} dog={this.props.location.state.detail} />
+        <Profile isLoggedIn={this.props.location.state.isLoggedIn} dog={this.props.location.state.detail} />
       </div>
     );
   }

@@ -25,7 +25,7 @@ class LandingPage extends Component {
         return (
             <Row  className="testClass">
             {this.state.dogs.map((dog, index) => (
-                <Col className="override" md={6}><DogTile dog = {dog} /> </Col>
+                <Col className="override" md={6}><DogTile isLoggedIn={this.state.isLoggedIn} dog = {dog} /> </Col>
             )) }
             </Row>);
     }
@@ -40,6 +40,10 @@ class LandingPage extends Component {
         this.setState({ dogs: response.data.data });
       });
   };
+
+  componentWillReceiveProps(nextProps){
+
+  }
 
     render() {
         return (

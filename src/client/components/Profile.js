@@ -14,7 +14,7 @@ class Profile extends Component {
       owner: { name: '' },
       location: { floor: 0 },
       status: this.props.dog.is_in,
-      isLogginIn: false
+      isLogginIn: this.props.isLogginIn
     };
   }
 
@@ -113,12 +113,12 @@ class Profile extends Component {
               </div>
             </Col>
             <Col className="contentContainer" md={8}>
-              <ManageDog handler={this.statusHandler} dogStateHandler={this.dogStateTracker}
-                        dog={this.state.dog}/>
+              {this.state.isLoggedIn && <ManageDog handler={this.statusHandler} dogStateHandler={this.dogStateTracker}
+                        dog={this.state.dog}/>}
               
               <div className="visitingAbout">
-                <VisitingInformation dogStateHandler={this.dogStateTracker} dog={this.state.dog}/>
-                <AboutMe dogStateHandler={this.dogStateTracker} dog={this.state.dog}/>
+                <VisitingInformation isLoggedIn={this.state.isLoggedIn} dogStateHandler={this.dogStateTracker} dog={this.state.dog}/>
+                <AboutMe isLoggedIn={this.state.isLoggedIn} dogStateHandler={this.dogStateTracker} dog={this.state.dog}/>
               </div>
             </Col>
           </Row>

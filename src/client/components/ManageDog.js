@@ -7,7 +7,8 @@ class ManageDog extends Component {
     super(props);
     this.state = {
       dog: this.props.dog,
-      isDogIn: this.props.dog.is_in
+      isDogIn: this.props.dog.is_in,
+      isLoggedIn: this.props.isLoggedIn
     };
   }
 

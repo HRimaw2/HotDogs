@@ -10,7 +10,8 @@ class VisitingInformation extends Component {
       schedule: { available_times: [] },
       editing: false,
       times: [],
-      activities: this.props.dog.requests
+      activities: this.props.dog.requests,
+      isLoggedIn: this.props.isLoggedIn
     };
   }
 
@@ -72,7 +73,7 @@ class VisitingInformation extends Component {
             <h3>Visiting Information</h3>
           </Col>
           <Col>
-            <Button onClick={this.editClick} className="editProfileButton"> Edit </Button>
+            {this.state.isLoggedIn && <Button onClick={this.editClick} className="editProfileButton"> Edit </Button>}
           </Col>
         </Row>
         <hr></hr>

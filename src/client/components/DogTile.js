@@ -9,7 +9,8 @@ class DogTile extends Component {
         super(props);
         this.state = {
             dog: this.props.dog,
-            location: ''
+            location: '',
+            isLoggedIn: this.props.isLoggedIn
         }
     }
 
@@ -31,7 +32,7 @@ class DogTile extends Component {
     render() {
       return (
             <Route render={({history}) => (
-            <div className = "dogTile" onClick={() =>history.push({pathname: '/profile', state: { detail: this.state.dog }}) }>
+            <div className = "dogTile" onClick={() =>history.push({pathname: '/profile', state: { detail: this.state.dog, isLoggedIn:this.state.isLoggedIn }}) }>
                  <Row>
                     <Col className="dogProfileCol">
                       <div className="imagecropper">

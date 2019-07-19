@@ -14,6 +14,7 @@ class AboutMe extends Component {
       treats: this.props.dog.treats,
       allergies: this.props.dog.allergies,
       facts: this.props.dog.fun_facts,
+      isLoggedIn: this.props.isLoggedIn
     };
 
     this.editPersonality = this.editPersonality.bind(this);
@@ -83,7 +84,7 @@ class AboutMe extends Component {
             <h3>About Me</h3>
           </Col>
           <Col>
-            <Button onClick={this.onEditClick} className="editProfileButton"> Edit </Button>
+            {this.state.isLoggedIn && <Button onClick={this.onEditClick} className="editProfileButton"> Edit </Button>}
           </Col>
         </Row>
         <hr></hr>
