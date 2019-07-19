@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Autosuggest from 'react-autosuggest';
 import axios from 'axios';
+import Link from 'react-router-dom';
 
 
 class AutoComplete extends Component {
@@ -27,17 +28,19 @@ class AutoComplete extends Component {
       const nameLength = name.length;
       const dogs = this.state.dogs;
       let suggestedNames = dogs.filter(dog => dog.name.toString().toLowerCase().slice(0, nameLength) === name);
-      print(suggestedNames); 
+      console.log("sug name", suggestedNames)
+      this.props.handleFilterNames(suggestedNames)
       return nameLength === 0 ? [] : suggestedNames;
     };
 
     getSuggestionValue = dog => dog.name;
 
     renderSuggestion = (dog) => {
+      console.log("YEET")
       return(
-          <span>
+          <div>
             {dog.name}
-          </span>
+          </div>
         );
       };
 
@@ -63,11 +66,7 @@ class AutoComplete extends Component {
     };
 
     render() {
-<<<<<<< HEAD
       const { value, dogNames } = this.state;
-=======
-      const { currentName, dogNames } = this.state;
->>>>>>> 74e44b4003de192d7dc53698fb5cedb254a3ad1e
       const inputProps = {
         placeholder: "Enter a dog's name",
         value,

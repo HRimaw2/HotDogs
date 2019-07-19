@@ -20,12 +20,10 @@ class NavigationBar extends Component {
   render() {
     return (
       <Navbar id="navbar" className="justify-content-between" variant="light">
-        <Navbar.Brand href="/home"><img id="navbarimage" href="/" src={WhiteLogo} height="40px"/>
+        {/* <Navbar.Brand href="/home"><img id="navbarimage" href="/" src={WhiteLogo} height="40px"/>
            
-       </Navbar.Brand>
+       </Navbar.Brand> */}
        <div>
-            <AutoComplete >
-            </AutoComplete>
         </div>
         <Nav>
           <Nav.Link href="/login">Register my dog / login</Nav.Link>
