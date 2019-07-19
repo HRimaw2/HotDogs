@@ -59,7 +59,6 @@ class Profile extends Component {
 
   render() {
     return (
-<<<<<<< HEAD
       <div class="pageContainer">
         <div className="dogProfile">
           <Row>
@@ -121,54 +120,6 @@ class Profile extends Component {
             </Col>
           </Row>
         </div>
-=======
-      <div className="dogProfile">
-        <Row>
-          <Col>
-            <div className="imagecropper2">
-            <img className="profilePic" src={this.state.dog.profile_picture}></img>
-            </div>
-            <p className="dogName">{this.state.dog.name}</p>
-            <div className="dogStatus">
-              {this.state.dog.status}
-            </div>
-            <p>My owner is: {this.state.owner.name}</p>
-            <p>Come visit me on floor {this.state.location.floor}</p>
-            <div className="attributes">
-              <Row>
-                <Col>
-                  Age
-                  <p>{this.state.dog.age}</p>
-                </Col>
-                <Col>
-                  Breed
-                  <p>{this.state.dog.breed}</p>
-                </Col>
-              </Row>
-              <Row>
-                <Col>
-                  Size
-                  <p>{this.state.dog.size}</p>
-                </Col>
-                <Col>
-                  Color
-                  {this.state.dog.colors.map((color, index) => (
-                    <p>{color}</p>
-                  ))}
-                </Col>
-              </Row>
-            </div>
-          </Col>
-          <Col>
-            <ManageDog handler={this.statusHandler} dogStateHandler={this.dogStateTracker}
-                       dog={this.state.dog}/>
-            <div className="visitingAbout">
-              <VisitingInformation dogStateHandler={this.dogStateTracker} dog={this.state.dog}/>
-              <AboutMe dogStateHandler={this.dogStateTracker} dog={this.state.dog}/>
-            </div>
-          </Col>
-        </Row>
->>>>>>> 57ab834cf3cc636d29d688d0e227841e15e04307
       </div>
     );
   }
