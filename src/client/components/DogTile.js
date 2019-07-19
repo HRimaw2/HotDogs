@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import '../styles/app.css';
 import { Row, Col, Button } from 'react-bootstrap';
 import axios from 'axios';
-
+import { Route } from 'react-router-dom';
 
 class DogTile extends Component {
     constructor(props){
@@ -26,7 +26,8 @@ class DogTile extends Component {
 
     render() {
         return (
-            <div className = "dogTile">
+            <Route render={({history}) => (
+            <div className = "dogTile" onClick={() =>history.push({pathname: '/profile', state: { detail: this.state.dog }}) }>
                  <Row>
                     <Col className="dogProfileCol">
                         <img className="dogprofileimage" src="https://pbs.twimg.com/profile_images/962170088941019136/lgpCD8X4_400x400.jpg"></img>
@@ -54,6 +55,7 @@ class DogTile extends Component {
                     </Col>
                 </Row>
             </div>
+            )}/>
         );
     }
 }
