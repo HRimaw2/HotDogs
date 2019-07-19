@@ -120,7 +120,11 @@ router.get('/:id', (req, res) => {
 });
 
 router.put('/:id', (req, res) => {
+  console.log("IN PUT");
+  console.log(req.body);
   const id = req.params.id;
+  console.log(req.params);
+  console.log(id);
   location.findByIdAndUpdate(id, req.body, (err, loc) => {
     if (err) {
       res.status(400)
@@ -128,13 +132,8 @@ router.put('/:id', (req, res) => {
           message: 'Error',
           data: []
         });
-    } else if (!loc) {
-      res.status(400)
-        .send({
-          message: 'No location with that id found',
-          data: []
-        });
     } else {
+      console.log("success");
       res.status(200)
         .send({
           message: 'SUCCESS',

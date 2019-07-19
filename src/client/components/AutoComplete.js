@@ -72,7 +72,7 @@ class AutoComplete extends Component {
       };
 
       return (
-        <Autosuggest
+        <Autosuggest 
           suggestions={dogNames}
           onSuggestionsFetchRequested={this.onSuggestionsFetchRequested}
           onSuggestionsClearRequested={this.onSuggestionsClearRequested}
