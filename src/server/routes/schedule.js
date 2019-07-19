@@ -66,6 +66,9 @@ router.post('/', (req, res) => {
 router.put('/:id', (req, res) => {
   const id = req.params.id;
   let scheduleChange = req.body;
+  console.log(req.params);
+  console.log(req.body);
+  console.log("scheduel");
 
   Schedule.findByIdAndUpdate(id, scheduleChange, (err, res_schedule) => {
     if (err) {
