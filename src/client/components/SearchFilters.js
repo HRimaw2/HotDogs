@@ -75,11 +75,10 @@ class SearchFilters extends Component {
         console.log("lalalalal"+breeds);
         console.log(colors);
         return (
-            // <ButtonGroup justified>
                 <DropdownButton id="dropdown-basic-button" title="Filter">
                     <div className = "dropdown">
                         <div className='alignHorizontal'>
-                            <div className ='alignVertically'>Breed</div>
+                            <div className ='alignHorizontal'>Breed</div>
                             <div>
                                 {(breeds || []).map(item => (
                                     // <li key={item}>{item}</li>
@@ -95,7 +94,7 @@ class SearchFilters extends Component {
                                 ))}
                             </div>
                         <Dropdown.Divider />
-                            <div className='alignVertically'>Size</div>
+                            <div className='alignHorizontal'>Size</div>
                             <div>
                                 {(sizes || []).map(item => (
                                         // <li key={item}>{item}</li>
@@ -111,7 +110,7 @@ class SearchFilters extends Component {
                                     ))}
                             </div>
                         <Dropdown.Divider />
-                            <div className='alignVertically'>Color</div>
+                            <div className='alignHorizontal'>Color</div>
                             <div>
                                 {(colors || []).map(item => (
                                         // <li key={item}>{item}</li>
@@ -129,16 +128,6 @@ class SearchFilters extends Component {
                         </div>
                     </div>
                 </DropdownButton>
-            {/* </ButtonGroup> */}
-
-            // <Dropdown vertical={true} block={true}> 
-            // <Dropdown.Toggle vertical="true" block={true}> 
-            // Title </Dropdown.Toggle>
-            //  <Dropdown.Menu> 
-            //      <DropdownMenu>Hello</DropdownMenu> 
-            //      <DropdownMenu>World</DropdownMenu> 
-            //      </Dropdown.Menu> 
-            // </Dropdown>
         );
     }
 }

@@ -303,3 +303,7 @@ p {
   display:flex; 
   flex-direction:column;
 }
+
+.dropdown{
+  width: 900px;
+}
