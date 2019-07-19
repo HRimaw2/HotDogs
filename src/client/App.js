@@ -7,6 +7,7 @@ export default class App extends Component {
   state = { username: null };
 
   componentDidMount() {
+    console.log()
   }
 
   render() {
