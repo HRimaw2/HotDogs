@@ -30,11 +30,6 @@ class LoginRegInputs extends Component {
     this.setState({type:"Register"})
   }
 
-  makeLog=()=>{
-    this.setState({login:true})
-    this.setState({type:"Login"})
-  }
-
   onSubmit =()=> {
     
   }
@@ -42,7 +37,7 @@ class LoginRegInputs extends Component {
   render() {
     return (
       <div className="spaced">
-        <div>{this.state.type}</div>
+        <div>Login</div>
         <Col className="user">Username: <input onChange={this.handleEmailChange}
                                                className="login-text" type="text"
                                                placeholder='username'/> </Col>
@@ -50,15 +45,10 @@ class LoginRegInputs extends Component {
                                                className="login-text" type="password"
                                                placeholder='password'/></Col>
         <Row className="loginButton">
-          <Button>{this.state.type}</Button>
+          <Button>Login</Button>
         </Row>
         <Row>
-            {
-              this.state.login ?
-                <Button onClick={this.makeReg} >Register Instead</Button>
-              :
-              <Button onClick={this.makeLog}>Login Instead</Button>
-            }
+            <Button onClick={this.makeReg} >Register Instead</Button> 
           </Row>
       </div>
     );

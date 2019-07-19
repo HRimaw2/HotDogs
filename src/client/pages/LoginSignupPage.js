@@ -7,8 +7,8 @@ class LoginSignupPage extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      type : "Register",
-      login: false
+      type : "Login",
+      login: true
     };
   }
 
