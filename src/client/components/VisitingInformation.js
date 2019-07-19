@@ -43,6 +43,7 @@ class VisitingInformation extends Component {
       });
   };
 
+
   inputEditor() {
     console.log(this.state);
     let ret = <div></div>;
@@ -52,6 +53,7 @@ class VisitingInformation extends Component {
       <div>{this.state.dog.requests}</div>;
     return ret;
   }
+
 
   setTimes = (e) => {
     this.setState({ times: e.target.value.split(',') });
@@ -107,6 +109,7 @@ class VisitingInformation extends Component {
       </div>
     );
   }
+
 }
 
 export default VisitingInformation;

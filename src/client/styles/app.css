@@ -28,6 +28,7 @@ body {
   -webkit-animation-iteration-count: 1;
   -webkit-animation-timing-function: linear;
   background-color: #FFF1E0;
+  font-family: 'Fira Sans', sans-serif;
 }
 #title {
   color: black;
@@ -113,16 +114,12 @@ a:hover{
   margin-left: 25%;
 }
 
-<<<<<<< HEAD
-.profileColumnLeft {
-  width: 30%;
-=======
+
 .profilePic {
   display: inline;
   margin-left: -25%;
   height: 100%;
   width: auto;
->>>>>>> 57ab834cf3cc636d29d688d0e227841e15e04307
 }
 
 .dogprofileimage{
@@ -263,12 +260,12 @@ p {
   flex-direction: column;
 }
 
+
 .dogProfile{
   margin-top: 40px;
   margin-left: 10px;
 }
 
-<<<<<<< HEAD
 .profilePic {
   border: 0px solid black;
   border-radius: 50%;
@@ -278,8 +275,6 @@ p {
   height: 10rem;
 }
 
-=======
->>>>>>> 57ab834cf3cc636d29d688d0e227841e15e04307
 .dogStatus {
   border: 1px solid black;
   border-radius: 25%;
@@ -383,12 +378,3 @@ p {
   margin: 10px;
 }
 
-<<<<<<< HEAD
-.hrWidth {
-  width:90%;
-}
-=======
-.blue{
-  color: blue;
-}
->>>>>>> 57ab834cf3cc636d29d688d0e227841e15e04307
