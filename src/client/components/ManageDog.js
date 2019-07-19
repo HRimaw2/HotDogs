@@ -48,9 +48,10 @@ class ManageDog extends Component {
   render() {
     return (
       <div className="manageDog">
-        Manage Dog
+        <h3>Manage Dog</h3>
+        <hr></hr>
         <div className="switchText">
-          Is your dog in the office?
+          <p>Is your dog in the office?</p>
           <Button disabled={this.state.isDogIn} onClick={this.setDogIn}
                   className="yesButton"> Yes </Button>
           <Button disabled={!this.state.isDogIn} onClick={this.setDogOut}

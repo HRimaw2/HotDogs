@@ -8,14 +8,24 @@ import Navbar from 'react-bootstrap/Navbar';
 import Form from 'react-bootstrap/Form';
 import FormControl from 'react-bootstrap/FormControl';
 import { Nav } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 
 class NavigationBar extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      account: this.props.account
+      dog: {},
+      isLoggedIn: false
     };
   }
+
+  componentDidMount(){
+    if (this.props.dog){
+      this.setState({dog:this.props.dog})
+      this.setState({isLoggedIn:true})
+    }
+  }
+  // <Nav.Link href="/login">Register my dog / Login</Nav.Link>
 
   render() {
     return (
@@ -23,7 +33,16 @@ class NavigationBar extends Component {
         <Navbar.Brand href="/home"><img id="navbarimage" href="/" src={WhiteLogo}
                                         height="40px"/></Navbar.Brand>
         <Nav>
-          <Nav.Link href="/login">Register my dog / login</Nav.Link>
+          
+          {
+            this.state.isLoggedIn ?
+            <div></div>
+            :
+            <Link to={{
+              pathname:'/login',
+              state: { dog: this.state.dog }
+              }} >Register my dog / Login</Link>
+          }
         </Nav>
       </Navbar>
     );

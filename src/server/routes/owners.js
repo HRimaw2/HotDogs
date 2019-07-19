@@ -22,6 +22,23 @@ router.get('/', function (req, res) {
     });
 });
 
+router.post('/', function (req, res)  {
+  let dog_id = req.query.dog_id;
+  let ownerData = req.body;
+  ownerData.dog_id = dog_id;
+  let newOwner = new Owner(ownerData);
+  newOwner.save()
+  .then(() => {
+      res.status(200).send({
+        message: 'OK',
+        data: newOwner
+    });
+  })
+  .catch((err) => {
+  })
+});
+
+
 router.get('/:id', function (req, res) {
   // res.send("dsfda");
   owners.find({ '_id': req.params.id })

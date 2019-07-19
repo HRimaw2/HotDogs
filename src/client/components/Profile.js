@@ -46,7 +46,9 @@ class Profile extends Component {
   getOwnerInfo = () => {
     axios.get('api/owners/' + this.state.dog.owner_id,)
       .then((response) => {
-        this.setState({ owner: response.data.data });
+        if (response.data.data){
+          this.setState({ owner: response.data.data[0] });
+        }
       });
   };
 
@@ -59,50 +61,67 @@ class Profile extends Component {
 
   render() {
     return (
-      <div className="dogProfile">
-        <Row>
-          <Col>
-            <img className="profilePic" src={this.state.dog.profile_picture}></img>
-            <p className="dogName">{this.state.dog.name}</p>
-            <div className="dogStatus">
-              {this.state.dog.status}
-            </div>
-            <p>My owner is: {this.state.owner.name}</p>
-            <p>Come visit me on floor {this.state.location.floor}</p>
-            <div className="attributes">
-              <Row>
-                <Col>
-                  Age
-                  <p>{this.state.dog.age}</p>
-                </Col>
-                <Col>
-                  Breed
-                  <p>{this.state.dog.breed}</p>
-                </Col>
-              </Row>
-              <Row>
-                <Col>
-                  Size
-                  <p>{this.state.dog.size}</p>
-                </Col>
-                <Col>
-                  Color
-                  {this.state.dog.colors.map((color, index) => (
-                    <p>{color}</p>
-                  ))}
-                </Col>
-              </Row>
-            </div>
-          </Col>
-          <Col>
-            <ManageDog handler={this.statusHandler} dogStateHandler={this.dogStateTracker}
-                       dog={this.state.dog}/>
-            <div className="visitingAbout">
-              <VisitingInformation dogStateHandler={this.dogStateTracker} dog={this.state.dog}/>
-              <AboutMe dogStateHandler={this.dogStateTracker} dog={this.state.dog}/>
-            </div>
-          </Col>
-        </Row>
+      <div className="pageContainer">
+        <div className="dogProfile">
+          <Row>
+            <Col md={4}>
+              <img className="profilePic" src={this.state.dog.profile_picture}></img>
+              <h2>{this.state.dog.name}</h2>
+              <div className = "cardInfoContainer">
+                {
+                  this.state.dog.is_in ?
+                  <div className="statusBadgeIn">
+                    <p className="badgeText">I am in!</p>
+                  </div>
+                  :
+                  <div className="statusBadgeOut">
+                    <p className="badgeText">I am out.</p>
+                  </div>
+                }
+              
+                <div className="locationContainer">
+                  <p>My owner is: {this.state.owner.name}</p>
+                </div>
+                <div className="locationContainer">
+                  <p>Come visit me on floor {this.state.location.floor}</p>
+                </div>
+              </div>
+              <div className="attributes">
+                <Row>
+                  <Col>
+                    <h5>Age</h5>
+                    <p>{this.state.dog.age}</p>
+                  </Col>
+                  <Col>
+                    <h5>Breed</h5>
+                    <p>{this.state.dog.breed}</p>
+                  </Col>
+                </Row>
+                <Row>
+                  <Col>
+                    <h5>Size</h5>
+                    <p>{this.state.dog.size}</p>
+                  </Col>
+                  <Col>
+                    <h5>Color</h5>
+                    {this.state.dog.colors.map((color, index) => (
+                      <p>{color}</p>
+                    ))}
+                  </Col>
+                </Row>
+              </div>
+            </Col>
+            <Col className="contentContainer" md={8}>
+              <ManageDog handler={this.statusHandler} dogStateHandler={this.dogStateTracker}
+                        dog={this.state.dog}/>
+              
+              <div className="visitingAbout">
+                <VisitingInformation dogStateHandler={this.dogStateTracker} dog={this.state.dog}/>
+                <AboutMe dogStateHandler={this.dogStateTracker} dog={this.state.dog}/>
+              </div>
+            </Col>
+          </Row>
+        </div>
       </div>
     );
   }

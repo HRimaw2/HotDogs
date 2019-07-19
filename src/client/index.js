@@ -15,7 +15,7 @@ import RegisterFormPage from './pages/RegisterFormPage';
 
 ReactDOM.render(
   <BrowserRouter>
-    <Route exact path="/" component={App}/>
+    <Route exact path="/" component={LandingPage}/>
     <Route path="/form" component={CreateProfilePage}/>
     <Route exact path="/home" component={LandingPage}/>
     <Route path="/login" component={LoginSignupPage}/>
