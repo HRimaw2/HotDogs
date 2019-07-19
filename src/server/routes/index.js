@@ -8,9 +8,11 @@ const login = require('./login');
 const location = require('./location.js');
 
 module.exports = (app, router) => {
-  app.use('/dogs', dog);
-  app.use('/owners', owner);
-  app.use('/schedules', schedule);
-  app.use('/login', login);
-  app.use('/location', location);
+
+    app.use('/dogs', dog);
+    app.use('/owners', owner);
+    app.use('/schedules', schedule);
+    app.use('/login', login);
+    app.use('/location', location);
+
 };

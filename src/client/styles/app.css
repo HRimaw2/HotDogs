@@ -28,6 +28,7 @@ body {
   -webkit-animation-iteration-count: 1;
   -webkit-animation-timing-function: linear;
   background-color: #FFF1E0;
+  font-family: 'Fira Sans', sans-serif;
 }
 #title {
   color: black;
@@ -240,6 +241,7 @@ p {
   display: flex;
   flex-direction: column;
 }
+
 
 .dogProfile{
   margin-top: 40px;
