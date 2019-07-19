@@ -23,7 +23,11 @@ class LandingPage extends Component {
     }
 
     componentWillReceiveProps(nextProps){
-        this.setState({myDog : nextProps.location.myDog}, () => {this.setState({isLoggedIn : true})})
+        console.log(nextProps)
+        this.setState({myDog : nextProps.location.state.detail}, 
+            () => {this.setState({isLoggedIn : true})
+            console.log(this.state)
+        })
     }
 
     populateDogTiles = () => {
@@ -74,10 +78,6 @@ class LandingPage extends Component {
         this.setState({ dogs: response.data.data });
       });
   };
-
-  componentWillReceiveProps(nextProps){
-
-  }
 
     render() {
         return (
