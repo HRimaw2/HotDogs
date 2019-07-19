@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Form, Row, Col, Button } from 'react-bootstrap';
 import '../styles/form.css';
+import '../styles/app.css'
 
 class NewRegisterForm extends Component {
     constructor(props) {
@@ -103,9 +104,9 @@ class NewRegisterForm extends Component {
         if (currentStep !== 1) {
             return (
                 <button
-                    className="btn btn-secondary float-left"
+                    className="btn btn-secondary float-left whitebutton"
                     type="button" onClick={this._prev} >
-                    Previous
+                    Back
                 </button>
             )
         }
@@ -117,7 +118,7 @@ class NewRegisterForm extends Component {
         if (currentStep < 4) {
             return (
                 <button
-                    className="btn btn-primary float-right"
+                    className="btn btn-primary float-left bluebutton"
                     type="button" onClick={this._next}>
                     Next
                 </button>
@@ -126,7 +127,7 @@ class NewRegisterForm extends Component {
         if (currentStep == 4) {
             return (
                 <button
-                    className="btn btn-success float-right"
+                    className="btn bluebutton float-left"
                     type="button" onClick={this.handleSubmit}>
                     Submit
                 </button>
@@ -139,8 +140,12 @@ class NewRegisterForm extends Component {
         return (
             <React.Fragment>
                 <Row>
-                    <Col md={{ span: 6, offset: 3 }}>
-                        <p align="left">Register My Dog ({this.state.currentStep}/4) </p>
+                    <Col id="registerdogheader" md={{ span: 6, offset: 3}}>
+                    <h3 align="left">Register My Dog ({this.state.currentStep}/4) </h3>
+                    </Col>
+                </Row>
+                <Row>
+                    <Col  id="registerform" md={{ span: 6, offset: 3 }}>
                         <Form align="left" onSubmit={this.handleSubmit}>
                             <Step1
                                 currentStep={this.state.currentStep}
@@ -182,8 +187,9 @@ class NewRegisterForm extends Component {
                                 handleDropdown={this.handleDropdown}
                                 preferences={this.state.preferences}
                             />
-                            {this.previousButton()}
                             {this.nextButton()}
+                            {this.previousButton()}
+                           
 
                         </Form>
                     </Col>
@@ -201,6 +207,11 @@ function Step1(props) {
         <div className="form-group">
             <Row>
                 <Col >
+                <Form.Row align="left">
+                        <Form.Group as={Col}>
+                        <h4>Owner Details:</h4>
+                        </Form.Group>
+                    </Form.Row>
                     <Form.Group controlId="formGroupEmail">
                         <Form.Label>Email address</Form.Label>
                         <Form.Control name="email" value={props.email} onChange={props.handleChange} type="email" placeholder="Enter email" />
@@ -223,6 +234,11 @@ function Step2(props) {
         <div className="form-group">
             <Row>
                 <Col >
+                <Form.Row align="left">
+                        <Form.Group as={Col}>
+                        <h4>Dog Details:</h4>
+                        </Form.Group>
+                    </Form.Row>
                     <Form.Group controlId="formGroupDogName">
                         <Form.Label>Name</Form.Label>
                         <Form.Control name="name" value={props.name} onChange={props.handleChange} type="text" placeholder="Dog Name" />
@@ -284,7 +300,7 @@ function Step3(props) {
                 <Col>
                     <Form.Row align="left">
                         <Form.Group as={Col}>
-                        <h5>Visiting Details:</h5>
+                        <h4>Visiting Details:</h4>
                         </Form.Group>
                     </Form.Row>
                     <Form.Row align="left">
@@ -329,7 +345,7 @@ function Step3(props) {
                     </Form.Row>
                     <Form.Row >
                         <Form.Group as={Col} controlId="formGridState">
-                            <Button onClick={props.handleDateSubmit} variant="primary" type="submit">
+                            <Button className="bluebutton" onClick={props.handleDateSubmit} variant="primary" type="submit">
                                 Add
                             </Button>
                         </Form.Group>
@@ -363,7 +379,7 @@ function Step3(props) {
 
                     <Form.Row align="left">
                         <Form.Group as={Col}>
-                        <h5>I am looking for people to: </h5>
+                        <br></br><h4>I am looking for people to: </h4>
                         </Form.Group>
                     </Form.Row>
                     <Form.Row >
