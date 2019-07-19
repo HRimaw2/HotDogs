@@ -5,7 +5,7 @@ var router = express.Router(),
   bodyParser = require('body-parser');
 
 const app = express();
-
+app.use(express.static('dist'));
 var port = process.env.PORT || 4000;
 
 // Connect to a MongoDB
