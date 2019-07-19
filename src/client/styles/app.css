@@ -71,7 +71,9 @@ body {
   width: 50%;
 }
 
-
+.signInButton {
+  padding-right: 20px;
+}
 
 @-webkit-keyframes fontfix {
   from { opacity: 1; }
@@ -155,6 +157,12 @@ a:hover{
   border-radius: 8px;
   padding: 10px;
   margin: 10px;
+}
+
+.dogTile:hover {
+	cursor: pointer;
+	opacity: 0.5;
+	transition: opacity .6s;
 }
 
 .dogTileContentContainer {
