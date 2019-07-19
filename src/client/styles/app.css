@@ -87,13 +87,34 @@ a:hover{
 }
 
 .imagecropper{
-  width: 100px;
-  height: 100px;
+  width: 150px;
+  height: 150px;
+  position: relative;
+  overflow: hidden;
+  border-radius: 50%;
+  margin-top: 5%;
+  margin-bottom: 5%;
+  margin-left: 25%;
+}
+
+.imagecropper2{
+  width: 300px;
+  height: 300px;
   position: relative;
   overflow: hidden;
   border-radius: 50%;
   margin-top: 10%;
+  margin-bottom: 5%;
+  margin-left: 25%;
 }
+
+.profilePic {
+  display: inline;
+  margin-left: -25%;
+  height: 100%;
+  width: auto;
+}
+
 .dogprofileimage{
   display: inline;
   margin-left: -25%;
@@ -223,14 +244,6 @@ p {
 .dogProfile{
   margin-top: 40px;
   margin-left: 10px;
-}
-
-.profilePic {
-  border: 0px solid black;
-  border-radius: 50%;
-  margin-top: 5%;
-  margin-bottom: 5%;
-  width: 50%;
 }
 
 .dogStatus {
