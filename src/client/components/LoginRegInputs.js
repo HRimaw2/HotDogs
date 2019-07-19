@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Row, Button, Col } from 'react-bootstrap';
 import '../styles/app.css';
+import { Link } from 'react-router-dom';
 
 class LoginRegInputs extends Component {
   constructor(props) {
@@ -25,11 +26,6 @@ class LoginRegInputs extends Component {
     this.setState({login:true})
   }
 
-  makeReg=()=>{
-    this.setState({login:false})
-    this.setState({type:"Register"})
-  }
-
   onSubmit =()=> {
     
   }
@@ -48,8 +44,11 @@ class LoginRegInputs extends Component {
           <Button>Login</Button>
         </Row>
         <Row>
-            <Button onClick={this.makeReg} >Register Instead</Button> 
-          </Row>
+        <Link className="blue" to={{
+              pathname:'/registerform'
+            }} > First time? Register Instead
+            </Link>
+        </Row>
       </div>
     );
   }
