@@ -46,7 +46,9 @@ class Profile extends Component {
   getOwnerInfo = () => {
     axios.get('api/owners/' + this.state.dog.owner_id,)
       .then((response) => {
-        this.setState({ owner: response.data.data[0] });
+        if (response.data.data){
+          this.setState({ owner: response.data.data[0] });
+        }
       });
   };
 
@@ -59,7 +61,7 @@ class Profile extends Component {
 
   render() {
     return (
-      <div class="pageContainer">
+      <div className="pageContainer">
         <div className="dogProfile">
           <Row>
             <Col md={4}>
