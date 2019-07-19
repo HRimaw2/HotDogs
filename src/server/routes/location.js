@@ -1,5 +1,5 @@
 const express = require('express');
-const Location = require('../models/location');
+const location = require('../models/location');
 //const dog = require('../models/dog');
 //const schedule = require('../models/schedule');
 const mongoose = require('mongoose');
@@ -47,7 +47,7 @@ function getQuery(req) {
 router.get('/', function (req, res) {
   let [id, dog_id, floor, description, marked_floor_plan] = [req.query.id, req.query.dog_id, req.query.floor, req.query.description, req.query.marked_floor_plan];
   if (floor) {
-    Location.find(floor)
+    location.find(floor)
       .exec((err, res_loc) => {
         if (err) {
           res.status(404)
@@ -102,7 +102,7 @@ router.get('/', function (req, res) {
 
 router.get('/:id', (req, res) => {
   const id = req.params.id;
-  Location.findById(id, (err, res_loc) => {
+  location.findById(id, (err, res_loc) => {
     if (err) {
       res.status(400)
         .send({
@@ -121,7 +121,7 @@ router.get('/:id', (req, res) => {
 
 router.put('/:id', (req, res) => {
   const id = req.params.id;
-  Location.findByIdAndUpdate(id, req.body, (err, loc) => {
+  location.findByIdAndUpdate(id, req.body, (err, loc) => {
     if (err) {
       res.status(400)
         .send({
@@ -146,7 +146,7 @@ router.put('/:id', (req, res) => {
 
 router.delete('/:id', (req, res) => {
   const id = req.params.id;
-  Location.findByIdAndDelete(id, (err, res_loc) => {
+  location.findByIdAndDelete(id, (err, res_loc) => {
     if (err) {
       console.log(err);
       res.status(400)
