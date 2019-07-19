@@ -17,12 +17,12 @@ ReactDOM.render(
   <BrowserRouter>
     <Route exact path="/" component={App}/>
     <Route path="/form" component={CreateProfilePage}/>
-    <Route exact path="/home" component={LandingPage}/>
+    <Route path="/home" component={LandingPage}/>
     <Route path="/login" component={LoginSignupPage}/>
     <Route path="/results" component={ResultsPage}/>
     <Route path="/profile" component={ViewProfilePage}/>
     <Route path="/register" component={RegisterPage}/>
-    <Route path="/registerform" component={RegisterFormPage}/>
+    <Route exact path="/registerform" component={RegisterFormPage}/>
   </BrowserRouter>,
   (document.getElementById('root'))
 );

@@ -2,6 +2,7 @@
   "name": "HotDogs",
   "version": "1.0.0",
   "description": "Boilerplate to build a full stack web application using React, Node.js, Express and Webpack.",
+  "proxy": "http://localhost:4000",
   "main": "src/server/index.js",
   "scripts": {
     "build": "webpack --mode production",
