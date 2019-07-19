@@ -22,6 +22,10 @@ class LandingPage extends Component {
         this.getDogs();
     }
 
+    componentWillReceiveProps(nextProps){
+        this.setState({myDog : nextProps.location.myDog}, () => {this.setState({isLoggedIn : true})})
+    }
+
     populateDogTiles = () => {
         return (
             <Row  className="testClass">

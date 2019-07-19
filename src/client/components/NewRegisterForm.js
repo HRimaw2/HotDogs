@@ -40,7 +40,8 @@ class NewRegisterForm extends Component {
       day: 'Monday',
       start: '9:00 AM',
       end: '5:00 PM',
-      canSubmit: false
+      canSubmit: false,
+      myDog: {}
     }
   }
 
@@ -89,6 +90,7 @@ class NewRegisterForm extends Component {
     })
       .then(function (response) {
         const locationid = response.data.data.location_id;
+        this.setState({ myDog : response.data.data})
         const dog_id = response.data.data._id;
         axios.put('api/location/'+ locationid, {
             dog_id: dog_id,
@@ -191,7 +193,7 @@ class NewRegisterForm extends Component {
         <button
           className="btn bluebutton float-left"
           type="button" onClick={this.handleSubmit} >
-          <Link to={{pathname:'/home'}}>Submit</Link>
+          <Link to={{pathname:'/', state: { detail: this.state.myDog }}}>Submit</Link>
         </button>
       )
     }
