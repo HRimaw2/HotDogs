@@ -2,9 +2,7 @@ import React, { Component } from 'react';
 import '../styles/app.css';
 import DropdownButton from 'react-bootstrap/DropdownButton';
 import Dropdown from 'react-bootstrap/Dropdown';
-import ButtonGroup from 'react-bootstrap/ButtonGroup';
-import DropdownMenu from 'react-bootstrap/DropdownMenu';
-import { Row, Col } from 'react-bootstrap';
+import ButtonToolbar from 'react-bootstrap/ButtonToolbar';
 import axios from 'axios';
 
 class SearchFilters extends Component {
@@ -75,28 +73,16 @@ class SearchFilters extends Component {
         console.log("lalalalal"+breeds);
         console.log(colors);
         return (
+            <ButtonToolbar>
+                {['Danger'].map(
+                variant => (
                 <DropdownButton id="dropdown-basic-button" title="Filter">
                     <div className = "dropdown">
-                        <div className='alignHorizontal'>
-                            <div className ='alignHorizontal'>Breed</div>
-                            <div>
-                                {(breeds || []).map(item => (
-                                    // <li key={item}>{item}</li>
-                                    <form>
-                                        <label htmlFor="">
-                                            <input
-                                                type="checkbox"
-                                                onChange={this.props.updateDogs}
-                                            />
-                                            {item}
-                                        </label>
-                                    </form>
-                                ))}
-                            </div>
-                        <Dropdown.Divider />
-                            <div className='alignHorizontal'>Size</div>
-                            <div>
-                                {(sizes || []).map(item => (
+                        <div className='row'>
+                            <div className='column'>
+                                <div className ='filterText'>Breed</div>
+                                <div className='breeds'>
+                                    {(breeds || []).map(item => (
                                         // <li key={item}>{item}</li>
                                         <form>
                                             <label htmlFor="">
@@ -108,26 +94,55 @@ class SearchFilters extends Component {
                                             </label>
                                         </form>
                                     ))}
+                                </div>
                             </div>
                         <Dropdown.Divider />
-                            <div className='alignHorizontal'>Color</div>
-                            <div>
-                                {(colors || []).map(item => (
-                                        // <li key={item}>{item}</li>
-                                        <form>
-                                            <label htmlFor="">
-                                                <input
-                                                    type="checkbox"
-                                                    onChange={this.props.updateDogs}
-                                                />
-                                                {item}
-                                            </label>
-                                        </form>
-                                    ))}
+                            <div className='column'>
+                                <div className='filterText'>Size</div>
+                                <div className='sizes'>
+                                    {(sizes || []).map(item => (
+                                            // <li key={item}>{item}</li>
+                                            <form>
+                                                <label htmlFor="">
+                                                    <input
+                                                        type="checkbox"
+                                                        onChange={this.props.updateDogs}
+                                                    />
+                                                    {item}
+                                                </label>
+                                            </form>
+                                        ))}
+                                </div>
+                            </div>
+                        <Dropdown.Divider />
+                            <div className='column'>
+                                <div className='filterText'>Color</div>
+                                <div className='colors'>
+                                    {(colors || []).map(item => (
+                                            // <li key={item}>{item}</li>
+                                            <form>
+                                                <label htmlFor="">
+                                                    <input
+                                                        type="checkbox"
+                                                        onChange={this.props.updateDogs}
+                                                    />
+                                                    {item}
+                                                </label>
+                                            </form>
+                                        ))}
+                                </div>
                             </div>
                         </div>
                     </div>
+                    <div>
+                    <div className="applyButton">Apply Filter</div>
+                    <div className="cancelButton">Cancel</div>
+                    <div className="clearButton">Clear Button</div>
+                    </div>
                 </DropdownButton>
+                  ),
+                  )}
+            </ButtonToolbar>
         );
     }
 }
