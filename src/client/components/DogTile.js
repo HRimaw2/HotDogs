@@ -17,6 +17,10 @@ class DogTile extends Component {
         this.getDogLocation();
     }
 
+    componentWillReceiveProps(nextProps){
+      this.setState({dog:nextProps.dog})
+    }
+
     getDogLocation = () => {
         axios.get('api/location/'+this.state.dog.location_id, )
         .then((response) =>{
@@ -25,7 +29,7 @@ class DogTile extends Component {
     }
 
     render() {
-        return (
+      return (
             <Route render={({history}) => (
             <div className = "dogTile" onClick={() =>history.push({pathname: '/profile', state: { detail: this.state.dog }}) }>
                  <Row>
