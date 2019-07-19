@@ -75,7 +75,7 @@ class LoginRegInputs extends Component {
             axios.get('api/dogs/'+response.data.data[0].dog_id,)
                 .then((response2) => {
                     console.log(response2.data)
-                    history.push({pathname: '/profile', state: { detail: response2.data }})
+                    history.push({pathname: '/profile', state: { detail: response2.data.data }})
                 });
         })
         .catch((err) => {
