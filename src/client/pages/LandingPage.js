@@ -74,13 +74,13 @@ class LandingPage extends Component {
         return (
             <div>
                 <NavigationBar />
-                <SearchFilters
-                    dogs = {this.state.dogs}
-                    updateDogs = {this.updateDogs}
-                />
                 <div className="centered">
                 <AutoComplete handleFilterNames={this.handleFilterNames} />
                 </div>
+                <SearchFilters
+                    // dogs = {this.state.dogs}
+                    // updateDogs = {this.updateDogs}
+                />
                   <div className="pageContainer">
                       <this.populateDogTiles></this.populateDogTiles>
                   </div>

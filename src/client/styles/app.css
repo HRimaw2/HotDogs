@@ -347,10 +347,22 @@ p {
 }
 
 .centered{
-  margin-left:43%;
+  margin-left:41%;
   width: 30px;
-  padding-bottom: 20px;
+  padding-top: 44px;
+  padding-bottom: -50px;
+  margin-bottom: -60px;
 }
+
+.dropdown{
+  width: 700px;
+  margin-left: 60px;
+  margin-top: 50px;
+  float: left;
+  display: table;
+  padding-top: -10px;
+}
+
 .manageDog {
   background: white;
   text-align: left;
@@ -450,13 +462,6 @@ p {
 .alignHorizontal{
   display:flex; 
   flex-direction:column;
-}
-
-.dropdown{
-  width: 500px;
-  margin-left: 330px;
-  /* margin-top: 50px; */
-  display: table;
 }
 
 .column {

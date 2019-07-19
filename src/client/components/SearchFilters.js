@@ -37,19 +37,16 @@ class SearchFilters extends Component {
                 breedsArr.push(dog.breed)
             }
           })
-          console.log(breedsArr)
           this.setState({breeds: breedsArr})
     }
 
     populateColors = () => {
         let colorsArr = []
         this.state.dogs.map(function(dog, i){
-            // let col = dog.colors
             if(!colorsArr.includes(dog.colors[0])){
                 colorsArr.push(dog.colors[0])
             }
           })
-          console.log(colorsArr)
           this.setState({colors: colorsArr})
     }
         
@@ -68,10 +65,6 @@ class SearchFilters extends Component {
 
     render() {
         const { dogs, breeds, sizes, colors} = this.state;
-        console.log(dogs);
-        // const { breed } = this.state.breeds;
-        console.log("lalalalal"+breeds);
-        console.log(colors);
         return (
             <ButtonToolbar>
                 {['Danger'].map(
@@ -83,7 +76,6 @@ class SearchFilters extends Component {
                                 <div className ='filterText'>Breed</div>
                                 <div className='breeds'>
                                     {(breeds || []).map(item => (
-                                        // <li key={item}>{item}</li>
                                         <form>
                                             <label htmlFor="">
                                                 <input
@@ -101,7 +93,6 @@ class SearchFilters extends Component {
                                 <div className='filterText'>Size</div>
                                 <div className='sizes'>
                                     {(sizes || []).map(item => (
-                                            // <li key={item}>{item}</li>
                                             <form>
                                                 <label htmlFor="">
                                                     <input
@@ -119,7 +110,6 @@ class SearchFilters extends Component {
                                 <div className='filterText'>Color</div>
                                 <div className='colors'>
                                     {(colors || []).map(item => (
-                                            // <li key={item}>{item}</li>
                                             <form>
                                                 <label htmlFor="">
                                                     <input
