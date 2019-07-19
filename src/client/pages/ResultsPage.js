@@ -9,14 +9,15 @@ class ResultsPage extends Component {
     this.state = {};
   }
 
-  render() {
-    return (
-      <div>
-        <NavigationBar/>
-        <DogTile/>
-      </div>
-    );
-  }
+
+    render() {
+        return (
+          <div>
+            <NavigationBar />
+            <pageContainer />
+          </div>
+        );
+    }
 }
 
 export default ResultsPage;

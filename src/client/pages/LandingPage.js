@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import '../styles/form.css'
+import '../styles/form.css';
+import '../styles/app.css';
 import NavigationBar from '../components/NavigationBar';
 import DogTile from '../components/DogTile';
 import SearchFilters from '../components/SearchFilters';
@@ -19,11 +20,12 @@ class LandingPage extends Component {
     }
 
     populateDogTiles = () => {
-        return (<Row>
-            {this.state.dogs.map((dog, index) => (
-                <Col md={6}><DogTile dog = {dog} /> </Col>
+        console.log(this.state.dogs)
+        return (
+            <Row  className="testClass">{this.state.dogs.map((dog, index) => (
+                <Col className="override" md={6}><DogTile dog = {dog} /> </Col>
             )) }
-        </Row>);
+            </Row>);
     }
 
     getDogs = () => {
