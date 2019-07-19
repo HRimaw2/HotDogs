@@ -87,6 +87,7 @@ class LandingPage extends Component {
         return (
             <div>
                 <NavigationBar />
+                <SearchFilters
                     dogs = {this.state.dogs}
                     updateDogs = {this.updateDogs}
                 />
