@@ -1,9 +1,6 @@
 import React, { Component } from 'react';
 import '../styles/form.css';
-<<<<<<< HEAD
 import '../styles/app.css';
-=======
->>>>>>> ecde023ff1cfcfd5d2020208cb5df9ecd4912e01
 import NavigationBar from '../components/NavigationBar';
 import DogTile from '../components/DogTile';
 import { Row, Col, Button } from 'react-bootstrap';

@@ -86,7 +86,6 @@ a:hover{
   color: grey;
 }
 
-<<<<<<< HEAD
 .dogprofileimage{
   border: 0px solid black;
   border-radius: 50%;
@@ -94,12 +93,10 @@ a:hover{
   margin-bottom: 5%;
   width: 75%;
 }
-=======
+
 #navbarimage{
   margin-left: 10px;
 }
-
->>>>>>> ecde023ff1cfcfd5d2020208cb5df9ecd4912e01
 
 .right{
   float:right;
@@ -180,7 +177,6 @@ a:hover{
   padding: 10px;
   margin: 10px;
 }
-<<<<<<< HEAD
 
 .badgeText {
   color: white;
@@ -210,7 +206,8 @@ h5 {
 p {
   font-size: 1rem;
   color: #333;
-=======
+}
+
 .spaced {
   display: flex;
   flex-direction: column;
@@ -296,5 +293,4 @@ p {
   border: 1px solid black;
   padding: 20px;
   margin: 10px;
->>>>>>> ecde023ff1cfcfd5d2020208cb5df9ecd4912e01
 }
