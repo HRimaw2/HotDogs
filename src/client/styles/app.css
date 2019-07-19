@@ -246,29 +246,6 @@ p {
   margin: 10px;
 }
 
-
-.bluebutton{
-  margin-right: 10px;
-  font-family: 'Fira Sans', sans-serif;
-  font-size: 16px;
-  border: 0px solid black;
-  border-radius: 16px;
-  background-color: #9BDEFE;
-  color: #333;
-}
-
-.bluebutton:hover{
-  background-color: #9BDEFE;
-}
-
-.whitebutton{
-  font-family: 'Fira Sans', sans-serif;
-  font-size: 16px;
-  border: 1px solid #ccc ;
-  border-radius: 16px;
-  background-color:white;
-  color: #333;
-}
 .editProfileButton {
   float: right;
 }
