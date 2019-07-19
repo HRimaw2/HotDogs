@@ -22,11 +22,11 @@ class LoginRegInputs extends Component {
 
 
     handleEmailChange = (e) =>{
-        this.setState({ has_error: true });
+        this.setState({ has_error: false });
         this.setState({email: e.target.value})
     }
     handlePasswordChange = (e) => {
-        this.setState({ has_error: true });
+        this.setState({ has_error: false });
         this.setState({password: e.target.value})
         //console.log("State of password:\n")
         //console.log(this.state)
