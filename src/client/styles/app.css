@@ -337,7 +337,6 @@ p {
   margin: 10px;
 }
 
-<<<<<<< HEAD
 .alignVertically{
   display:flex; 
   flex-direction:row;
@@ -351,8 +350,6 @@ p {
 .dropdown{
   width: 900px;
 }
-=======
 .blue{
   color: blue;
 }
->>>>>>> 57ab834cf3cc636d29d688d0e227841e15e04307
