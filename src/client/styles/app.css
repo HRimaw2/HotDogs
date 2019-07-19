@@ -265,12 +265,17 @@ p {
   margin-top: 40px;
   margin-left: 10px;
 }
+.help {
+  display: flex;
+  flex-direction: column;
+}
 
 .profilePic {
   border: 0px solid black;
   border-radius: 50%;
   margin-top: 5%;
   margin-bottom: 5%;
+  margin-left: 3%;
   width: 10rem;
   height: 10rem;
 }
@@ -459,12 +464,12 @@ p {
 }
 
 .alignVertically{
-  display:flex; 
+  display:flex;
   flex-direction:row;
 }
 
 .alignHorizontal{
-  display:flex; 
+  display:flex;
   flex-direction:column;
 }
 
