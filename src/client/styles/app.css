@@ -157,10 +157,11 @@ a:hover{
   margin: 10px;
 }
 
-.dogTile:hover{
-  border-color: #46C3FF;
-  background-color: #fff1e0;
-} 
+.dogTile:hover {
+	cursor: pointer;
+	opacity: 0.5;
+	transition: opacity .6s;
+}
 
 .dogTileContentContainer {
   margin: 0;
@@ -464,12 +465,12 @@ p {
 }
 
 .alignVertically{
-  display:flex;
+  display:flex; 
   flex-direction:row;
 }
 
 .alignHorizontal{
-  display:flex;
+  display:flex; 
   flex-direction:column;
 }
 
