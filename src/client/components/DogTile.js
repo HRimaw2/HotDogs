@@ -1,14 +1,30 @@
 import React, { Component } from 'react';
 import '../styles/app.css';
 import { Row, Col, Button } from 'react-bootstrap';
+import axios from 'axios';
 
 
 class DogTile extends Component {
     constructor(props){
         super(props);
         this.state = {
-            dog: this.props.dog
+            dog: this.props.dog,
+            location: ''
         }
+    }
+
+    componentDidMount(){
+        console.log("first")
+        this.getDogLocation();
+        console.log("XDDDDDD")
+    }
+
+    getDogLocation = () => {
+        axios.get('api/locations/'+this.state.dog.location_id, )
+        .then((response) =>{
+          console.log("nice")
+            this.setState({location:response.data.data.description})
+        })
     }
 
     render() {
@@ -23,12 +39,18 @@ class DogTile extends Component {
 
 
                         <div className = "cardInfoContainer">
-                          <div className="statusBadge">
+                          {
+                          this.state.dog.is_in ?
+                          <div className="statusBadgeIn">
                             <p className="badgeText">I am in!</p>
                           </div>
-
+                          :
+                          <div className="statusBadgeOut">
+                            <p className="badgeText">I am out.</p>
+                          </div>
+                          }
                           <div className="locationContainer">
-                            <p>Floor 8 - Desk 12</p>
+                            <p>{this.state.location}</p>
                           </div>
                         </div>
 

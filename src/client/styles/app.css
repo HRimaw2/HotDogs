@@ -89,7 +89,7 @@ body {
   text-align: center;
 }
 
-.statusBadge {
+.statusBadgeIn {
   margin-bottom: 1rem;
   color: white;
   width: 100px;
@@ -97,6 +97,16 @@ body {
   margin: auto;
   height: 2rem;
   background-color: #32AA39
+}
+
+.statusBadgeOut {
+  margin-bottom: 1rem;
+  color: white;
+  width: 100px;
+  border-radius: 8px;
+  margin: auto;
+  height: 2rem;
+  background-color: #F75531
 }
 
 .locationContainer {
