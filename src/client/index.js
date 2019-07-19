@@ -22,7 +22,7 @@ ReactDOM.render(
     <Route path="/results" component={ResultsPage}/>
     <Route path="/profile" component={ViewProfilePage}/>
     <Route path="/register" component={RegisterPage}/>
-    <Route exact path="/registerform" component={RegisterFormPage}/>
+    <Route path="/registerform" component={RegisterFormPage}/>
   </BrowserRouter>,
   (document.getElementById('root'))
 );
