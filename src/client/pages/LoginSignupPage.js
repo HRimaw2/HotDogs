@@ -6,7 +6,10 @@ import LoginRegInputs from '../components/LoginRegInputs';
 class LoginSignupPage extends Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {
+      type : "Login",
+      login: true
+    };
   }
 
 
@@ -14,7 +17,7 @@ class LoginSignupPage extends Component {
     return (
       <div>
         <div className="header"><img alt="title" className="title" src={dog}/></div>
-        <div className="loginDiv"><LoginRegInputs type="Login"/></div>
+        <div className="loginDiv"><LoginRegInputs login={this.state.login} type={this.state.type}/></div>
       </div>
     );
   }
