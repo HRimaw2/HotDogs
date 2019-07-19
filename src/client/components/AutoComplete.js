@@ -28,7 +28,6 @@ class AutoComplete extends Component {
       const nameLength = name.length;
       const dogs = this.state.dogs;
       let suggestedNames = dogs.filter(dog => dog.name.toString().toLowerCase().slice(0, nameLength) === name);
-      console.log("sug name", suggestedNames)
       this.props.handleFilterNames(suggestedNames)
       return nameLength === 0 ? [] : suggestedNames;
     };
@@ -36,7 +35,6 @@ class AutoComplete extends Component {
     getSuggestionValue = dog => dog.name;
 
     renderSuggestion = (dog) => {
-      console.log("YEET")
       return(
           <div>
             {dog.name}
