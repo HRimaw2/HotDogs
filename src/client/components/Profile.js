@@ -78,7 +78,7 @@ class Profile extends Component {
                     <p className="badgeText">I am out.</p>
                   </div>
                 }
-              
+
                 <div className="locationContainer">
                   <p>My owner is: {this.state.owner.name}</p>
                 </div>
@@ -114,7 +114,7 @@ class Profile extends Component {
             <Col className="contentContainer" md={8}>
               <ManageDog handler={this.statusHandler} dogStateHandler={this.dogStateTracker}
                         dog={this.state.dog}/>
-              
+
               <div className="visitingAbout">
                 <VisitingInformation dogStateHandler={this.dogStateTracker} dog={this.state.dog}/>
                 <AboutMe dogStateHandler={this.dogStateTracker} dog={this.state.dog}/>
