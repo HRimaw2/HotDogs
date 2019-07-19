@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import Autosuggest from 'react-autosuggest';
 import axios from 'axios';
 import Link from 'react-router-dom';
-import '../styles/app.css';
 
 
 class AutoComplete extends Component {
@@ -73,7 +72,6 @@ class AutoComplete extends Component {
       };
 
       return (
-        
         <Autosuggest 
           suggestions={dogNames}
           onSuggestionsFetchRequested={this.onSuggestionsFetchRequested}
@@ -82,7 +80,6 @@ class AutoComplete extends Component {
           renderSuggestion={this.renderSuggestion}
           inputProps={inputProps}
         />
-        
       );
     }
 }
