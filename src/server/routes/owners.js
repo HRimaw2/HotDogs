@@ -22,7 +22,6 @@ router.get('/', function (req, res) {
     });
 });
 
-<<<<<<< HEAD
 router.post('/', function (req, res)  {
   let dog_id = req.query.dog_id;
   let ownerData = req.body;
@@ -39,14 +38,11 @@ router.post('/', function (req, res)  {
   })
 });
 
-router.put('/:id', function (req, res) {
-    owners.findOneAndUpdate( {"_id": req.params.id}, req.body, (err, owner) => {
-=======
+
 router.get('/:id', function (req, res) {
   // res.send("dsfda");
   owners.find({ '_id': req.params.id })
     .exec((err, owner) => {
->>>>>>> 107b671a32bd7079dfb467a90aba8dc3f164699c
         if (err) {
           res.status(404)
             .send({

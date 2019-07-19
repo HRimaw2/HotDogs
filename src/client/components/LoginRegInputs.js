@@ -6,25 +6,14 @@ import Form from 'react-bootstrap/Form';
 import FormControl from 'react-bootstrap/FormControl';
 import axios from 'axios';
 
-<<<<<<< HEAD
-
-=======
->>>>>>> 107b671a32bd7079dfb467a90aba8dc3f164699c
-
 class LoginRegInputs extends Component {
     constructor(props) {
         super(props);
         this.state = {
-<<<<<<< HEAD
-            type: this.props.type,
-            email: "",
-            password: ""
-=======
           email: '',
           password: '',
           type: this.props.type,
           login: this.props.login
->>>>>>> 107b671a32bd7079dfb467a90aba8dc3f164699c
 
         }
         this.handleClick = this.handleClick.bind(this);
@@ -94,11 +83,6 @@ class LoginRegInputs extends Component {
         return (
           <Route render={({history}) => (
             <div className="spaced">
-<<<<<<< HEAD
-                <Col className="user">Username: <input onChange={this.handleEmailChange} className="login-text"type="text" placeholder='username'></input> </Col>
-                <Col className="pass">Password: <input onChange={this.handlePasswordChange} className="login-text"type="password" placeholder='password'></input ></Col>
-                <Row className="loginButton"><Button onClick={this.handleClick}>{this.state.type}</Button></Row>
-=======
                 
                 <Col className="user">Username: <input onChange={this.handleEmailChange} className="login-text"type="text" placeholder='username'></input> </Col>
                 <Col className="pass">Password: <input onChange={this.handlePasswordChange} className="login-text"type="password" placeholder='password'></input ></Col>
@@ -109,14 +93,10 @@ class LoginRegInputs extends Component {
                     }} > First time? Register Instead
                     </Link>
                 </Row>
->>>>>>> 107b671a32bd7079dfb467a90aba8dc3f164699c
             </div>
             )}/>
         );
     }
 }
-<<<<<<< HEAD
-=======
 
->>>>>>> 107b671a32bd7079dfb467a90aba8dc3f164699c
 export default LoginRegInputs;
