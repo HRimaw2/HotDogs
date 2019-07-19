@@ -1,10 +1,9 @@
 const epxress = require('express');
-const mongoose = require('mongoose');
 const Owner = require('../models/owner');
-const app = epxress();
 const router = epxress.Router();
 
 router.get('/', (req, res) => {
+
     // console.log(req.body)
     const username = req.query.username;
     const password = req.query.password;
@@ -20,6 +19,8 @@ router.get('/', (req, res) => {
                 data: res_owner
             });
         }
+
+
     });
 });
 module.exports = router;

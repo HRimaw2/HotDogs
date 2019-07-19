@@ -1,29 +1,28 @@
 import React, { Component } from 'react';
 import '../styles/form.css';
 import dog from '../styles/logo.png';
-import NavigationBar from '../components/NavigationBar';
 import LoginRegInputs from '../components/LoginRegInputs';
-import Image from 'react-bootstrap/Image'
 
 class LoginSignupPage extends Component {
-    constructor(props){
-        super(props);
-        this.state = {
-        }
-    }
+  constructor(props) {
+    super(props);
+    this.state = {
+      type : "Login",
+      login: true
+    };
+  }
 
 
-    render() {
-        return (
-            <div>
-                <div className="header"> <img className="title" src={dog}/> </div>
-                <div className="loginDiv"> <LoginRegInputs type="Login"/> </div>
-            </div>
-        );
-    }
+  render() {
+    return (
+      <div>
+        <div className="header"><img alt="title" className="title" src={dog}/></div>
+        <div className="loginDiv"><LoginRegInputs login={this.state.login} type={this.state.type}/></div>
+      </div>
+    );
+  }
+
 }
-
-
 
 
 export default LoginSignupPage;

@@ -1,4 +1,3 @@
-
 /*
  * Connect all of your endpoints together here.
  */
@@ -9,6 +8,7 @@ const login = require('./login');
 const location = require('./location.js');
 
 module.exports = (app, router) => {
+
     app.use('/dogs', dog);
     app.use('/owners', owner);
     app.use('/schedules', schedule);
