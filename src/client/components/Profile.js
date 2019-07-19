@@ -62,7 +62,9 @@ class Profile extends Component {
       <div className="dogProfile">
         <Row>
           <Col>
+            <div className="imagecropper2">
             <img className="profilePic" src={this.state.dog.profile_picture}></img>
+            </div>
             <p className="dogName">{this.state.dog.name}</p>
             <div className="dogStatus">
               {this.state.dog.status}
