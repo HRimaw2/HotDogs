@@ -1,22 +1,25 @@
 import React, { Component } from 'react';
 import '../styles/form.css';
+<<<<<<< HEAD
 import '../styles/app.css';
+=======
+>>>>>>> ecde023ff1cfcfd5d2020208cb5df9ecd4912e01
 import NavigationBar from '../components/NavigationBar';
 import DogTile from '../components/DogTile';
 import { Row, Col, Button } from 'react-bootstrap';
 import axios from 'axios';
 
 class LandingPage extends Component {
-    constructor(props){
-        super(props);
-        this.state = {
-            dogs:[]
-        }
-    }
+  constructor(props) {
+    super(props);
+    this.state = {
+      dogs: []
+    };
+  }
 
-    componentDidMount(){
-        this.getDogs();
-    }
+  componentDidMount() {
+    this.getDogs();
+  }
 
     populateDogTiles = () => {
         console.log(this.state.dogs)
@@ -27,13 +30,13 @@ class LandingPage extends Component {
             </Row>);
     }
 
-    getDogs = () => {
-        axios.get('api/dogs', )
-        .then((response) =>{
-            this.setState({dogs:response.data.data})
-            this.populateDogTiles();
-        })
-    }
+  getDogs = () => {
+    axios.get('api/dogs',)
+      .then((response) => {
+        this.setState({ dogs: response.data.data });
+        this.populateDogTiles();
+      });
+  };
 
     render() {
         console.log(this.state.dogs)
