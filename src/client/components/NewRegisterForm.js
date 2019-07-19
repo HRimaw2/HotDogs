@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Form, Row, Col, Button } from 'react-bootstrap';
 import axios from 'axios';
 import '../styles/form.css';
+import '../styles/app.css'
 
 class NewRegisterForm extends Component {
   constructor(props) {
