@@ -14,16 +14,13 @@ class DogTile extends Component {
     }
 
     componentDidMount(){
-        console.log("first")
         this.getDogLocation();
-        console.log("XDDDDDD")
     }
 
     getDogLocation = () => {
-        axios.get('api/locations/'+this.state.dog.location_id, )
+        axios.get('api/location/'+this.state.dog.location_id, )
         .then((response) =>{
-          console.log("nice")
-            this.setState({location:response.data.data.description})
+          this.setState({location:response.data.data.description})
         })
     }
 
