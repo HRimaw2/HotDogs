@@ -9,11 +9,10 @@ class SearchFilters extends Component {
         super(props);
         this.state = {
             dogs: this.props.dogs,
-            // dog: { name:"Bronco",	colors:["yellow", "brown"],	size:"small", breed:"shitzu", profile_picture:"www.google.com",	allergies:"None"},
-            // breed: "shitzu"
-            breeds:[]
+            breeds:[],
+            sizes:["Small", "Medium", "Large"],
+            colors:[]
         };
-        this.getDogs = this.getDogs.bind(this);
     }
 
     componentDidMount() {
@@ -23,20 +22,35 @@ class SearchFilters extends Component {
     getDogs = () => {
         axios.get('api/dogs',)
           .then((res) => {
-            this.setState({ dog: res.data.data })
-            this.populateBreeds();
-            // this.setState({ breed: res.data.data.breed})
+            this.setState({ dogs: res.data.data })
+            this.populateBreeds()
+            this.populateColors();
             });
     };
 
     populateBreeds = () => {
-        {this.props.dogs.map(breed => (
-            <li key={breed}>{breed}</li>
-        ))}
-        // for (dog in dogs){
-        //     console.log(dog); 
-        // }
+        let breedsArr = []
+        this.state.dogs.map(function(dog, i){
+            if(!breedsArr.includes(dog.breed)){
+                breedsArr.push(dog.breed)
+            }
+          })
+          console.log(breedsArr)
+          this.setState({breeds: breedsArr})
     }
+
+    populateColors = () => {
+        let colorsArr = []
+        this.state.dogs.map(function(dog, i){
+            // let col = dog.colors
+            if(!colorsArr.includes(dog.colors[0])){
+                colorsArr.push(dog.colors[0])
+            }
+          })
+          console.log(colorsArr)
+          this.setState({colors: colorsArr})
+    }
+        
 
     getBreeds = (breedIds, breeds) => {
 
@@ -51,10 +65,11 @@ class SearchFilters extends Component {
     };
 
     render() {
-        const { dogs } = this.state;
+        const { dogs, breeds, sizes, colors} = this.state;
         console.log(dogs);
-        const { breed } = this.state;
-        console.log(breed);
+        // const { breed } = this.state.breeds;
+        console.log("lalalalal"+breeds);
+        console.log(colors);
         return (
             // <form>
                 // <ul>
@@ -63,60 +78,54 @@ class SearchFilters extends Component {
                                 <div className='alignHorizontal'>
                                     <div className ='alignVertically'>Breed</div>
                                     <div>
-                                        <form>
-                                            <label htmlFor="">
-                                                <input
-                                                    type="checkbox"
-                                                    // onChange={this.props.updateMovies}
-                                                />
-                                                {breed}
-                                            </label>
-                                        </form>
+                                        {(breeds || []).map(item => (
+                                            // <li key={item}>{item}</li>
+                                            <form>
+                                                <label htmlFor="">
+                                                    <input
+                                                        type="checkbox"
+                                                        // onChange={this.props.updateMovies}
+                                                    />
+                                                    {item}
+                                                </label>
+                                            </form>
+                                        ))}
                                     </div>
-                                <div className='alignHorizontal'>Size</div>
+                                    <Dropdown.Divider />
+                                    <div className='alignVertically'>Size</div>
                                     <div>
-                                        <form>
-                                            <label htmlFor="">
-                                                <input
-                                                    type="checkbox"
-                                                    // onChange={this.props.updateMovies}
-                                                />
-                                                {breed}
-                                            </label>
-                                        </form>
+                                        {(sizes || []).map(item => (
+                                                // <li key={item}>{item}</li>
+                                                <form>
+                                                    <label htmlFor="">
+                                                        <input
+                                                            type="checkbox"
+                                                            // onChange={this.props.updateMovies}
+                                                        />
+                                                        {item}
+                                                    </label>
+                                                </form>
+                                            ))}
                                     </div>
-                                <div className='alignHorizontal'>Color</div>
+                                    <Dropdown.Divider />
+                                    <div className='alignVertically'>Color</div>
                                     <div>
-                                        <form>
-                                            <label htmlFor="">
-                                                <input
-                                                    type="checkbox"
-                                                    // onChange={this.props.updateMovies}
-                                                />
-                                                {breed}
-                                            </label>
-                                        </form>
+                                        {(colors || []).map(item => (
+                                                // <li key={item}>{item}</li>
+                                                <form>
+                                                    <label htmlFor="">
+                                                        <input
+                                                            type="checkbox"
+                                                            // onChange={this.props.updateMovies}
+                                                        />
+                                                        {item}
+                                                    </label>
+                                                </form>
+                                            ))}
                                     </div>
                                 </div>
                             </div>
-                            {/* {this.props.breed.map(({ id, name }) => (
-                                <li key={id}>
-                                    <label htmlFor="">
-                                        <input
-                                            type="checkbox"
-                                            name={id}
-                                            // onChange={this.props.updateMovies}
-                                        />
-                                        { name }
-                                    </label>
-                                </li>
-                            ))} */}
-                    {/* <Dropdown.Item href="#/action-1">Action</Dropdown.Item>
-                    <Dropdown.Item href="#/action-2">Another action</Dropdown.Item>
-                    <Dropdown.Item href="#/action-3">Something else</Dropdown.Item> */}
                 </DropdownButton>
-                // </ul>
-            // </form>
         );
     }
 }
