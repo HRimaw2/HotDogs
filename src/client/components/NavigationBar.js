@@ -33,7 +33,7 @@ class NavigationBar extends Component {
         <Navbar.Brand href="/home"><img id="navbarimage" href="/" src={WhiteLogo}
                                         height="40px"/></Navbar.Brand>
         <Nav>
-          
+
           {
             this.state.isLoggedIn ?
             <div></div>
@@ -41,7 +41,7 @@ class NavigationBar extends Component {
             <Link to={{
               pathname:'/login',
               state: { dog: this.state.dog }
-              }} >Register my dog / Login</Link>
+            }} >Sign in</Link>
           }
         </Nav>
       </Navbar>

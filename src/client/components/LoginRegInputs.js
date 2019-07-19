@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Row, Button, Col } from 'react-bootstrap';
+import { Row, Button, Col, Alert } from 'react-bootstrap';
 import '../styles/app.css';
 import { Link, Route } from 'react-router-dom';
 import Form from 'react-bootstrap/Form';
@@ -14,6 +14,7 @@ class LoginRegInputs extends Component {
           email: '',
           password: '',
           type: this.props.type,
+          has_error: false,
           login: this.props.login
 
         }
@@ -22,9 +23,11 @@ class LoginRegInputs extends Component {
 
 
     handleEmailChange = (e) =>{
+        this.setState({ has_error: true });
         this.setState({email: e.target.value})
     }
     handlePasswordChange = (e) => {
+        this.setState({ has_error: true });
         this.setState({password: e.target.value})
         //console.log("State of password:\n")
         //console.log(this.state)
@@ -60,23 +63,25 @@ class LoginRegInputs extends Component {
     }
 
 
-    handleClick = () => {
-      console.log("State:\n")
-      console.log(this.state);
-      const form = this.state;
-      axios.get('api/login', {
-        params: {
-          username: this.state.email,
-          password: this.state.password
-        }
-      })
-      .then((response) => {
-        console.log(response.data.data[0].dog_id);
-        axios.get('api/dogs/'+response.data.data[0].dog_id,)
-            .then((response2) => {
-            console.log(response2.data)
-            history.push({pathname: '/profile', state: { detail: response2.data }})
-            });
+    handleClick = (history) => {
+        const form = this.state;
+        axios.get('api/login', {
+            params: {
+            username: this.state.email,
+            password: this.state.password
+            }
+        })
+        .then((response) => {
+            //console.log(response.data.data[0].dog_id);
+            axios.get('api/dogs/'+response.data.data[0].dog_id,)
+                .then((response2) => {
+                    console.log(response2.data)
+                    history.push({pathname: '/profile', state: { detail: response2.data }})
+                });
+        })
+        .catch((err) => {
+            console.log(err);
+            this.setState({ has_error: true });
         });
     }
 
@@ -88,13 +93,18 @@ class LoginRegInputs extends Component {
                 <Col className="user">Username: <input onChange={this.handleEmailChange} className="login-text"type="text" placeholder=''></input> </Col>
                 <Col className="pass">Password: <input onChange={this.handlePasswordChange} className="login-text"type="password" placeholder=''></input ></Col>
                 <Row className="loginButton"><Button className="bluebutton" onClick={this.handleClick(history)}>{this.state.type}</Button></Row>
+
                 <Row>
                 <Link className="blue" to={{
                       pathname:'/registerform'
                     }} > First time? Register Instead
-                    </Link>
+                </Link>
                 </Row>
+
                 <img className="paws" src={WalkingPaws}></img>
+
+                <Row className="red">{this.state.has_error && <Alert variant='danger'>INVALID CREDENTIALS </Alert>}</Row>
+
             </div>
             )}/>
         );
