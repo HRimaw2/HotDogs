@@ -30,12 +30,12 @@ class DogTile extends Component {
             <div className = "dogTile" onClick={() =>history.push({pathname: '/profile', state: { detail: this.state.dog }}) }>
                  <Row>
                     <Col className="dogProfileCol">
-                        <img className="dogprofileimage" src="https://pbs.twimg.com/profile_images/962170088941019136/lgpCD8X4_400x400.jpg"></img>
+                      <div className="imagecropper">
+                      <img className="dogprofileimage" src={this.state.dog.profile_picture}></img>
+                      </div>
                     </Col>
                     <Col className="dogDesc">
                         <h2 className="dogName">{this.state.dog.name}</h2>
-
-
                         <div className = "cardInfoContainer">
                           {
                           this.state.dog.is_in ?

@@ -86,12 +86,19 @@ a:hover{
   color: grey;
 }
 
-.dogprofileimage{
-  border: 0px solid black;
+.imagecropper{
+  width: 100px;
+  height: 100px;
+  position: relative;
+  overflow: hidden;
   border-radius: 50%;
-  margin-top: 5%;
-  margin-bottom: 5%;
-  width: 75%;
+  margin-top: 10%;
+}
+.dogprofileimage{
+  display: inline;
+  margin-left: -25%;
+  height: 100%;
+  width: auto;
 }
 
 #navbarimage{
