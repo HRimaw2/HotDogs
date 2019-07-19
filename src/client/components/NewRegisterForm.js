@@ -62,9 +62,9 @@ class NewRegisterForm extends Component {
     let status = preferences.inoffice === 'Yes' ? ['I am in!'] : ['I am out.'];
     let pictures = [profile_picture];
     let requests = '';
-    requests +=  preferences.pet === 'Yes' ? 'Pet my dog \n' : '';
-    requests +=  preferences.walk === 'Yes' ? 'Walk my dog \n' : '';
-    requests +=  preferences.play === 'Yes' ? 'Play with my dog \n' : '';
+    requests +=  preferences.pet === 'Yes' ? 'Pet my dog, ' : '';
+    requests +=  preferences.walk === 'Yes' ? 'Walk my dog, ' : '';
+    requests +=  preferences.play === 'Yes' ? 'Play with my dog, ' : '';
     requests +=  preferences.dogsit === 'Yes' ? 'Dogsit my dog ' : '';
     let is_in = preferences.inoffice === 'Yes' ? true : false;
 
