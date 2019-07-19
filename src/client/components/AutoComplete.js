@@ -7,13 +7,14 @@ class AutoComplete extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      currentName: '',
+      value: '',
       dogs: [],
       dogNames: [],
     };
     this.onChange = this.onChange.bind(this);
     this.getDogs = this.getDogs.bind(this);
-    this.onSuggestionClearRequested = this.onSuggestionClearRequested.bind(this);
+    this.onSuggestionsFetchRequested = this.onSuggestionsFetchRequested.bind(this);
+    //this.onSuggestionClearRequested = this.onSuggestionClearRequested.bind(this);
     this.getSuggestions = this.getSuggestions.bind(this);
   }
 
@@ -22,26 +23,29 @@ class AutoComplete extends Component {
   }
 
     getSuggestions = (dogName) => {
-      const inputName = dogName.trim().toLowerCase();
-      const nameLength = inputName.length;
+      let name = dogName.value.toString();
+      const nameLength = name.length;
       const dogs = this.state.dogs;
-
-      return nameLength === 0 ? [] : dogs.filter(dog => dog.name.toLowerCase().slice(0, nameLength) === inputName);
+      let suggestedNames = dogs.filter(dog => dog.name.toString().toLowerCase().slice(0, nameLength) === name);
+      print(suggestedNames); 
+      return nameLength === 0 ? [] : suggestedNames;
     };
 
     getSuggestionValue = dog => dog.name;
 
-    renderSuggestion = dog => (
-      <div>
-        {dog.name}
-      </div>
-    );
+    renderSuggestion = (dog) => {
+      return(
+          <span>
+            {dog.name}
+          </span>
+        );
+      };
 
-    onChange = (event, { newName }) => {
-      this.setState({ currentName: newName });
+    onChange = (event, newName ) => {
+      this.setState({ value: newName.newValue });
     };
 
-    onSuggestionsFetchRequested = ({ name }) => {
+    onSuggestionsFetchRequested = (name) => {
       this.setState ({dogNames: this.getSuggestions(name) });
     };
 
@@ -59,12 +63,10 @@ class AutoComplete extends Component {
     };
 
     render() {
-      console.log(this.state.dogNames);
-
-      const { currentName, dogNames } = this.state;
+      const { value, dogNames } = this.state;
       const inputProps = {
         placeholder: "Enter a dog's name",
-        currentName,
+        value,
         onChange: this.onChange
       };
 
@@ -73,8 +75,8 @@ class AutoComplete extends Component {
           suggestions={dogNames}
           onSuggestionsFetchRequested={this.onSuggestionsFetchRequested}
           onSuggestionsClearRequested={this.onSuggestionsClearRequested}
-          getSuggestionValue={getSuggestionValue}
-          renderSuggestion={renderSuggestion}
+          getSuggestionValue={this.getSuggestionValue}
+          renderSuggestion={this.renderSuggestion}
           inputProps={inputProps}
         />
       );

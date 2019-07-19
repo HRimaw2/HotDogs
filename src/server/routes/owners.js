@@ -20,28 +20,20 @@ router.get('/', function (req, res) {
     })
 });
 
-router.get('/:id', function (req, res) {
-    // res.send("dsfda");
-    owners.find( {"_id": req.params.id} ).exec( (err, owner) => {
-            if (err) {
-                res.status(404).send({
-                    message: "Error",
-                    data: []
-                });
-            } else if (owner.length == 0) {
-                res.status(404).send({
-                    message: 'No Owner with that id found',
-                    data: []
-                });
-            }
-            else {
-                res.status(200).send({
-                    message: 'SUCCESS',
-                    data: owner
-                })
-            }
-        }
-    )
+router.post('/', function (req, res)  {
+  let dog_id = req.query.dog_id;
+  let ownerData = req.body;
+  ownerData.dog_id = dog_id;
+  let newOwner = new Owner(ownerData);
+  newOwner.save()
+  .then(() => {
+      res.status(200).send({
+        message: 'OK',
+        data: newOwner
+    });
+  })
+  .catch((err) => {
+  })
 });
 
 router.put('/:id', function (req, res) {

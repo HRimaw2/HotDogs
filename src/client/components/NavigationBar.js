@@ -17,21 +17,22 @@ class NavigationBar extends Component {
         }
     }
 
-    render() {
-        return (
-            <Navbar className="bg-light justify-content-between" bg="light" variant="light">
-                <Navbar.Brand href="#">HotDogs</Navbar.Brand>
-
-                <Form inline>
-                    <FormControl type="text" placeholder="Search For a Dog" className="mr-sm-2" />
-                    <Button variant="outline-primary">Go</Button>
-                </Form>
-                <Nav>
-                    <Nav.Link href="#">My Dog</Nav.Link>
-                </Nav>
-            </Navbar>
-        );
-    }
+  render() {
+    return (
+      <Navbar id="navbar" className="justify-content-between" variant="light">
+        <Navbar.Brand href="/home"><img id="navbarimage" href="/" src={WhiteLogo} height="40px"/>
+           
+       </Navbar.Brand>
+       <div>
+            <AutoComplete >
+            </AutoComplete>
+        </div>
+        <Nav>
+          <Nav.Link href="/login">Register my dog / login</Nav.Link>
+        </Nav>
+      </Navbar>
+    );
+  }
 }
 
 export default NavigationBar;
