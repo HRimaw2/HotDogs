@@ -1,30 +1,61 @@
 import React, { Component } from 'react';
 import '../styles/app.css';
 import { Row, Col, Button } from 'react-bootstrap';
-
+import axios from 'axios';
+import { Route } from 'react-router-dom';
 
 class DogTile extends Component {
     constructor(props){
         super(props);
         this.state = {
-            dog: this.props.dog
+            dog: this.props.dog,
+            location: ''
         }
+    }
+
+    componentDidMount(){
+        this.getDogLocation();
+    }
+
+    getDogLocation = () => {
+        axios.get('api/location/'+this.state.dog.location_id, )
+        .then((response) =>{
+          this.setState({location:response.data.data.description})
+        })
     }
 
     render() {
         return (
-            <div className = "dogTile">
+            <Route render={({history}) => (
+            <div className = "dogTile" onClick={() =>history.push({pathname: '/profile', state: { detail: this.state.dog }}) }>
                  <Row>
                     <Col className="dogProfileCol">
-                        <img className="dogprofileimage" src="https://pbs.twimg.com/profile_images/962170088941019136/lgpCD8X4_400x400.jpg"></img>
+                      <div className="imagecropper">
+                      <img className="dogprofileimage" src={this.state.dog.profile_picture}></img>
+                      </div>
                     </Col>
                     <Col className="dogDesc">
-                        <p className="dogName">{this.state.dog.name}</p>
-                        <Button className="loginbutton" size="lg"> Dog Status </Button>
-                        <Button className="dogbutton" size="lg"> Dog Location </Button>
+                        <h2 className="dogName">{this.state.dog.name}</h2>
+                        <div className = "cardInfoContainer">
+                          {
+                          this.state.dog.is_in ?
+                          <div className="statusBadgeIn">
+                            <p className="badgeText">I am in!</p>
+                          </div>
+                          :
+                          <div className="statusBadgeOut">
+                            <p className="badgeText">I am out.</p>
+                          </div>
+                          }
+                          <div className="locationContainer">
+                            <p>{this.state.location}</p>
+                          </div>
+                        </div>
+
                     </Col>
                 </Row>
             </div>
+            )}/>
         );
     }
 }

@@ -1,3 +1,20 @@
+.doge{
+  padding: 0px;
+}
+
+.testClass {
+  border: 1px solid #a2a2a2;
+  background-color: #FFFDF8;
+  border-radius: 8px;
+  /*display: flex;
+  justify-content: wrap-around;*/
+}
+
+.override {
+  margin-top: 2rem;
+
+}
+
 h1 {
   color: green;
 }
@@ -10,7 +27,46 @@ body {
   -webkit-animation-duration: 0.1s;
   -webkit-animation-iteration-count: 1;
   -webkit-animation-timing-function: linear;
+  background-color: #FFF1E0;
+  font-family: 'Fira Sans', sans-serif;
 }
+#title {
+  color: black;
+}
+.loginDiv {
+  display: flex;
+  justify-content: center;
+}
+.user {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 25em;
+}
+.pass {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 25em;
+}
+.loginButton {
+  justify-content: center;
+  padding: 3em;
+}
+.login-text {
+  width: 100%;
+}
+
+.header {
+  display: flex;
+  padding-top: 15rem;
+  align-items: center;
+  justify-content: center;
+}
+.title {
+  width: 50%;
+}
+
 
 
 @-webkit-keyframes fontfix {
@@ -21,37 +77,54 @@ body {
 /* navbar */
 #navbar{
   padding: 10px;
+  background-color: #C84103;
 }
 
-#doglogo{
-  float: left;
-  margin-left: 10px;
+a{
+  color: white;
+}
+a:hover{
+  color: grey;
 }
 
-.loginbutton, .dogbutton{
-  background-color: #93D5FF;
-  border: #93D5FF;
-  font-family: 'Comfortaa', cursive;
-  font-size: 60%;
-}
-
-.dogbutton{
-  background-color: #FF7C68;
-  border:  #FF7C68;
-}
-
-.dogName{
-  color: #AC926E;
-  font-family: 'Comfortaa', cursive;
-  font-size: 150%;
-}
-
-.dogprofileimage{
-  border: 0px solid black;
+.imagecropper{
+  width: 150px;
+  height: 150px;
+  position: relative;
+  overflow: hidden;
   border-radius: 50%;
   margin-top: 5%;
   margin-bottom: 5%;
-  width: 75%;
+  margin-left: 25%;
+}
+
+.imagecropper2{
+  width: 300px;
+  height: 300px;
+  position: relative;
+  overflow: hidden;
+  border-radius: 50%;
+  margin-top: 10%;
+  margin-bottom: 5%;
+  margin-left: 25%;
+}
+
+.profilePic {
+  display: inline;
+  margin-left: -25%;
+  height: 100%;
+  width: auto;
+}
+
+.dogprofileimage{
+  display: inline;
+  margin-left: -25%;
+  height: 100%;
+  width: auto;
+}
+
+#navbarimage{
+  margin-left: 10px;
 }
 
 .right{
@@ -66,13 +139,64 @@ body {
 }
 
 .dogTile{
-  border: 1px solid rgb(216, 216, 216);
+  border: 1px solid #A2A2A2;
+  border-radius: 8px;
   padding: 10px;
   margin: 10px;
 }
 
+.dogTileContentContainer {
+  margin: 0;
+  padding:0;
+}
+
+.loginbutton {
+  alignItems: 'center';
+}
+
+.cardInfoContainer {
+  text-align: center;
+}
+
+.statusBadgeIn {
+  margin-bottom: 1rem;
+  color: white;
+  width: 100px;
+  border-radius: 8px;
+  margin: auto;
+  height: 2rem;
+  background-color: #32AA39
+}
+
+.statusBadgeOut {
+  margin-bottom: 1rem;
+  color: white;
+  width: 100px;
+  border-radius: 8px;
+  margin: auto;
+  height: 2rem;
+  background-color: #F75531
+}
+
+.locationContainer {
+  margin-top: 1rem;
+}
+
+.pageContainer {
+
+  margin: 1rem 15rem;
+  /*background-color: #FFFDF8;*/
+  /*border: 1px solid #A2A2A2;*/
+  border-radius: 8px;
+}
+
+.dogName {
+  margin-bottom: 1rem;
+}
+
 .dogDesc {
-  margin-top: 5%;
+  margin-top: 3rem;
+  text-align: center;
 }
 
 .dogProfileCol{
@@ -82,7 +206,59 @@ body {
 .dogTileContainer {
   padding: 10px;
   margin: 10px;
+}
 
+.badgeText {
+  color: white;
+  padding-top: 0.25rem;
+}
+
+h2 {
+  font-size: 1.7rem;
+  color: #333;
+}
+
+h3 {
+  font-size: 22px;
+  color: #333;
+}
+
+h4 {
+  font-size: 1.5rem;
+  color: #333;
+}
+
+h5 {
+  font-size: 1.2rem;
+  color: #333;
+}
+
+p {
+  font-size: 1rem;
+  color: #333;
+}
+
+.spaced {
+  display: flex;
+  flex-direction: column;
+}
+
+
+.dogProfile{
+  margin-top: 40px;
+  margin-left: 10px;
+}
+
+.dogStatus {
+  border: 1px solid black;
+  border-radius: 25%;
+  width: fit-content;
+  margin-left: 40%;
+  padding: 10px;
+}
+
+.attributes .row {
+    margin: 30px;
 }
 
 .react-autosuggest__container {
@@ -146,4 +322,87 @@ body {
 
 .centered{
   margin-left:25%;
+}
+.manageDog {
+  background: white;
+  border: 1px solid black;
+  text-align: left;
+  padding: 20px;
+  margin: 10px;
+}
+
+.bluebutton{
+  margin-right: 10px;
+  font-family: 'Fira Sans', sans-serif;
+  font-size: 16px;
+  border: 0px solid black;
+  border-radius: 16px;
+  background-color: #9BDEFE;
+  color: #333;
+}
+
+.bluebutton:hover{
+  background-color: #9BDEFE;
+}
+
+.whitebutton{
+  font-family: 'Fira Sans', sans-serif;
+  font-size: 16px;
+  border: 1px solid #ccc ;
+  border-radius: 16px;
+  background-color:white;
+  color: #333;
+}
+
+.editProfileButton {
+  float: right;
+}
+
+.switchText {
+  margin-top: 20px;
+}
+
+.yesButton {
+  margin-left: 10px;
+  border-radius: 3px 0 0 3px;
+  border: 1px solid rgb(113, 151, 109);
+  background-color: white;
+  color: rgb(113, 151, 109);
+}
+
+.noButton {
+  border-radius: 0 3px 3px 0;
+  border: 1px solid rgb(173, 0, 0);
+  background-color: white;
+  color: rgb(173, 0, 0);
+}
+
+.noButton:disabled {
+  background-color: red;
+  border: 1px solid red;
+}
+
+.yesButton:disabled {
+  background-color: rgb(0, 173, 0);
+  border: 1px solid rgb(0, 173, 0);
+}
+
+.visiting, .aboutMe {
+  background: white;
+  text-align: left;
+  margin-bottom: 2rem;
+}
+
+.schedRow {
+  margin-top:2rem;
+}
+
+.visitingAbout {
+  border: 1px solid black;
+  padding: 20px;
+  margin: 10px;
+}
+
+.blue{
+  color: blue;
 }

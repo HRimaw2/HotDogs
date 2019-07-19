@@ -7,14 +7,14 @@ export default class App extends Component {
   state = { username: null };
 
   componentDidMount() {
-    
+
   }
 
   render() {
     return (
       <div>
-        <NavigationBar />
-        <DogView />
+        <NavigationBar/>
+        <DogView/>
       </div>
     );
   }

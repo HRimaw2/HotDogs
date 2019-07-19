@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
-import ProfileForm from '../components/ProfileForm';
+import NewRegisterForm from '../components/NewRegisterForm';
 import '../styles/form.css';
 import NavigationBar from '../components/NavigationBar';
 
-class CreateProfilePage extends Component {
+class RegisterFormPage extends Component {
   constructor(props) {
     super(props);
     this.state = {};
@@ -13,10 +13,10 @@ class CreateProfilePage extends Component {
     return (
       <div>
         <NavigationBar/>
-        <ProfileForm/>
+        <NewRegisterForm/>
       </div>
     );
   }
 }
 
-export default CreateProfilePage;
+export default RegisterFormPage;
