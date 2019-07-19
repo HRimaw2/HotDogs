@@ -55,6 +55,34 @@ class NewRegisterForm extends Component {
             allergies, treats, personality,
             funfacts, instagram, availability, preferences, canSubmit } = this.state
         console.log(this.state)
+
+        axios.post('/api/dogs', {
+            name,
+            pic,
+            owner,
+            floor,
+            location,
+            colors,
+            size,
+            breed,
+            about,
+            likes,
+            dislikes,
+            allergies,
+            treats,
+            personality,
+            funfacts,
+            instagram,
+            availability,
+            preferences,
+          })
+            .then(function (response) {
+              console.log(response);
+              //Should move user to next step here
+            })
+            .catch(function (error) {
+              console.log(error);
+            });
     }
 
     handleDropdown = event => {
