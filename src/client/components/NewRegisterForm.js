@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Form, Row, Col, Button } from 'react-bootstrap';
 import '../styles/form.css';
 import '../styles/app.css'
+import axios from 'axios';
 
 class NewRegisterForm extends Component {
     constructor(props) {
@@ -55,6 +56,33 @@ class NewRegisterForm extends Component {
             allergies, treats, personality,
             funfacts, instagram, availability, preferences, canSubmit } = this.state
         console.log(this.state)
+        axios.post('/api/dogs', {
+            name,
+            pic,
+            owner,
+            floor,
+            location,
+            colors,
+            size,
+            breed,
+            about,
+            likes,
+            dislikes,
+            allergies,
+            treats,
+            personality,
+            funfacts,
+            instagram,
+            availability,
+            preferences,
+          })
+            .then(function (response) {
+              console.log(response);
+              //Should move user to next step here
+            })
+            .catch(function (error) {
+              console.log(error);
+            });
     }
 
     handleDropdown = event => {
