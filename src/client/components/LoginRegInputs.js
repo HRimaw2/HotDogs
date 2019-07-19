@@ -6,7 +6,6 @@ import Form from 'react-bootstrap/Form';
 import FormControl from 'react-bootstrap/FormControl';
 import axios from 'axios';
 
-
 class LoginRegInputs extends Component {
     constructor(props) {
         super(props);
@@ -57,6 +56,27 @@ class LoginRegInputs extends Component {
       // .catch(function (error) {
       //       console.log(error);
       // });
+    }
+
+
+    handleClick = () => {
+      console.log("State:\n")
+      console.log(this.state);
+      const form = this.state;
+      axios.get('api/login', {
+        params: {
+          username: this.state.email,
+          password: this.state.password
+        }
+      })
+      .then((response) => {
+        console.log(response.data.data[0].dog_id);
+        axios.get('api/dogs/'+response.data.data[0].dog_id,)
+            .then((response2) => {
+            console.log(response2.data)
+            history.push({pathname: '/profile', state: { detail: response2.data }})
+            });
+        });
     }
 
     render() {
