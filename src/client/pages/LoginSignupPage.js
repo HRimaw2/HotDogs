@@ -16,8 +16,8 @@ class LoginSignupPage extends Component {
     render() {
         return (
             <div>
-                <div class="header"> <img className="title" src={dog}/> </div>
-                <div class="loginDiv"> <LoginRegInputs type="Login"/> </div>
+                <div className="header"> <img className="title" src={dog}/> </div>
+                <div className="loginDiv"> <LoginRegInputs type="Login"/> </div>
             </div>
         );
     }

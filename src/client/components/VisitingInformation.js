@@ -47,7 +47,7 @@ class VisitingInformation extends Component {
         console.log(this.state)
         let ret = <div></div>
         this.state.editing ?
-        <input placeholder={this.state.dog.requests}></input> 
+        <input placeholder={this.state.dog.requests}></input>
         :
         <div>{this.state.dog.requests}</div>
         return ret
@@ -81,7 +81,7 @@ class VisitingInformation extends Component {
                             <input onChange={this.setTimes} value={this.state.times.map((time, index) => (
                                 time
                             ))}>
-                            </input> 
+                            </input>
                             :
                             this.state.times.map((time, index) => (
                                 <p>{time}</p>
@@ -91,7 +91,7 @@ class VisitingInformation extends Component {
                         <div>Owner Approved Activities</div>
                         {
                             this.state.editing ?
-                            <input onChange={this.setActivities} value={this.state.activities}></input> 
+                            <input onChange={this.setActivities} value={this.state.activities}></input>
                             :
                             <div>{this.state.activities}</div>
                         }
@@ -99,7 +99,7 @@ class VisitingInformation extends Component {
                 </Row>
                 {
                     this.state.editing ?
-                    <Button onClick={this.submitEdits}>Submit</Button> 
+                    <Button onClick={this.submitEdits}>Submit</Button>
                     :
                     <div></div>
                 }

@@ -5,10 +5,10 @@ const app = epxress();
 const router = epxress.Router();
 
 router.get('/', (req, res) => {
-    console.log(req.body)
-    const username = req.body.username;
-    const passwword = req.body.password;
-    Owner.find({"user_name": username, "password": passwword}).exec((err, res_owner) => {
+    // console.log(req.body)
+    const username = req.query.username;
+    const password = req.query.password;
+    Owner.find({"user_name": username, "password": password}).exec((err, res_owner) => {
         if(err) {
             res.status(400).send({
                 message: `Invalid Credentials`,
@@ -20,6 +20,6 @@ router.get('/', (req, res) => {
                 data: res_owner
             });
         }
-    })
+    });
 });
 module.exports = router;

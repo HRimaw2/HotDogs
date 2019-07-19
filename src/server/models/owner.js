@@ -4,7 +4,7 @@ const mongoose = require('mongoose');
 const { Schema } = mongoose;
 
 const OwnerSchema =  new Schema({
-    dog_id: { type: String, required: true },
+    dog_id: { type: String },
     name: { type: String },
     user_name: { type: String },
     password: { type: String },
