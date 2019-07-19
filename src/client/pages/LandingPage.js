@@ -11,7 +11,8 @@ class LandingPage extends Component {
     constructor(props){
         super(props);
         this.state = {
-            dogs:[]
+            dogs:[],
+            selectedDogs: []
         }
     }
 
@@ -33,14 +34,39 @@ class LandingPage extends Component {
         .then((response) =>{
             this.setState({dogs:response.data.data})
             this.populateDogTiles();
-        })
+       })
     }
+
+    updateDogs = (e) => {
+        if (e.target.checked) {
+            const currState = [...this.state.defaultData];
+            const newState = currState.filter(dogs => dogs.breed.includes(parseInt(e.target.name)));
+            this.setState(prevState => ({
+                dogs: prevState.selectedDogs.length >= 1 && prevState.dogs.length <= prevState.defaultData.length ? [...newState, ...prevState.selectedDogs] : newState,
+                selectedDogs:  [...newState, ...prevState.selectedDogs]
+            }));
+        } else {
+            if(this.state.dogs.length === 1) {
+                this.setState ({ dogs: this.state.defaultData, selectedDogs: [] });  
+            } else {
+                const currState = [...this.state.dogs];
+                const newState = currState.filter(dogs => !(dogs.breed.includes(parseInt(e.target.name))));
+                this.setState(prevState => ({ 
+                    dogs:newState,
+                    selectedDogs: []
+                }));
+            }
+        }
+    };
 
     render() {
         return (
             <div>
                 <NavigationBar />
-                <SearchFilters dogs = {this.state.dogs} />
+                <SearchFilters 
+                    dogs = {this.state.dogs}
+                    updateDogs = {this.updateDogs}
+                />
                 <div className="dogTileContainer">
                     <this.populateDogTiles></this.populateDogTiles>
                 </div>

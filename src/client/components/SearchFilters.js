@@ -2,6 +2,9 @@ import React, { Component } from 'react';
 import '../styles/app.css';
 import DropdownButton from 'react-bootstrap/DropdownButton';
 import Dropdown from 'react-bootstrap/Dropdown';
+import ButtonGroup from 'react-bootstrap/ButtonGroup';
+import DropdownMenu from 'react-bootstrap/DropdownMenu';
+import { Row, Col } from 'react-bootstrap';
 import axios from 'axios';
 
 class SearchFilters extends Component {
@@ -11,7 +14,8 @@ class SearchFilters extends Component {
             dogs: this.props.dogs,
             breeds:[],
             sizes:["Small", "Medium", "Large"],
-            colors:[]
+            colors:[],
+            selectedElement: []
         };
     }
 
@@ -71,61 +75,70 @@ class SearchFilters extends Component {
         console.log("lalalalal"+breeds);
         console.log(colors);
         return (
-            // <form>
-                // <ul>
+            // <ButtonGroup justified>
                 <DropdownButton id="dropdown-basic-button" title="Filter">
+                    <div className = "dropdown">
+                        <div className='alignHorizontal'>
+                            <div className ='alignVertically'>Breed</div>
                             <div>
-                                <div className='alignHorizontal'>
-                                    <div className ='alignVertically'>Breed</div>
-                                    <div>
-                                        {(breeds || []).map(item => (
-                                            // <li key={item}>{item}</li>
-                                            <form>
-                                                <label htmlFor="">
-                                                    <input
-                                                        type="checkbox"
-                                                        // onChange={this.props.updateMovies}
-                                                    />
-                                                    {item}
-                                                </label>
-                                            </form>
-                                        ))}
-                                    </div>
-                                    <Dropdown.Divider />
-                                    <div className='alignVertically'>Size</div>
-                                    <div>
-                                        {(sizes || []).map(item => (
-                                                // <li key={item}>{item}</li>
-                                                <form>
-                                                    <label htmlFor="">
-                                                        <input
-                                                            type="checkbox"
-                                                            // onChange={this.props.updateMovies}
-                                                        />
-                                                        {item}
-                                                    </label>
-                                                </form>
-                                            ))}
-                                    </div>
-                                    <Dropdown.Divider />
-                                    <div className='alignVertically'>Color</div>
-                                    <div>
-                                        {(colors || []).map(item => (
-                                                // <li key={item}>{item}</li>
-                                                <form>
-                                                    <label htmlFor="">
-                                                        <input
-                                                            type="checkbox"
-                                                            // onChange={this.props.updateMovies}
-                                                        />
-                                                        {item}
-                                                    </label>
-                                                </form>
-                                            ))}
-                                    </div>
-                                </div>
+                                {(breeds || []).map(item => (
+                                    // <li key={item}>{item}</li>
+                                    <form>
+                                        <label htmlFor="">
+                                            <input
+                                                type="checkbox"
+                                                onChange={this.props.updateDogs}
+                                            />
+                                            {item}
+                                        </label>
+                                    </form>
+                                ))}
                             </div>
+                        <Dropdown.Divider />
+                            <div className='alignVertically'>Size</div>
+                            <div>
+                                {(sizes || []).map(item => (
+                                        // <li key={item}>{item}</li>
+                                        <form>
+                                            <label htmlFor="">
+                                                <input
+                                                    type="checkbox"
+                                                    onChange={this.props.updateDogs}
+                                                />
+                                                {item}
+                                            </label>
+                                        </form>
+                                    ))}
+                            </div>
+                        <Dropdown.Divider />
+                            <div className='alignVertically'>Color</div>
+                            <div>
+                                {(colors || []).map(item => (
+                                        // <li key={item}>{item}</li>
+                                        <form>
+                                            <label htmlFor="">
+                                                <input
+                                                    type="checkbox"
+                                                    onChange={this.props.updateDogs}
+                                                />
+                                                {item}
+                                            </label>
+                                        </form>
+                                    ))}
+                            </div>
+                        </div>
+                    </div>
                 </DropdownButton>
+            {/* </ButtonGroup> */}
+
+            // <Dropdown vertical={true} block={true}> 
+            // <Dropdown.Toggle vertical="true" block={true}> 
+            // Title </Dropdown.Toggle>
+            //  <Dropdown.Menu> 
+            //      <DropdownMenu>Hello</DropdownMenu> 
+            //      <DropdownMenu>World</DropdownMenu> 
+            //      </Dropdown.Menu> 
+            // </Dropdown>
         );
     }
 }
