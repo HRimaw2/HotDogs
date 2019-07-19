@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Form, Row, Col, Button } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 import '../styles/form.css';
 import '../styles/app.css'
 import axios from 'axios';
@@ -61,10 +62,10 @@ class NewRegisterForm extends Component {
     let status = preferences.inoffice === 'Yes' ? ['I am in!'] : ['I am out.'];
     let pictures = [profile_picture];
     let requests = '';
-    requests +=  preferences.pet === 'Yes' ? 'Pet my dog, ' : '';
-    requests +=  preferences.walk === 'Yes' ? 'Walk my dog, ' : '';
-    requests +=  preferences.play === 'Yes' ? 'Play with my dog, ' : '';
-    requests +=  preferences.dogsit === 'Yes' ? 'Dogsit my dog, ' : '';
+    requests +=  preferences.pet === 'Yes' ? 'Pet my dog \n' : '';
+    requests +=  preferences.walk === 'Yes' ? 'Walk my dog \n' : '';
+    requests +=  preferences.play === 'Yes' ? 'Play with my dog \n' : '';
+    requests +=  preferences.dogsit === 'Yes' ? 'Dogsit my dog ' : '';
     let is_in = preferences.inoffice === 'Yes' ? true : false;
 
     axios.post('/api/dogs', {
@@ -110,10 +111,13 @@ class NewRegisterForm extends Component {
           dnd_times: [], 
           available_times: availability
         });
+        
       })
       .catch(function (error) {
         console.log(error);
       });
+
+
   }
 
   handleDropdown = event => {
@@ -186,9 +190,9 @@ class NewRegisterForm extends Component {
       return (
         <button
           className="btn bluebutton float-left"
-          type="button" onClick={this.handleSubmit}>
-          Submit
-                </button>
+          type="button" onClick={this.handleSubmit} >
+          <Link to={{pathname:'/home'}}>Submit</Link>
+        </button>
       )
     }
     return null;
