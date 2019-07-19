@@ -9,12 +9,13 @@ class NewRegisterForm extends Component {
     super(props)
     this.state = {
       currentStep: 1,
+      age: '',
+      owner_name: '',
       email: '',
       username: '',
       password: '',
       name: '',
-      pic: '',
-      owner: '',
+      profile_picture: '', 
       floor: 3,
       location: '',
       colors: '',
@@ -24,12 +25,12 @@ class NewRegisterForm extends Component {
       dislikes: '',
       allergies: '',
       treats: '',
-      personality: '',
-      funfacts: '',
+      about: '', 
+      fun_facts: '', 
       instagram: '',
       availability: [],
-      preferences: {
-        inoffice: 'Yes',
+      preferences: { 
+        inoffice: 'Yes', 
         dogsit: 'Yes',
         play: 'Yes',
         walk: 'Yes',
@@ -51,34 +52,64 @@ class NewRegisterForm extends Component {
 
   handleSubmit = event => {
     event.preventDefault()
-    const { email, username, password, name, pic, owner, floor,
-      location, colors, size, breed, about, likes, dislikes,
-      allergies, treats, personality,
-      funfacts, instagram, availability, preferences, canSubmit } = this.state
-    console.log(this.state)
+    const {  age, username, password, owner_name, name, profile_picture, floor,
+      location, size, breed, about, likes, dislikes,
+      allergies, treats, 
+      fun_facts, instagram, availability, preferences, canSubmit } = this.state
+
+    let colors = [this.state.colors];
+    let status = preferences.inoffice === 'Yes' ? ['I am in!'] : ['I am out.'];
+    let pictures = [profile_picture];
+    let requests = '';
+    requests +=  preferences.pet === 'Yes' ? 'Pet my dog, ' : '';
+    requests +=  preferences.walk === 'Yes' ? 'Walk my dog, ' : '';
+    requests +=  preferences.play === 'Yes' ? 'Play with my dog, ' : '';
+    requests +=  preferences.dogsit === 'Yes' ? 'Dogsit my dog, ' : '';
+    let is_in = preferences.inoffice === 'Yes' ? true : false;
+
     axios.post('/api/dogs', {
       name,
-      pic,
-      owner,
-      floor,
-      location,
       colors,
       size,
       breed,
       about,
       likes,
       dislikes,
+      status,
+      profile_picture, 
+      pictures,
       allergies,
       treats,
-      personality,
-      funfacts,
-      instagram,
-      availability,
-      preferences,
+      requests,
+      is_in,
+      age,
+      fun_facts
+
     })
       .then(function (response) {
-        console.log(response);
-        //Should move user to next step here
+        const locationid = response.data.data.location_id;
+        const dog_id = response.data.data._id;
+        axios.put('api/location/'+ locationid, {
+            dog_id: dog_id,
+            floor: floor,
+            description: location,
+            marked_floor_plan: ''
+          }
+        );
+        const ownerid = response.data.data.owner_id;
+        axios.put('api/owners/' + ownerid, {
+          dog_id: dog_id, 
+          name: owner_name, 
+          user_name: username, 
+          password: password, 
+          skylight_link: ''
+        });
+        const scheduleid = response.data.data.schedule_id;
+        axios.put('api/schedules/' + scheduleid, {
+          dog_id: dog_id, 
+          dnd_times: [], 
+          available_times: availability
+        });
       })
       .catch(function (error) {
         console.log(error);
@@ -177,8 +208,9 @@ class NewRegisterForm extends Component {
               <Step1
                 currentStep={this.state.currentStep}
                 handleChange={this.handleChange}
-                email={this.state.email}
+                username={this.state.username}
                 password={this.state.password}
+                owner_name={this.state.owner_name}
               />
               <Step2
                 currentStep={this.state.currentStep}
@@ -187,13 +219,15 @@ class NewRegisterForm extends Component {
                 breed={this.state.breed}
                 colors={this.state.colors}
                 size={this.state.size}
-                personality={this.state.personality}
+                about={this.state.about}
                 allergies={this.state.allergies}
                 likes={this.state.likes}
                 dislikes={this.state.dislikes}
                 treats={this.state.treats}
-                funfacts={this.state.funfacts}
+                fun_facts={this.state.fun_facts}
                 instagram={this.state.instagram}
+                profile_picture={this.state.profile_picture}
+                age={this.state.age}
               />
               <Step3
                 currentStep={this.state.currentStep}
@@ -240,8 +274,12 @@ function Step1(props) {
             </Form.Group>
           </Form.Row>
           <Form.Group controlId="formGroupEmail">
-            <Form.Label>Email address</Form.Label>
-            <Form.Control name="email" value={props.email} onChange={props.handleChange} type="email" placeholder="Enter email" />
+            <Form.Label>Your name</Form.Label>
+            <Form.Control name="owner_name" value={props.owner_name} onChange={props.handleChange} type="text" placeholder="" />
+          </Form.Group>
+          <Form.Group controlId="formGroupUsername">
+            <Form.Label>Username</Form.Label>
+            <Form.Control name="username" value={props.username} onChange={props.handleChange} type="text" placeholder="" />
           </Form.Group>
           <Form.Group controlId="formGroupPassword">
             <Form.Label>Password</Form.Label>
@@ -270,6 +308,10 @@ function Step2(props) {
             <Form.Label>Name</Form.Label>
             <Form.Control name="name" value={props.name} onChange={props.handleChange} type="text" placeholder="Dog Name" />
           </Form.Group>
+          <Form.Group controlId="formGroupAge">
+            <Form.Label>Age</Form.Label>
+            <Form.Control name="age" value={props.age} onChange={props.handleChange} type="number" placeholder="" />
+          </Form.Group>
           <Form.Group controlId="formGroupBreed">
             <Form.Label>Breed</Form.Label>
             <Form.Control name="breed" value={props.breed} onChange={props.handleChange} type="text" placeholder="Golden Retriever" />
@@ -282,9 +324,13 @@ function Step2(props) {
             <Form.Label>Size</Form.Label>
             <Form.Control name="size" value={props.size} onChange={props.handleChange} type="text" placeholder="Small, Medium, Large" />
           </Form.Group>
-          <Form.Group controlId="formGroupPersonality">
-            <Form.Label>Personality</Form.Label>
-            <Form.Control name="personality" value={props.personality} onChange={props.handleChange} as="textarea" placeholder="" />
+          <Form.Group controlId="formGroupPic">
+            <Form.Label>Profile Picture Link</Form.Label>
+            <Form.Control name="profile_picture" value={props.profile_picture} onChange={props.handleChange} type="text" placeholder="" />
+          </Form.Group>
+          <Form.Group controlId="formGroupAbout">
+            <Form.Label>About</Form.Label>
+            <Form.Control name="about" value={props.about} onChange={props.handleChange} as="textarea" placeholder="" />
           </Form.Group>
           <Form.Group controlId="formGroupAllergies">
             <Form.Label>Allergies</Form.Label>
@@ -304,7 +350,7 @@ function Step2(props) {
           </Form.Group>
           <Form.Group controlId="formGroupFunFacts">
             <Form.Label>Fun Facts</Form.Label>
-            <Form.Control name="funfacts" value={props.funfacts} onChange={props.handleChange} as="textarea" placeholder="" />
+            <Form.Control name="fun_facts" value={props.fun_facts} onChange={props.handleChange} as="textarea" placeholder="" />
           </Form.Group>
           <Form.Group controlId="formGroupInstagram">
             <Form.Label>Instagram Link</Form.Label>
@@ -372,9 +418,9 @@ function Step3(props) {
           </Form.Row>
           <Form.Row >
             <Form.Group as={Col} controlId="formGridState">
-              <Button className="bluebutton" onClick={props.handleDateSubmit} variant="primary" type="submit">
+              <Button className="bluebutton" onClick={props.handleDateSubmit} variant="primary">
                 Add
-                            </Button>
+              </Button>
             </Form.Group>
           </Form.Row>
 

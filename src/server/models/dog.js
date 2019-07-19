@@ -73,7 +73,7 @@ const DogProfileSchema = new Schema({
     required: true
   },
   is_in: {
-    type: Object,
+    type: Boolean,
     required: true,
     default: false
   },
