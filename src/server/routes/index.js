@@ -9,10 +9,10 @@ const location = require('./location.js');
 
 module.exports = (app, router) => {
 
-    app.use('/dogs', dog);
-    app.use('/owners', owner);
-    app.use('/schedules', schedule);
-    app.use('/login', login);
-    app.use('/location', location);
+    app.use('/api/dogs', dog);
+    app.use('/api/owners', owner);
+    app.use('/api/schedules', schedule);
+    app.use('/api/login', login);
+    app.use('/api/location', location);
 
 };
