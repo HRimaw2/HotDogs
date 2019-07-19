@@ -71,7 +71,9 @@ body {
   width: 50%;
 }
 
-
+.signInButton {
+  padding-right: 20px;
+}
 
 @-webkit-keyframes fontfix {
   from { opacity: 1; }
@@ -465,12 +467,12 @@ p {
 }
 
 .alignVertically{
-  display:flex; 
+  display:flex;
   flex-direction:row;
 }
 
 .alignHorizontal{
-  display:flex; 
+  display:flex;
   flex-direction:column;
 }
 
