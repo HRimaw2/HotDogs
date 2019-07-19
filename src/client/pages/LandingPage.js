@@ -6,6 +6,7 @@ import DogTile from '../components/DogTile';
 import SearchFilters from '../components/SearchFilters';
 import { Row, Col, Button } from 'react-bootstrap';
 import axios from 'axios';
+import AutoComplete from '../components/AutoComplete';
 
 class LandingPage extends Component {
     constructor(props){
@@ -58,18 +59,43 @@ class LandingPage extends Component {
             }
         }
     };
+    handleFilterNames = (suggestedNames) => {
+        // let i = 0
+        // let j = 0
+        // let tempDogs = []
+        // console.log("sugnames", suggestedNames)
+        // for (j=0; j < this.state.dogs.length; j++){
+        //     for (i =0; i < suggestedNames.length; i++){
+        //         if (suggestedNames.includes(this.state.dogs[j])){
+        //             tempDogs.push(this.state.dogs[j])
+        //         }
+        //     }
+        // }
+        console.log("suggested NAmes", suggestedNames)
+        this.setState({dogs:suggestedNames}, () => {console.log("conslo", this.state.dogs)} )
+    }
+
+  getDogs = () => {
+    axios.get('api/dogs',)
+      .then((response) => {
+        this.setState({ dogs: response.data.data });
+        this.populateDogTiles();
+      });
+  };
 
     render() {
         return (
             <div>
                 <NavigationBar />
-                <SearchFilters 
                     dogs = {this.state.dogs}
                     updateDogs = {this.updateDogs}
                 />
-                <div className="dogTileContainer">
-                    <this.populateDogTiles></this.populateDogTiles>
+                <div className="centered">
+                <AutoComplete handleFilterNames={this.handleFilterNames} />
                 </div>
+                  <div className="pageContainer">
+                      <this.populateDogTiles></this.populateDogTiles>
+                  </div>
             </div>
         );
     }
