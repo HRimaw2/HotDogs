@@ -91,7 +91,6 @@ class NewRegisterForm extends Component {
         this.setState({
             preferences: this.state.preferences
         })
-        console.log(this.state.preferences)
     }
 
     handleDateSubmit = event => {
