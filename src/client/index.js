@@ -17,7 +17,7 @@ ReactDOM.render(
   <BrowserRouter>
     <Route exact path="/" component={App}/>
     <Route path="/form" component={CreateProfilePage}/>
-    <Route path="/home" component={LandingPage}/>
+    <Route exact path="/home" component={LandingPage}/>
     <Route path="/login" component={LoginSignupPage}/>
     <Route path="/results" component={ResultsPage}/>
     <Route path="/profile" component={ViewProfilePage}/>
