@@ -12,10 +12,10 @@ class AutoComplete extends Component {
       dogs: [],
       dogNames: [],
     };
+
     this.onChange = this.onChange.bind(this);
     this.getDogs = this.getDogs.bind(this);
     this.onSuggestionsFetchRequested = this.onSuggestionsFetchRequested.bind(this);
-    //this.onSuggestionClearRequested = this.onSuggestionClearRequested.bind(this);
     this.getSuggestions = this.getSuggestions.bind(this);
   }
 
