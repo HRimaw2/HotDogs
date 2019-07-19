@@ -11,7 +11,9 @@ class LandingPage extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      dogs: []
+      dogs: [],
+      isLoggedIn: false,
+      myDog: {}
     };
   }
 

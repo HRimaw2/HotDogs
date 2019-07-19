@@ -13,7 +13,8 @@ class Profile extends Component {
       dog: this.props.dog,
       owner: { name: '' },
       location: { floor: 0 },
-      status: this.props.dog.is_in
+      status: this.props.dog.is_in,
+      isLogginIn: false
     };
   }
 

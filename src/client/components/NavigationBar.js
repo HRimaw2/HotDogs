@@ -30,13 +30,15 @@ class NavigationBar extends Component {
   render() {
     return (
       <Navbar id="navbar" className="justify-content-between" variant="light">
-        <Navbar.Brand href="/home"><img id="navbarimage" href="/" src={WhiteLogo}
+        <Navbar.Brand href="/"><img id="navbarimage" href="/" src={WhiteLogo}
                                         height="40px"/></Navbar.Brand>
         <Nav>
-          
           {
             this.state.isLoggedIn ?
-            <div></div>
+            <Link to={{
+              pathname:'/profile',
+              state: { detail: this.state.dog }
+              }} >Register my dog / Login</Link>
             :
             <Link to={{
               pathname:'/login',
