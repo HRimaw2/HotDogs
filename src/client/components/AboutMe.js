@@ -80,15 +80,16 @@ class AboutMe extends Component {
       <div className="aboutMe">
         <Row>
           <Col>
-            <div>About Me</div>
+            <h3>About Me</h3>
           </Col>
           <Col>
             <Button onClick={this.onEditClick} className="editProfileButton"> Edit </Button>
           </Col>
         </Row>
+        <hr></hr>
         <Row>
           <Col>
-            <div>Personality</div>
+            <h5>Personality</h5>
             {
               this.state.editing ?
                 <input
@@ -103,7 +104,7 @@ class AboutMe extends Component {
         </Row>
         <Row>
           <Col>
-            <div>Likes</div>
+            <h5>Likes</h5>
             {
               this.state.editing ?
                 <input
@@ -112,11 +113,11 @@ class AboutMe extends Component {
                   value={this.state.likes}>
                 </input>
                 :
-                <div>{this.state.dog.likes}</div>
+                <p>{this.state.dog.likes}</p>
             }
           </Col>
           <Col>
-            <div>Dislikes</div>
+            <h5>Dislikes</h5>
             {
               this.state.editing ?
                 <input
@@ -125,13 +126,13 @@ class AboutMe extends Component {
                   value={this.state.dislikes}>
                 </input>
                 :
-                <div>{this.state.dog.dislikes}</div>
+                <p>{this.state.dog.dislikes}</p>
             }
           </Col>
         </Row>
         <Row className="schedRow">
           <Col>
-            <div>Favorite Treats</div>
+            <h5>Favorite Treats</h5>
             {
               this.state.editing ?
                 <input
@@ -140,11 +141,11 @@ class AboutMe extends Component {
                   value={this.state.treats}>
                 </input>
                 :
-                <div>{this.state.dog.treats}</div>
+                <p>{this.state.dog.treats}</p>
             }
           </Col>
           <Col>
-            <div>Allergies</div>
+            <h5>Allergies</h5>
             {
               this.state.editing ?
                 <input
@@ -153,25 +154,26 @@ class AboutMe extends Component {
                   value={this.state.allergies}>
                 </input>
                 :
-                <div>{this.state.dog.allergies}</div>
+                <p>{this.state.dog.allergies}</p>
             }
           </Col>
-          <Row>
-            <Col>
-              <div>Fun Facts</div>
-              {
-                this.state.editing ?
-                  <input
-                    type="text"
-                    onChange={(event) => this.editFacts(event)}
-                    value={this.state.facts}>
-                  </input>
-                  :
-                  <p>{this.state.dog.fun_facts}</p>
-              }
-            </Col>
-          </Row>
         </Row>
+        <Row className="schedRow">
+          <Col>
+            <h5>Fun Facts</h5>
+            {
+              this.state.editing ?
+                <input
+                  type="text"
+                  onChange={(event) => this.editFacts(event)}
+                  value={this.state.facts}>
+                </input>
+                :
+                <p>{this.state.dog.fun_facts}</p>
+            }
+          </Col>
+        </Row>
+        
         {
           this.state.editing ?
             <Button onClick={this.submitEdits}>Submit</Button>

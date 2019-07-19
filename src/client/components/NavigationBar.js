@@ -23,7 +23,7 @@ class NavigationBar extends Component {
         <Navbar.Brand href="/home"><img id="navbarimage" href="/" src={WhiteLogo}
                                         height="40px"/></Navbar.Brand>
         <Nav>
-          <Nav.Link href="/login">Register my dog / login</Nav.Link>
+          <Nav.Link href="/login">Register my dog / Login</Nav.Link>
         </Nav>
       </Navbar>
     );

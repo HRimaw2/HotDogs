@@ -67,15 +67,16 @@ class VisitingInformation extends Component {
       <div className="visiting">
         <Row>
           <Col>
-            <div>Visiting Information</div>
+            <h3>Visiting Information</h3>
           </Col>
           <Col>
             <Button onClick={this.editClick} className="editProfileButton"> Edit </Button>
           </Col>
         </Row>
+        <hr></hr>
         <Row className="schedRow">
           <Col>
-            <div>Schedule</div>
+            <h5>Schedule</h5>
             {
               this.state.editing ?
                 <input onChange={this.setTimes} value={this.state.times.map((time, index) => (
@@ -88,12 +89,12 @@ class VisitingInformation extends Component {
                 ))}
           </Col>
           <Col>
-            <div>Owner Approved Activities</div>
+            <h5>Owner Approved Activities</h5>
             {
               this.state.editing ?
                 <input onChange={this.setActivities} value={this.state.activities}></input>
                 :
-                <div>{this.state.activities}</div>
+                <p>{this.state.activities}</p>
             }
           </Col>
         </Row>
