@@ -265,10 +265,7 @@ p {
   margin-top: 40px;
   margin-left: 10px;
 }
-.help {
-  display: flex;
-  flex-direction: column;
-}
+
 
 .profilePic {
   border: 0px solid black;
