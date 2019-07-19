@@ -191,7 +191,7 @@ class NewRegisterForm extends Component {
         <button
           className="btn bluebutton float-left"
           type="button" onClick={this.handleSubmit} >
-          <Link to={{pathname:'/home'}}>Submit</Link>
+          <Link to={{pathname:'/'}}>Submit</Link>
         </button>
       )
     }
