@@ -3,14 +3,14 @@
   "version": "1.0.0",
   "description": "Boilerplate to build a full stack web application using React, Node.js, Express and Webpack.",
   "main": "src/server/index.js",
+  "proxy":"http://localhost:4000",
   "scripts": {
     "build": "webpack --mode production",
     "start": "npm run build && node src/server/index.js",
     "client": "webpack-dev-server --mode development --devtool inline-source-map --hot",
     "server": "nodemon src/server/index.js",
     "dev": "concurrently \"npm run server\" \"npm run client\"",
-    "heroku-postbuild": "npm install && npm run build",
-    "postinstall": "npm run build"
+    "heroku-postbuild": "npm install && npm run build"
   },
   "author": "Sandeep Raveesh",
   "license": "ISC",
